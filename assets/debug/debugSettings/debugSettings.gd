@@ -7,6 +7,7 @@ extends GameSaveableBase;
 ################################################################################
 
 var colliders_visible : bool = false;
+var render_wireframe : bool = false;
 
 ################################################################################
 
@@ -15,8 +16,14 @@ func getFileLocation() -> String:
 	
 func _ready():
 	loadSaveable();
+	
 	updateDebugCollisionHint();
 	bindValueChanged("colliders_visible", updateDebugCollisionHint);
+	
+	RenderingServer.set_debug_generate_wireframes(true)
+	updateWireframeView()
+	bindValueChanged("render_wireframe", updateWireframeView);
+	
 
 func updateDebugCollisionHint():
 	# Update visibility hint.
@@ -44,5 +51,11 @@ func updateDebugCollisionHint():
 		var children_count : int = node.get_child_count()
 		for child_index in range(0, children_count):
 			queueStack.push_back(node.get_child(child_index))
+
+func updateWireframeView():
+	if (render_wireframe):
+		get_viewport().debug_draw = Viewport.DEBUG_DRAW_WIREFRAME
+	else:
+		get_viewport().debug_draw = Viewport.DEBUG_DRAW_DISABLED
 
 ################################################################################
