@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://8jm73pmaw63g"]
+
+[ext_resource type="FontFile" uid="uid://ciy7gw8ir8d2k" path="res://assets/_org/maki.ttf" id="1_3flai"]
+
+[resource]
+default_font = ExtResource("1_3flai")
+default_font_size = 50
+BoxContainer/constants/separation = 5
+GridContainer/constants/h_separation = 5
+GridContainer/constants/v_separation = 5
+MarginContainer/constants/margin_bottom = 8
+MarginContainer/constants/margin_left = 8
+MarginContainer/constants/margin_right = 8
+MarginContainer/constants/margin_top = 8

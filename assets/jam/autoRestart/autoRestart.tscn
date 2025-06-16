@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi8nlpd0um1b8"]
+
+[ext_resource type="Theme" uid="uid://8jm73pmaw63g" path="res://assets/menus/_theme/theme.tres" id="1_2ytpp"]
+[ext_resource type="Script" uid="uid://bkwnqjighrcds" path="res://assets/jam/autoRestart/autoRestart.gd" id="2_xf7bc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ytpp"]
+bg_color = Color(1, 0, 0.266667, 0.588235)
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="AutoRestart" type="PanelContainer"]
+process_priority = -1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.5
+offset_right = 8.5
+offset_bottom = 41.0
+grow_horizontal = 2
+theme = ExtResource("1_2ytpp")
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ytpp")
+script = ExtResource("2_xf7bc")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margin"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game will automatically restart in %s seconds."
+horizontal_alignment = 1
+vertical_alignment = 1

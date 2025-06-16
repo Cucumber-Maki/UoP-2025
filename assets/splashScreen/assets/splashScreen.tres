@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dp8u3xqrofxnr"]
+
+[ext_resource type="Shader" uid="uid://jd1arj8rkw84" path="res://assets/splashScreen/assets/splashScreen.gdshader" id="1_ydeye"]
+
+[resource]
+shader = ExtResource("1_ydeye")

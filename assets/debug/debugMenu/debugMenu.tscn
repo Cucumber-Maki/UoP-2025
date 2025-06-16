@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8aqd1wapbx5e"]
+
+[ext_resource type="PackedScene" uid="uid://bd8u4t0aronsr" path="res://assets/menus/menuBase.tscn" id="1_4nkuk"]
+[ext_resource type="Script" uid="uid://btpn11mrnhi8" path="res://assets/debug/debugMenu/debugMenu.gd" id="2_4nkuk"]
+
+[node name="DebugMenu" instance=ExtResource("1_4nkuk")]
+script = ExtResource("2_4nkuk")

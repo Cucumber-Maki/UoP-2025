@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1lokajsy5r2o"]
+
+[ext_resource type="PackedScene" uid="uid://3ama1pcjs54w" path="res://assets/menus/_prefabs/content.tscn" id="1_v0go2"]
+
+[node name="TabContent" type="MarginContainer"]
+offset_top = 180.0
+offset_bottom = 180.0
+
+[node name="Content" parent="." instance=ExtResource("1_v0go2")]
+layout_mode = 2

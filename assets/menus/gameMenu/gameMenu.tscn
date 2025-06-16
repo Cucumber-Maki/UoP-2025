@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://gqj1i4gumrvl"]
+
+[ext_resource type="Script" uid="uid://dbg0xnoa7srpe" path="res://assets/menus/gameMenu/gameMenu.gd" id="1_kqxsg"]
+[ext_resource type="Theme" uid="uid://8jm73pmaw63g" path="res://assets/menus/_theme/theme.tres" id="1_r8pe8"]
+[ext_resource type="PackedScene" uid="uid://0ddso0nd75tx" path="res://assets/menus/pauseMenu/pauseMenu.tscn" id="2_r8pe8"]
+[ext_resource type="PackedScene" uid="uid://250hs7cm2ps7" path="res://assets/menus/settings/settingsMenu.tscn" id="3_o47if"]
+[ext_resource type="PackedScene" uid="uid://b8aqd1wapbx5e" path="res://assets/debug/debugMenu/debugMenu.tscn" id="5_o47if"]
+
+[node name="GameMenu" type="CenterContainer"]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_r8pe8")
+script = ExtResource("1_kqxsg")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_r8pe8")]
+visible = false
+layout_mode = 2
+
+[node name="SettingsMenu" parent="." instance=ExtResource("3_o47if")]
+visible = false
+layout_mode = 2
+
+[node name="DebugMenu" parent="." instance=ExtResource("5_o47if")]
+visible = false
+layout_mode = 2
