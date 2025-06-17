@@ -64,14 +64,18 @@ func _physics_process(delta: float) -> void:
 ################################################################################
 
 func getTargetMovement(delta) -> Vector2:
-	var input = getMovementInput().normalized();
-	if (input.length_squared() <= 0): return Vector2.ZERO;
+	var input : Vector2 = getMovementInput();
+	if (input.length_squared() > 1.0):
+		input = input.normalized();
+	
+	if (input.length_squared() <= 0): 
+		return Vector2.ZERO;
 	#
 	var targetAngle : float = input.angle();
 	#
 	m_currentMovementAngle = rotate_toward(m_currentMovementAngle, targetAngle, TAU * getStateVariable("TurnSpeed") * delta);
-	var movementVector : Vector2 = Vector2.from_angle(m_currentMovementAngle)
-	var movementMultiplier : float = max(m_movementTurnVelocityMinimum, remap(input.dot(movementVector), 0.0, 1.0, m_movementTurnVelocityMinimum, 1.0));
+	var movementVector : Vector2 = Vector2.from_angle(m_currentMovementAngle) * input.length();
+	var movementMultiplier : float = max(m_movementTurnVelocityMinimum, remap(input.normalized().dot(movementVector), 0.0, 1.0, m_movementTurnVelocityMinimum, 1.0));
 	#
 	return movementVector * movementMultiplier * getStateVariable("MovementSpeed");
 
@@ -79,7 +83,7 @@ func getTargetGravity(delta) -> float:
 	var gravityAcceleration : float = 0;
 	#
 	m_timeSinceLastGrounded += delta;
-	if (getJumpInput() && m_timeSinceLastGrounded < m_groundJumpCoyoteTime && m_groundJumpsRemaining > 0):
+	if (getJumpInput() && canJump()):
 		m_groundJumpsRemaining -= 1;
 		m_gravityAmount = m_groundJumpImpulse;
 		return m_gravityAmount;
@@ -112,6 +116,9 @@ func getStateVariable(propertyName : String) -> Variant:
 
 func isGrounded() -> bool:
 	return is_on_floor() && (m_gravityAmount * sign(m_gravityAcceleration) > 0.0);
+
+func canJump() -> bool:
+	return m_timeSinceLastGrounded < m_groundJumpCoyoteTime && m_groundJumpsRemaining > 0;
 
 ################################################################################
 

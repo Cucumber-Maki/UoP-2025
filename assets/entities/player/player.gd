@@ -39,28 +39,49 @@ func _process(delta: float) -> void:
 		m_jumpInput = true;
 	
 func _physics_process(delta: float) -> void:
+	handleRoll(delta)
 	handleCameraInput(delta);
 	super(delta);
 	handleAnimation(delta);
 	
+	m_jumpInput = false;
+	
 ################################################################################
 
-func handleAnimation(delta):
+func handleRoll(delta : float) -> void: 
+	if (isGrounded()):
+		m_ability_rollAvailable = true;
+		return;
+	
+	var input : Vector2 = getMovementInput();
+	if (input.length_squared() <= 0): return;
+	input = input.normalized();
+	
+	if (canJump() || !m_ability_rollAvailable || !getJumpInput()): return;
+	m_momentum = input * m_ability_rollImpulse.x;
+	m_gravityAmount = m_ability_rollImpulse.y;
+	setAnimationVariableDirect("parameters/RollTrigger/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE);
+	m_ability_rollAvailable = false;
+
+################################################################################
+
+func handleAnimation(delta : float):
 	var groundBlend : Vector2 = Vector2.ZERO;
 	
-	var input : Vector2 = getMovementInput().normalized();
+	var input : Vector2 = getMovementInput();
 	var flatVelocty : Vector2 = Vector2(velocity.x, velocity.z);
 	if (flatVelocty.length_squared() > 0):
-		var velocityAngle = flatVelocty.normalized().angle();
+		var velocityAngle := flatVelocty.normalized().angle();
 	
-		var movementAngle : Vector2 = Vector2.from_angle(m_currentMovementAngle);
-		var turn : float = -input.rotated(PI / 2).dot(flatVelocty.normalized());
+		var turn : float = -input.normalized().rotated(PI / 2).dot(flatVelocty.normalized());
 		turn = sign(turn) * (1 - pow(1 - abs(turn), m_animationTurnExponent));
 		
 		groundBlend = Vector2(
 			turn,
-			min(flatVelocty.length() / m_groundMovementSpeed, 1)
-		).normalized();
+			min(flatVelocty.length() / m_groundMovementSpeed, 1.0)
+		);
+		if (groundBlend.length_squared() > 1.0):
+			groundBlend = groundBlend.normalized();
 		$Model.rotation.y = rotate_toward($Model.rotation.y, (PI / 2) - velocityAngle, TAU * m_animationTurnSpeed * delta);
 
 	setAnimationVariable("parameters/Ground/blend_position", groundBlend, m_animationGroundBlendSpeed * delta);
@@ -80,7 +101,7 @@ func _input(event):
 			event.relative.y
 		);
 
-func handleCameraInput(delta):
+func handleCameraInput(delta : float):
 	# Analog input.
 	var cameraInput : Vector2 = Vector2(
 		Input.get_axis("player_camera_left", "player_camera_right"),
