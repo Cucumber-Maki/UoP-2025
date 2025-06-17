@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc1wxbqo1hw6e"]
+[gd_scene load_steps=7 format=3 uid="uid://cc1wxbqo1hw6e"]
 
 [ext_resource type="PackedScene" uid="uid://coft78mfycl6e" path="res://assets/entities/entityBase/entityBase.tscn" id="1_t1di3"]
 [ext_resource type="PackedScene" uid="uid://camy1b53v3028" path="res://assets/entities/player/chickmin.glb" id="2_ffmxu"]
-[ext_resource type="Script" path="res://assets/entities/player/player.gd" id="2_j8wwh"]
+[ext_resource type="Script" uid="uid://bc37epise4d83" path="res://assets/entities/player/player.gd" id="2_j8wwh"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://ev65s1lta153" path="res://assets/entities/player/playerAnimationTree.tres" id="3_in8qa"]
 [ext_resource type="Material" uid="uid://doji46ou2dukp" path="res://assets/entities/player/player.tres" id="5_ecp7k"]
+[ext_resource type="Script" uid="uid://blw1ijflfqg0y" path="res://assets/misc/wobble/wobble.gd" id="6_3kclj"]
 
 [node name="Player" instance=ExtResource("1_t1di3")]
 script = ExtResource("2_j8wwh")
@@ -32,6 +33,116 @@ parameters/OneShot/request = 0
 
 [node name="Model" parent="Model/Chickmin/Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("5_ecp7k")
+
+[node name="Wobble_Comb_Top" type="SkeletonModifier3D" parent="Model/Chickmin/Skeleton3D" index="1"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.83098)
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+active = true
+influence = 1.0
+script = ExtResource("6_3kclj")
+m_bone = "Comb.Top"
+metadata/_custom_type_script = "uid://blw1ijflfqg0y"
+
+[node name="Wobble_Comb_Bottom" type="SkeletonModifier3D" parent="Model/Chickmin/Skeleton3D" index="2"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.83098)
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+active = true
+influence = 1.0
+script = ExtResource("6_3kclj")
+m_bone = "Comb.Bottom"
+metadata/_custom_type_script = "uid://blw1ijflfqg0y"
+
+[node name="Wobble_Arm_Left" type="SkeletonModifier3D" parent="Model/Chickmin/Skeleton3D" index="3"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.83098)
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+active = true
+influence = 1.0
+script = ExtResource("6_3kclj")
+m_bone = "Arm.L"
+metadata/_custom_type_script = "uid://blw1ijflfqg0y"
+
+[node name="Wobble_Arm_Right" type="SkeletonModifier3D" parent="Model/Chickmin/Skeleton3D" index="4"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.83098)
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+active = true
+influence = 1.0
+script = ExtResource("6_3kclj")
+m_bone = "Arm.R"
+metadata/_custom_type_script = "uid://blw1ijflfqg0y"
+
+[node name="Wobble_Tail" type="SkeletonModifier3D" parent="Model/Chickmin/Skeleton3D" index="5"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.83098)
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+active = true
+influence = 1.0
+script = ExtResource("6_3kclj")
+m_bone = "Tail"
+metadata/_custom_type_script = "uid://blw1ijflfqg0y"
 
 [node name="CameraOrigin" type="Node3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75011, 0)
