@@ -17,6 +17,8 @@ m_animationTurnSpeed = 2.0
 m_animationTurnExponent = 2.0
 m_animationJumpScaling = 1.5
 m_animationJumpExponent = 1.5
+m_ability_rollUnlocked = false
+m_ability_rollImpulse = Vector2(12, 4)
 
 [node name="AnimationTree" parent="." index="1"]
 root_node = NodePath("../Model")
@@ -25,9 +27,9 @@ anim_player = NodePath("../Model/AnimationPlayer")
 parameters/AirSpeed/blend_position = 0
 parameters/Ground/blend_position = Vector2(0, 0)
 parameters/InAir/blend_amount = 0
-parameters/OneShot/active = false
-parameters/OneShot/internal_active = false
-parameters/OneShot/request = 0
+parameters/RollTrigger/active = false
+parameters/RollTrigger/internal_active = 0.5
+parameters/RollTrigger/request = 0.0136364
 
 [node name="Model" parent="." index="2" instance=ExtResource("2_ffmxu")]
 

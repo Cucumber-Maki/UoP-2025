@@ -59,22 +59,22 @@ sync = true
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_o5w2f"]
 sync = true
 
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ns0ay"]
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ijund"]
 animation = &"Roll"
 
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ns0ay"]
+
 [resource]
-graph_offset = Vector2(-641.443, 2.09953)
+graph_offset = Vector2(-863.761, 35.7036)
 nodes/AirSpeed/node = SubResource("AnimationNodeBlendSpace1D_3x5vi")
 nodes/AirSpeed/position = Vector2(-320, 320)
 nodes/Ground/node = SubResource("AnimationNodeBlendSpace2D_owunj")
 nodes/Ground/position = Vector2(-300, 60)
 nodes/InAir/node = SubResource("AnimationNodeBlend2_o5w2f")
 nodes/InAir/position = Vector2(145.149, 66.655)
-nodes/OneShot/node = SubResource("AnimationNodeOneShot_ns0ay")
-nodes/OneShot/position = Vector2(-140, 360)
 nodes/Roll/node = SubResource("AnimationNodeAnimation_ijund")
 nodes/Roll/position = Vector2(-300, 500)
+nodes/RollTrigger/node = SubResource("AnimationNodeOneShot_ns0ay")
+nodes/RollTrigger/position = Vector2(-140, 360)
 nodes/output/position = Vector2(360, 80)
-node_connections = [&"InAir", 0, &"Ground", &"InAir", 1, &"OneShot", &"OneShot", 0, &"AirSpeed", &"OneShot", 1, &"Roll", &"output", 0, &"InAir"]
+node_connections = [&"InAir", 0, &"Ground", &"InAir", 1, &"RollTrigger", &"RollTrigger", 0, &"AirSpeed", &"RollTrigger", 1, &"Roll", &"output", 0, &"InAir"]
