@@ -14,11 +14,19 @@ func getJumpInput() -> bool:
 # Movement
 @export_group("Movement Config", "m_movement")
 @export var m_movementTurnVelocityMinimum : float = 0.4;
+#
+@onready var m_currentMovementAngle : float = rotation.y;
+var m_momentum : Vector2 = Vector2.ZERO;
+var m_targetVelocity : Vector3 = Vector3.ZERO;
 # Ground
 @export_group("Ground Config", "m_ground")
 @export var m_groundMovementSpeed : float = 8;
 @export var m_groundTurnSpeed : float = 1;
 @export var m_groundMomentumSpeed : float = 12;
+@export var m_groundJumpImpulse : float = 8.0;
+@export var m_groundJumpCoyoteTime : float = 0.3;
+#
+var m_timeSinceLastGrounded : float = m_groundJumpCoyoteTime;
 # Air
 @export_group("Air Config", "m_air")
 @export var m_airMovementSpeed : float = 7;
@@ -29,12 +37,8 @@ func getJumpInput() -> bool:
 @export var m_gravityAcceleration : float = -9.8;
 var m_gravityAmount : float = 0;
 @export var m_gravityFallingMultiplier : float = 2.0;
-@export var m_gravityJumpImpulse : float = 8.0;
 #
-@onready var m_animationTree : AnimationTree = $AnimationTree;
-@onready var m_currentMovementAngle : float = rotation.y;
-var m_momentum : Vector2 = Vector2.ZERO;
-var m_targetVelocity : Vector3 = Vector3.ZERO;
+@onready var m_animationTree : AnimationTree = $AnimationTree;	
 	
 ################################################################################
 
@@ -71,16 +75,21 @@ func getTargetMovement(delta) -> Vector2:
 func getTargetGravity(delta) -> float:
 	var gravityAcceleration : float = 0;
 	#
-	if (isGrounded()):
-		if (!getJumpInput()):
-			m_gravityAmount = 0.05 * sign(m_gravityAcceleration);
-		else: 
-			m_gravityAmount = m_gravityJumpImpulse;
+	m_timeSinceLastGrounded += delta;
+	if (getJumpInput() && m_timeSinceLastGrounded < m_groundJumpCoyoteTime):
+		m_gravityAmount = m_groundJumpImpulse;
 		return m_gravityAmount;
-	elif (m_gravityAmount < 0):
+	if (isGrounded()):
+		m_gravityAmount = 0.05 * sign(m_gravityAcceleration);
+		m_timeSinceLastGrounded = 0;
+		return m_gravityAmount;
+	#
+	if (m_gravityAmount < 0):
 		gravityAcceleration = m_gravityAcceleration * m_gravityFallingMultiplier;
 	else:
 		gravityAcceleration = m_gravityAcceleration;
+		if (is_on_ceiling_only()):
+			m_gravityAmount = 0;
 	#	
 	gravityAcceleration *= 0.5 * delta;
 	#

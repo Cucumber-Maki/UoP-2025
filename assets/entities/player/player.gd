@@ -64,7 +64,7 @@ func handleAnimation(delta):
 		$Model.rotation.y = rotate_toward($Model.rotation.y, (PI / 2) - velocityAngle, TAU * m_animationTurnSpeed * delta);
 
 	setAnimationVariable("parameters/Ground/blend_position", groundBlend, m_animationGroundBlendSpeed * delta);
-	var airSpeed : float = sign(m_gravityAmount) * pow(clamp(abs(m_gravityAmount) / (m_gravityJumpImpulse * m_animationJumpScaling), -1, 1), m_animationJumpExponent)
+	var airSpeed : float = sign(m_gravityAmount) * pow(clamp(abs(m_gravityAmount) / (m_groundJumpImpulse * m_animationJumpScaling), -1, 1), m_animationJumpExponent)
 	setAnimationVariable("parameters/AirSpeed/blend_position", airSpeed, max(m_animationAirBlendSpeed, abs(airSpeed * 0.1)) * delta);
 	setAnimationVariable("parameters/InAir/blend_amount", !isGrounded(), m_animationAirStateBlendSpeed * delta);
 	
