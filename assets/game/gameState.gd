@@ -60,13 +60,15 @@ func _input(event: InputEvent) -> void:
 		isUsingController = false;
 	elif (event is InputEventJoypadButton or InputEventJoypadMotion):
 		isUsingController = true;
+		
 	
 func _updateMouseVisibility() -> void:
-	var locked : bool = isMouseLocked();
+	var targetState : Input.MouseMode = Input.MOUSE_MODE_VISIBLE;
+	if (inputActive): 
+		targetState = Input.MOUSE_MODE_CAPTURED;
+	elif (isUsingController):
+		targetState = Input.MOUSE_MODE_HIDDEN;
 	
 	# Skip if already equal to lock status.
-	var currentLockStatus = Input.mouse_mode != Input.MOUSE_MODE_VISIBLE;
-	if (locked == currentLockStatus): return;
-	
-	# Set mouse lock status.
-	Input.mouse_mode =  Input.MOUSE_MODE_CAPTURED if locked else Input.MOUSE_MODE_VISIBLE;
+	if (Input.mouse_mode == targetState): return;
+	Input.mouse_mode = targetState;
