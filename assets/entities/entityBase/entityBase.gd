@@ -8,6 +8,8 @@ func getMovementInput() -> Vector2:
 	return Vector2.ZERO;
 func getJumpInput() -> bool:
 	return false;
+func getJumpMaxCount() -> int:
+	return 1;
 
 ################################################################################
 
@@ -25,6 +27,7 @@ var m_targetVelocity : Vector3 = Vector3.ZERO;
 @export var m_groundMomentumSpeed : float = 12;
 @export var m_groundJumpImpulse : float = 8.0;
 @export var m_groundJumpCoyoteTime : float = 0.3;
+var m_groundJumpsRemaining : int = 0;
 #
 var m_timeSinceLastGrounded : float = m_groundJumpCoyoteTime;
 # Air
@@ -76,12 +79,14 @@ func getTargetGravity(delta) -> float:
 	var gravityAcceleration : float = 0;
 	#
 	m_timeSinceLastGrounded += delta;
-	if (getJumpInput() && m_timeSinceLastGrounded < m_groundJumpCoyoteTime):
+	if (getJumpInput() && m_timeSinceLastGrounded < m_groundJumpCoyoteTime && m_groundJumpsRemaining > 0):
+		m_groundJumpsRemaining -= 1;
 		m_gravityAmount = m_groundJumpImpulse;
 		return m_gravityAmount;
 	if (isGrounded()):
 		m_gravityAmount = 0.05 * sign(m_gravityAcceleration);
 		m_timeSinceLastGrounded = 0;
+		m_groundJumpsRemaining = getJumpMaxCount();
 		return m_gravityAmount;
 	#
 	if (m_gravityAmount < 0):
@@ -113,6 +118,9 @@ func isGrounded() -> bool:
 func setAnimationPlaybackSpeed(speed : float, delta : float) -> void:
 	m_animationTree.advance((speed - 1) * delta);
 
+func setAnimationVariableDirect(propertyName : StringName, value : Variant) -> void:
+	m_animationTree.set(propertyName, value);
+	
 func setAnimationVariable(propertyName : StringName, value : Variant, adjustmentSpeed : float) -> void:
 	var currentValue = m_animationTree.get(propertyName);
 	match (typeof(value)):
