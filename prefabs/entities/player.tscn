@@ -29,7 +29,7 @@ parameters/Ground/blend_position = Vector2(0, 0)
 parameters/InAir/blend_amount = 0
 parameters/RollTrigger/active = false
 parameters/RollTrigger/internal_active = 0.5
-parameters/RollTrigger/request = 0.0136364
+parameters/RollTrigger/request = 0
 
 [node name="Model" parent="." index="2" instance=ExtResource("2_ffmxu")]
 
