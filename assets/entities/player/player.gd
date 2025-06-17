@@ -12,6 +12,12 @@ extends EntityBase
 @export var m_animationTurnExponent : float = 2.0;
 @export var m_animationJumpScaling : float = 1.5;
 @export var m_animationJumpExponent : float = 1.5;
+# Roll
+@export_group("Abilities", "m_abilities")
+@export_subgroup("Roll", "m_ability_roll")
+@export var m_ability_rollUnlocked : bool = false;
+@export var m_ability_rollImpulse : Vector2 = Vector2(12, 4);
+var m_ability_rollAvailable : bool = false;
 #
 @onready var m_cameraOrigin : Node3D = $CameraOrigin;
 @onready var m_cameraAngle : Vector2 = Vector2(m_cameraOrigin.rotation.y, m_cameraOrigin.rotation.x);
@@ -28,9 +34,7 @@ func getMovementInput() -> Vector2:
 
 var m_jumpInput : bool = false;
 func getJumpInput() -> bool:
-	if (!m_jumpInput): return false;
-	m_jumpInput = false;
-	return true;
+	return m_jumpInput
 	
 ################################################################################
 
@@ -50,7 +54,7 @@ func _physics_process(delta: float) -> void:
 
 func handleRoll(delta : float) -> void: 
 	if (isGrounded()):
-		m_ability_rollAvailable = true;
+		m_ability_rollAvailable = m_ability_rollUnlocked;
 		return;
 	
 	var input : Vector2 = getMovementInput();
@@ -89,7 +93,9 @@ func handleAnimation(delta : float):
 	setAnimationVariable("parameters/AirSpeed/blend_position", airSpeed, max(m_animationAirBlendSpeed, abs(airSpeed * 0.1)) * delta);
 	setAnimationVariable("parameters/InAir/blend_amount", !isGrounded(), m_animationAirStateBlendSpeed * delta);
 	
-	setAnimationPlaybackSpeed(max(1, (flatVelocty.length() * m_animationGroundSpeedScale) / getStateVariable("MovementSpeed")), delta);
+	var animationSpeed : float = max(1, (flatVelocty.length() * m_animationGroundSpeedScale) / getStateVariable("MovementSpeed"));
+	if (m_animationTree.get("parameters/RollTrigger/active")): return;
+	setAnimationPlaybackSpeed(animationSpeed, delta);
 
 ################################################################################
 

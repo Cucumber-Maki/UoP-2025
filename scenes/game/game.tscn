@@ -16,6 +16,7 @@ size = Vector3(10, 2, 10)
 [node name="AutoRestart" parent="CanvasLayer" instance=ExtResource("2_7h61r")]
 
 [node name="Player" parent="." instance=ExtResource("3_0sr1o")]
+m_ability_rollUnlocked = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
