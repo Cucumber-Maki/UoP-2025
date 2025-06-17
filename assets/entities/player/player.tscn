@@ -29,23 +29,6 @@ parameters/OneShot/request = 0
 
 [node name="Model" parent="." index="2" instance=ExtResource("2_ffmxu")]
 
-[node name="Skeleton3D" parent="Model/Chickmin" index="0"]
-bones/0/position = Vector3(0.291498, 3.13299e-09, 0.000996026)
-bones/0/rotation = Quaternion(0.5, 0.5, 0.5, 0.5)
-bones/1/position = Vector3(-0.25372, 0.00673909, -0.0392005)
-bones/1/rotation = Quaternion(-0.5, 0.5, 0.5, -0.5)
-bones/2/position = Vector3(3.55271e-15, 0.5, 0.214802)
-bones/2/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.52435e-29, 1)
-bones/3/position = Vector3(0.0147433, -0.0432838, -0.214802)
-bones/3/rotation = Quaternion(-3.55271e-15, -1.19209e-07, 1.00974e-28, 1)
-bones/6/rotation = Quaternion(0.962352, 0.268747, 0.039177, -0.0109406)
-bones/8/rotation = Quaternion(0.962352, -0.268747, -0.039177, -0.0109406)
-bones/9/rotation = Quaternion(0.999143, 0.0413901, 7.54332e-08, -5.06169e-09)
-bones/10/rotation = Quaternion(0.999167, -0.00376095, 7.54294e-08, -0.0406412)
-
-[node name="AnimationPlayer" parent="Model" index="1"]
-speed_scale = 0.0
-
 [node name="CameraOrigin" type="Node3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75011, 0)
 
