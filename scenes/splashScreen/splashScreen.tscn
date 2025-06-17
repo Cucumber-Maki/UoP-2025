@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cw4et7t6jwife"]
+[gd_scene load_steps=6 format=3 uid="uid://cw4et7t6jwife"]
 
 [ext_resource type="Script" uid="uid://dluvd7mmlh3k2" path="res://assets/splashScreen/assets/splashScreen.gd" id="1_tury4"]
 [ext_resource type="Material" uid="uid://dp8u3xqrofxnr" path="res://assets/splashScreen/assets/splashScreen.tres" id="2_17o6i"]
+[ext_resource type="Texture2D" uid="uid://b6sa1icrbhqe4" path="res://assets/splashScreen/logos/uop.png" id="2_f5mbg"]
 [ext_resource type="Texture2D" uid="uid://bxhugl2uubgev" path="res://assets/splashScreen/logos/cucumberMaki.png" id="2_kisp5"]
 [ext_resource type="Texture2D" uid="uid://ca3lfj5c18225" path="res://assets/splashScreen/logos/godot.png" id="3_17o6i"]
 
@@ -14,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tury4")
 m_nextScene = "uid://cea0kc0y5xkmo"
-m_splashImages = Array[Texture]([ExtResource("2_kisp5"), ExtResource("3_17o6i")])
+m_splashImages = Array[Texture]([ExtResource("3_17o6i"), ExtResource("2_f5mbg"), ExtResource("2_kisp5")])
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
