@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cea0kc0y5xkmo"]
+[gd_scene load_steps=5 format=3 uid="uid://cea0kc0y5xkmo"]
 
 [ext_resource type="PackedScene" uid="uid://gqj1i4gumrvl" path="res://assets/menus/gameMenu/gameMenu.tscn" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://bi8nlpd0um1b8" path="res://assets/jam/autoRestart/autoRestart.tscn" id="2_7h61r"]
+[ext_resource type="PackedScene" uid="uid://cc1wxbqo1hw6e" path="res://assets/entities/player/player.tscn" id="3_0sr1o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0sr1o"]
+size = Vector3(10, 2, 10)
 
 [node name="Game" type="Node3D"]
 
@@ -10,3 +14,23 @@
 [node name="GameMenu" parent="CanvasLayer" instance=ExtResource("1_sul5r")]
 
 [node name="AutoRestart" parent="CanvasLayer" instance=ExtResource("2_7h61r")]
+
+[node name="Player" parent="." instance=ExtResource("3_0sr1o")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_0sr1o")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
+shape = SubResource("BoxShape3D_0sr1o")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, 10)
+shape = SubResource("BoxShape3D_0sr1o")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 6, 0)
+shape = SubResource("BoxShape3D_0sr1o")
