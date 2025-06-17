@@ -53,13 +53,19 @@ func _physics_process(delta: float) -> void:
 	m_targetVelocity.x = movement.x;
 	m_targetVelocity.y = getTargetGravity(delta);
 	m_targetVelocity.z = movement.y;
+	#
 	
+	#
 	m_momentum = m_momentum.move_toward(Vector2(m_targetVelocity.x, m_targetVelocity.z), getStateVariable("MomentumSpeed") * delta);
 	m_targetVelocity.x = m_momentum.x;
 	m_targetVelocity.z = m_momentum.y;
 
 	velocity = m_targetVelocity;
+	
+	var lastPosition := position;
 	move_and_slide();
+	var actualVelocity : Vector3 = (position - lastPosition) / delta;
+	m_momentum = Vector2(actualVelocity.x, actualVelocity.z);
 
 ################################################################################
 
