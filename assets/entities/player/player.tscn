@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc1wxbqo1hw6e"]
+
+[ext_resource type="PackedScene" uid="uid://coft78mfycl6e" path="res://assets/entities/entityBase/entityBase.tscn" id="1_t1di3"]
+[ext_resource type="PackedScene" uid="uid://camy1b53v3028" path="res://assets/entities/player/chickmin.glb" id="2_ffmxu"]
+[ext_resource type="Script" path="res://assets/entities/player/player.gd" id="2_j8wwh"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://ev65s1lta153" path="res://assets/entities/player/playerAnimationTree.tres" id="3_in8qa"]
+[ext_resource type="Material" uid="uid://doji46ou2dukp" path="res://assets/entities/player/player.tres" id="5_ecp7k"]
+
+[node name="Player" instance=ExtResource("1_t1di3")]
+script = ExtResource("2_j8wwh")
+m_animationGroundBlendSpeed = 8.0
+m_animationGroundSpeedScale = 2.0
+m_animationAirBlendSpeed = 2.0
+m_animationAirStateBlendSpeed = 7.0
+m_animationTurnSpeed = 2.0
+m_animationTurnExponent = 2.0
+m_animationJumpScaling = 1.5
+m_animationJumpExponent = 1.5
+
+[node name="AnimationTree" parent="." index="1"]
+root_node = NodePath("../Model")
+tree_root = ExtResource("3_in8qa")
+anim_player = NodePath("../Model/AnimationPlayer")
+parameters/AirSpeed/blend_position = 0
+parameters/Ground/blend_position = Vector2(0, 0)
+parameters/InAir/blend_amount = 0
+parameters/OneShot/active = false
+parameters/OneShot/internal_active = false
+parameters/OneShot/request = 0
+
+[node name="Model" parent="." index="2" instance=ExtResource("2_ffmxu")]
+
+[node name="Model" parent="Model/Chickmin/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("5_ecp7k")
+
+[node name="CameraOrigin" type="Node3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75011, 0)
+
+[node name="Camera" type="Camera3D" parent="CameraOrigin" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -4.91334)
+
+[editable path="Model"]

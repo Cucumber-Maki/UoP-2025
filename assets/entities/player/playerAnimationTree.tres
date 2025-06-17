@@ -1,0 +1,80 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=16 format=3 uid="uid://ev65s1lta153"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o5w2f"]
+animation = &"Jump_Up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3x5vi"]
+animation = &"Jump_Down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ns0ay"]
+animation = &"Jump"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_3x5vi"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_o5w2f")
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_3x5vi")
+blend_point_1/pos = -1.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_ns0ay")
+blend_point_2/pos = 0.0
+sync = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nt0qs"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iwg4r"]
+animation = &"Run_Right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ybo23"]
+animation = &"Run_Left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a2oq4"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_owunj"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cncxs"]
+animation = &"Run_Left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dk60n"]
+animation = &"Run_Right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_owunj"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_nt0qs")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_iwg4r")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_ybo23")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_a2oq4")
+blend_point_3/pos = Vector2(0, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_owunj")
+blend_point_4/pos = Vector2(0, -1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_cncxs")
+blend_point_5/pos = Vector2(-1, 1)
+blend_point_6/node = SubResource("AnimationNodeAnimation_dk60n")
+blend_point_6/pos = Vector2(1, 1)
+sync = true
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_o5w2f"]
+sync = true
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ns0ay"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ijund"]
+animation = &"Roll"
+
+[resource]
+graph_offset = Vector2(-641.443, 2.09953)
+nodes/AirSpeed/node = SubResource("AnimationNodeBlendSpace1D_3x5vi")
+nodes/AirSpeed/position = Vector2(-320, 320)
+nodes/Ground/node = SubResource("AnimationNodeBlendSpace2D_owunj")
+nodes/Ground/position = Vector2(-300, 60)
+nodes/InAir/node = SubResource("AnimationNodeBlend2_o5w2f")
+nodes/InAir/position = Vector2(145.149, 66.655)
+nodes/OneShot/node = SubResource("AnimationNodeOneShot_ns0ay")
+nodes/OneShot/position = Vector2(-140, 360)
+nodes/Roll/node = SubResource("AnimationNodeAnimation_ijund")
+nodes/Roll/position = Vector2(-300, 500)
+nodes/output/position = Vector2(360, 80)
+node_connections = [&"InAir", 0, &"Ground", &"InAir", 1, &"OneShot", &"OneShot", 0, &"AirSpeed", &"OneShot", 1, &"Roll", &"output", 0, &"InAir"]

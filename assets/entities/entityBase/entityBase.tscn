@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://coft78mfycl6e"]
+
+[ext_resource type="Script" uid="uid://dk8trxlhqdyi7" path="res://assets/entities/entityBase/entityBase.gd" id="1_xxwl2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xxwl2"]
+radius = 0.616511
+height = 2.25
+
+[node name="EntityBase" type="CharacterBody3D"]
+script = ExtResource("1_xxwl2")
+
+[node name="WorldCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.125, 0)
+shape = SubResource("CapsuleShape3D_xxwl2")
+debug_color = Color(0.14, 0.7, 0, 0.419608)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
