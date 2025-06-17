@@ -30,7 +30,7 @@ func _ready() -> void:
 func _process_modification() -> void:
 	if (m_bone == ""): return;
 	var skeleton: Skeleton3D = get_skeleton()
-	if !skeleton: return;
+	if !skeleton || !skeleton.is_inside_tree(): return;
 	var bone_idx: int = skeleton.find_bone(m_bone)
 	if (bone_idx == -1): return;
 	
