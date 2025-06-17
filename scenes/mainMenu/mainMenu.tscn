@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://hj41prwb73mi"]
+
+[ext_resource type="Script" uid="uid://cu2vftd25ngrr" path="res://assets/menus/_prefabs/menuStack.gd" id="1_vvnar"]
+[ext_resource type="PackedScene" uid="uid://5jfakaaqw36" path="res://assets/menus/mainMenu/mainMenu.tscn" id="2_6q8wo"]
+[ext_resource type="PackedScene" uid="uid://250hs7cm2ps7" path="res://assets/menus/settings/settingsMenu.tscn" id="3_xs65i"]
+
+[node name="MainMenu" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vvnar")
+defaultMenu = "MainMenu"
+
+[node name="MainMenu" parent="." instance=ExtResource("2_6q8wo")]
+layout_mode = 2
+
+[node name="SettingsMenu" parent="." instance=ExtResource("3_xs65i")]
+layout_mode = 2
