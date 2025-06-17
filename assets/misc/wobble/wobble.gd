@@ -9,7 +9,6 @@ var m_velocity : Vector3 = Vector3.ZERO;
 var m_followPoint : Vector3 = Vector3.ZERO;
 
 func _validate_property(property: Dictionary) -> void:
-	print(property.name);
 	match (property.name):
 		"m_bone":
 			var skeleton : Skeleton3D = get_skeleton()
