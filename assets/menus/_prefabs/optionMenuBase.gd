@@ -172,6 +172,13 @@ func addButton(text : StringName, callback : Callable) -> void:
 	getContentContainer().add_child(button);
 	bindFirstSelectable(button);
 
+func addImage(imageLocation : StringName) -> void:
+	m_activeGridContainer = null;
+	var textureRect : TextureRect = TextureRect.new();
+	textureRect.texture = load(imageLocation)
+	getContentContainer().add_child(textureRect);
+
+
 ################################################################################
 
 func bindElementCallback(element : Control, property : StringName, callback : Callable) -> void:

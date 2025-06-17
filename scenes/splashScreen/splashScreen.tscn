@@ -14,7 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tury4")
-m_nextScene = "uid://cea0kc0y5xkmo"
+m_nextScene = "uid://hj41prwb73mi"
 m_splashImages = Array[Texture]([ExtResource("3_17o6i"), ExtResource("2_f5mbg"), ExtResource("2_kisp5")])
 
 [node name="Background" type="ColorRect" parent="."]
