@@ -60,9 +60,8 @@ func _input(event: InputEvent) -> void:
 		isUsingController = false;
 	elif (event is InputEventJoypadButton):
 		isUsingController = true;
-	elif (event is InputEventJoypadMotion):
-		if (event as InputEventJoypadMotion).axis_value > 0.5:
-			isUsingController = true;
+	elif (event is InputEventJoypadMotion and (event as InputEventJoypadMotion).axis_value > 0.5):
+		isUsingController = true;
 		
 	
 func _updateMouseVisibility() -> void:
