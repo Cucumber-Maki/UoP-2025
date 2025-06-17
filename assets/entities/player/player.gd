@@ -36,8 +36,6 @@ var m_jumpInput : bool = false;
 func getJumpInput() -> bool:
 	return m_jumpInput
 	
-	
-
 ################################################################################
 
 var m_interactInput: bool = false;
@@ -68,14 +66,13 @@ func removeInteractableArea(area : Area3D) -> void:
 	interactableAreas.erase(area)
 
 func handleInteract() -> void:
-	if !m_interactInput:
-		return;
+	if !m_interactInput: return;
+	m_interactInput = false;
+	
 	if interactableAreas.size() > 0:
 		interactableAreas[0].interact();
 
-
 ################################################################################
-
 
 func handleRoll(delta : float) -> void: 
 	if (isGrounded()):
