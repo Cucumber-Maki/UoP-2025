@@ -43,6 +43,7 @@ folder_colors={
 "res://assets/entities/": "red",
 "res://assets/game/": "teal",
 "res://assets/menus/": "yellow",
+"res://assets/misc/": "purple",
 "res://assets/splashScreen/logos/": "red",
 "res://prefabs/": "orange",
 "res://scenes/": "green"
