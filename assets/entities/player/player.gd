@@ -36,21 +36,46 @@ var m_jumpInput : bool = false;
 func getJumpInput() -> bool:
 	return m_jumpInput
 	
+	
+
 ################################################################################
 
+var m_interactInput: bool = false;
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("player_move_jump")):
 		m_jumpInput = true;
+	if (Input.is_action_just_pressed("player_interact")):
+		m_interactInput = true;
 	
 func _physics_process(delta: float) -> void:
 	handleRoll(delta)
 	handleCameraInput(delta);
 	super(delta);
 	handleAnimation(delta);
+	handleInteract()
 	
 	m_jumpInput = false;
 	
 ################################################################################
+# WARNING if there is more than one baseInteractable with intersecting areas, 
+# the one entered first should win
+var interactableAreas : Array[Area3D] = [];
+
+func addInteractableArea(area : Area3D) -> void:
+	interactableAreas.push_back(area)
+	
+func removeInteractableArea(area : Area3D) -> void:
+	interactableAreas.erase(area)
+
+func handleInteract() -> void:
+	if !m_interactInput:
+		return;
+	if interactableAreas.size() > 0:
+		interactableAreas[0].interact();
+
+
+################################################################################
+
 
 func handleRoll(delta : float) -> void: 
 	if (isGrounded()):
