@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://cc1wxbqo1hw6e"]
+
+[ext_resource type="PackedScene" uid="uid://coft78mfycl6e" path="res://assets/entities/entityBase/entityBase.tscn" id="1_t1di3"]
+[ext_resource type="PackedScene" uid="uid://camy1b53v3028" path="res://assets/entities/player/chickmin.glb" id="2_ffmxu"]
+[ext_resource type="Script" uid="uid://bc37epise4d83" path="res://assets/entities/player/player.gd" id="2_j8wwh"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://ev65s1lta153" path="res://assets/entities/player/playerAnimationTree.tres" id="3_in8qa"]
+
+[node name="Player" instance=ExtResource("1_t1di3")]
+script = ExtResource("2_j8wwh")
+m_animationGroundBlendSpeed = 8.0
+m_animationGroundSpeedScale = 2.0
+m_animationAirBlendSpeed = 2.0
+m_animationAirStateBlendSpeed = 7.0
+m_animationTurnSpeed = 2.0
+m_animationTurnExponent = 2.0
+m_animationJumpScaling = 1.5
+m_animationJumpExponent = 1.5
+
+[node name="AnimationTree" parent="." index="1"]
+root_node = NodePath("../Model")
+tree_root = ExtResource("3_in8qa")
+anim_player = NodePath("../Model/AnimationPlayer")
+parameters/AirSpeed/blend_position = 0
+parameters/Ground/blend_position = Vector2(0, 0)
+parameters/InAir/blend_amount = 0
+parameters/OneShot/active = false
+parameters/OneShot/internal_active = false
+parameters/OneShot/request = 0
+
+[node name="Model" parent="." index="2" instance=ExtResource("2_ffmxu")]
+
+[node name="Skeleton3D" parent="Model/Chickmin" index="0"]
+bones/0/position = Vector3(0.291498, 3.13299e-09, 0.000996026)
+bones/0/rotation = Quaternion(0.5, 0.5, 0.5, 0.5)
+bones/1/position = Vector3(-0.25372, 0.00673909, -0.0392005)
+bones/1/rotation = Quaternion(-0.5, 0.5, 0.5, -0.5)
+bones/2/position = Vector3(3.55271e-15, 0.5, 0.214802)
+bones/2/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.52435e-29, 1)
+bones/3/position = Vector3(0.0147433, -0.0432838, -0.214802)
+bones/3/rotation = Quaternion(-3.55271e-15, -1.19209e-07, 1.00974e-28, 1)
+bones/6/rotation = Quaternion(0.962352, 0.268747, 0.039177, -0.0109406)
+bones/8/rotation = Quaternion(0.962352, -0.268747, -0.039177, -0.0109406)
+bones/9/rotation = Quaternion(0.999143, 0.0413901, 7.54332e-08, -5.06169e-09)
+bones/10/rotation = Quaternion(0.999167, -0.00376095, 7.54294e-08, -0.0406412)
+
+[node name="AnimationPlayer" parent="Model" index="1"]
+speed_scale = 0.0
+
+[node name="CameraOrigin" type="Node3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75011, 0)
+
+[node name="Camera" type="Camera3D" parent="CameraOrigin" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -4.91334)
+
+[editable path="Model"]
