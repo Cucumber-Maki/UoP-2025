@@ -25,6 +25,9 @@ var m_ability_rollAvailable : bool = false;
 @onready var m_cameraAngle : Vector2 = Vector2(m_cameraOrigin.rotation.y, m_cameraOrigin.rotation.x);
 var m_cameraMouseInput : Vector2 = Vector2.ZERO; 
 const c_cameraMaxExtent = TAU * 0.25 * 0.9;
+#
+var m_chickkins : Array[Chickkin] = [];
+var m_chickkinLeftGround : bool = false;
 
 ################################################################################
 
@@ -57,6 +60,7 @@ func _physics_process(delta: float) -> void:
 	handleRoll(delta)
 	handleCameraInput(delta);
 	super(delta);
+	handleChickkins(delta);
 	handleAnimation(delta);
 	
 	m_jumpInput = false;
@@ -144,3 +148,21 @@ func handleCameraInput(delta : float):
 	#  Update camera rotation.
 	m_cameraOrigin.rotation.y = -m_cameraAngle.x;
 	m_cameraOrigin.rotation.x = m_cameraAngle.y;
+	
+################################################################################
+	
+func handleChickkins(delta : float) -> void:
+	if (ChickkinPath.s_instance == null): return;
+	
+	if (isGrounded()):
+		ChickkinPath.s_instance.updatePoint(global_position, m_chickkinLeftGround);
+		m_chickkinLeftGround = false;
+	else: 
+		m_chickkinLeftGround = true;
+	
+	var pushback := ChickkinPath.s_instance.getPushBack();
+	var prevDist : float = -INF;
+	for chickkinIndex : int in range(m_chickkins.size()):
+		var chickkin : Chickkin = m_chickkins[chickkinIndex];
+		prevDist = chickkin.moveToPath(chickkinIndex, prevDist, pushback, delta);
+		chickkin.updateVisuals(delta);
