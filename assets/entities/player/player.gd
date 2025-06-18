@@ -1,4 +1,5 @@
 extends EntityBase
+class_name Player;
 
 ################################################################################
 
@@ -53,24 +54,23 @@ func _physics_process(delta: float) -> void:
 	handleInteract()
 	
 	m_jumpInput = false;
+	m_interactInput = false;
 	
 ################################################################################
-# WARNING if there is more than one baseInteractable with intersecting areas, 
+# WARNING if there is more than one InteractComponent with intersecting areas, 
 # the one entered first should win
-var interactableAreas : Array[Area3D] = [];
+var interactableComponents : Array[InteractComponent] = [];
 
-func addInteractableArea(area : Area3D) -> void:
-	interactableAreas.push_back(area)
+func addInteractableArea(interactable : InteractComponent) -> void:
+	interactableComponents.push_back(interactable)
 	
-func removeInteractableArea(area : Area3D) -> void:
-	interactableAreas.erase(area)
+func removeInteractableArea(interactable : InteractComponent) -> void:
+	interactableComponents.erase(interactable)
 
 func handleInteract() -> void:
 	if !m_interactInput: return;
-	m_interactInput = false;
-	
-	if interactableAreas.size() > 0:
-		interactableAreas[0].interact();
+	if interactableAreas.size() <= 0: return;
+	interactableAreas[0].interact();
 
 ################################################################################
 

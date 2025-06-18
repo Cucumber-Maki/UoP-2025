@@ -53,11 +53,6 @@ folder_colors={
 
 import/blender/enabled=false
 
-[global_group]
-
-Interactables=""
-Player=""
-
 [input]
 
 ui_accept={
