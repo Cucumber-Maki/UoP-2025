@@ -9,5 +9,5 @@ func _ready() -> void:
 	addCategory("Debug Settings");
 	addOption(OptionType.CheckBox, "Colliders Visible", "colliders_visible");
 	addOption(OptionType.CheckBox, "Wireframe Rendering", "render_wireframe");
-	addOption(OptionType.CheckBox, "Chickken Path Rendering", "render_chickinPaths");
+	addOption(OptionType.CheckBox, "Chickkin Path Rendering", "render_chickinPaths");
 	addButton("Save & Exit", func(): onMenuExit.emit());

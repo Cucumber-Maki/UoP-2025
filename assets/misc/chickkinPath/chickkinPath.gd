@@ -31,7 +31,7 @@ class RoutePoint:
 
 ################################################################################
 
-@export var m_pathMaxLength = 100.0;
+@export var m_pathMaxLength = 250.0;
 @export var m_newPointThreshold = 1.0;
 var m_activePathPoint : Vector3 = Vector3.ZERO;
 var m_lastPathPoint : Vector3 = Vector3.INF;

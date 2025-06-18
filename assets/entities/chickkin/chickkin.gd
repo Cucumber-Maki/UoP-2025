@@ -21,7 +21,7 @@ var m_lastPosition : Vector3 = Vector3.INF;
 var m_lastMovementSpeed : float = 0;
 #
 var m_pathingSpeed : float = 15;
-var m_currentPathDistance : float = INF;
+var m_currentPathDistance : float = 0;
 var m_jumpTime : float = 0;
 var m_jumpHeight : float = 0;
 var m_jumpProgress : float = 0;
@@ -57,16 +57,13 @@ func updateVisuals(delta):
 
 func moveToPath(index : int, beforeDistance : float, pushback : float, delta : float) -> float:
 	m_currentPathDistance += pushback;
-	if (ChickkinPath.s_instance == null): return m_currentPathDistance;
+	if (ChickkinPath.s_instance == null): return 0;
 	
 	var targetDistance : float = max(
 		ChickkinPath.s_instance.getPathDistance(index) - \
 		ChickkinPath.s_instance.getActiveDistance(),
 		beforeDistance + ChickkinPath.s_instance.m_followSpacing
 	);
-	
-	if (m_currentPathDistance == INF):
-		m_currentPathDistance = targetDistance;
 	
 	var route := ChickkinPath.s_instance.getRoute(targetDistance, m_currentPathDistance);
 	var amountToMove : float = min(m_pathingSpeed * delta, m_currentPathDistance - targetDistance);
