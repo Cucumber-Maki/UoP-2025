@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://tepv4ufstxvf"]
+
+[ext_resource type="Script" uid="uid://b15kx1tp0alin" path="res://assets/misc/respawn/respawn.gd" id="1_2xi5k"]
+
+[node name="RespawnArea" type="Area3D"]
+script = ExtResource("1_2xi5k")
