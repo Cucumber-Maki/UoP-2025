@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://xdi604y3e7kt"]
+
+[ext_resource type="Script" uid="uid://b4igjwhma5igr" path="res://assets/entities/seed/seed.gd" id="1_fjomw"]
+[ext_resource type="PackedScene" uid="uid://duru8wivmdsfx" path="res://assets/entities/seed/seed.glb" id="2_oyjia"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oyjia"]
+
+[node name="Seed" type="Node3D"]
+script = ExtResource("1_fjomw")
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
+
+[node name="Area3D" type="Area3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Area3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_oyjia")
+debug_color = Color(1, 0.431373, 0.211765, 0.419608)
+
+[node name="Model" parent="Pivot" instance=ExtResource("2_oyjia")]
+
+[node name="AnimationPlayer" parent="Pivot/Model" index="1"]
+autoplay = "SeedAction"
+
+[connection signal="body_entered" from="Pivot/Area3D" to="." method="_on_area_3d_body_entered"]
+
+[editable path="Pivot/Model"]

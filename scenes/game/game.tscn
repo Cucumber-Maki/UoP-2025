@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cea0kc0y5xkmo"]
+[gd_scene load_steps=8 format=3 uid="uid://cea0kc0y5xkmo"]
 
 [ext_resource type="PackedScene" uid="uid://gqj1i4gumrvl" path="res://assets/menus/gameMenu/gameMenu.tscn" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://bi8nlpd0um1b8" path="res://assets/jam/autoRestart/autoRestart.tscn" id="2_7h61r"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://12jm0yci4dq2" path="res://assets/misc/chickkinPath/chickkinPath.tscn" id="3_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://lyhtk1heeyd5" path="res://prefabs/entities/chickkin.tscn" id="4_kelw5"]
 [ext_resource type="PackedScene" uid="uid://b5kpk04jx811r" path="res://assets/environment/MiscLevelAssets.glb" id="6_5i0tg"]
+[ext_resource type="PackedScene" uid="uid://xdi604y3e7kt" path="res://prefabs/entities/seed.tscn" id="7_bdhmt"]
 
 [node name="Game" type="Node3D"]
 
@@ -102,3 +103,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0101, 0.0101995, -2.04983)
 m_claimed = true
 
 [node name="MiscLevelAssets" parent="." instance=ExtResource("6_5i0tg")]
+
+[node name="Seed" parent="." instance=ExtResource("7_bdhmt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.81872, 1.11679, 0)
