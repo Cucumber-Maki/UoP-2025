@@ -10,7 +10,7 @@
 [node name="Game Logic" type="Node" parent="."]
 
 [node name="Fryer" parent="Game Logic" instance=ExtResource("3_r1f7g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -23, -44)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -23, -44)
 
 [node name="Podium" parent="Game Logic" instance=ExtResource("4_3kluf")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -15)
