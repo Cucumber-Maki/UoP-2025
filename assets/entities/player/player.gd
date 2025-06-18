@@ -1,5 +1,6 @@
 extends MovementBase;
 class_name Player;
+static var s_instance : Player = null;
 
 ################################################################################
 
@@ -38,6 +39,15 @@ func getJumpInput() -> bool:
 	return m_jumpInput
 	
 ################################################################################
+
+func _ready() -> void:
+	#super();
+	s_instance = self;
+
+func _exit_tree() -> void:
+	if (s_instance == self):
+		s_instance = null;
+	
 
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("player_move_jump")):
