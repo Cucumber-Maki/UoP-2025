@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bkt4tb2ftnc8v"]
+[gd_scene load_steps=16 format=3 uid="uid://bkt4tb2ftnc8v"]
 
 [ext_resource type="PackedScene" uid="uid://coqnh8key0bbu" path="res://prefabs/environment/counter.tscn" id="1_mpcyb"]
 [ext_resource type="PackedScene" uid="uid://lyhtk1heeyd5" path="res://prefabs/entities/chickkin.tscn" id="2_cllcc"]
@@ -74,7 +74,7 @@ _data = {
 [node name="Game Logic" type="Node" parent="."]
 
 [node name="Fryer" parent="Game Logic" node_paths=PackedStringArray("podium") instance=ExtResource("3_r1f7g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -23, -44)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, -23, -44)
 podium = NodePath("../Podium/Target")
 
 [node name="Podium" parent="Game Logic" instance=ExtResource("4_3kluf")]
