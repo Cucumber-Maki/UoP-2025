@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://lyhtk1heeyd5"]
+[gd_scene load_steps=9 format=3 uid="uid://lyhtk1heeyd5"]
 
 [ext_resource type="PackedScene" uid="uid://coft78mfycl6e" path="res://assets/entities/entityBase/entityBase.tscn" id="1_mb1hf"]
 [ext_resource type="Script" uid="uid://hwp8jo4h4dwr" path="res://assets/entities/chickkin/chickkin.gd" id="2_6dekb"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" uid="uid://blw1ijflfqg0y" path="res://assets/misc/wobble/wobble.gd" id="6_uy3rl"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uy3rl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wqw7b"]
+radius = 1.5
 
 [node name="Chickkin" instance=ExtResource("1_mb1hf")]
 collision_layer = 8
@@ -52,5 +55,15 @@ influence = 1.0
 script = ExtResource("6_uy3rl")
 m_bone = "Comb.Top"
 metadata/_custom_type_script = "uid://blw1ijflfqg0y"
+
+[node name="ClaimTrigger" type="Area3D" parent="." index="3"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClaimTrigger" index="0"]
+shape = SubResource("SphereShape3D_wqw7b")
+debug_color = Color(0.233333, 0, 0.7, 0.352941)
+
+[connection signal="body_entered" from="ClaimTrigger" to="." method="onPlayerClaim"]
 
 [editable path="Model"]
