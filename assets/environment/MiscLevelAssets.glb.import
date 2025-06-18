@@ -26,13 +26,167 @@ meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
-animation/import=true
+animation/import=false
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
+"meshes": {
+"MiscLevelAssets_Circle_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Circle_001.res"
+},
+"MiscLevelAssets_Circle_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Circle_002.res"
+},
+"MiscLevelAssets_Cube_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_001.res"
+},
+"MiscLevelAssets_Cube_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_004.res"
+},
+"MiscLevelAssets_Cube_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_005.res"
+},
+"MiscLevelAssets_Cube_006": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_006.res"
+},
+"MiscLevelAssets_Cube_007": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_007.res"
+},
+"MiscLevelAssets_Cube_008": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_008.res"
+},
+"MiscLevelAssets_Cube_009": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_009.res"
+},
+"MiscLevelAssets_Cube_010": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_010.res"
+},
+"MiscLevelAssets_Cube_011": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_011.res"
+},
+"MiscLevelAssets_Cube_013": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_013.res"
+},
+"MiscLevelAssets_Cube_014": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_014.res"
+},
+"MiscLevelAssets_Cube_018": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_018.res"
+},
+"MiscLevelAssets_Cube_019": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_019.res"
+},
+"MiscLevelAssets_Cube_020": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_020.res"
+},
+"MiscLevelAssets_Cube_021": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_021.res"
+},
+"MiscLevelAssets_Cylinder": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cylinder.res"
+},
+"MiscLevelAssets_Cylinder_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cylinder_001.res"
+}
+},
 "nodes": {
 "PATH:Breadbin": {
 "generate/physics": true
@@ -44,6 +198,9 @@ _subresources={
 "generate/physics": true
 },
 "PATH:Cube Shelves": {
+"generate/physics": true
+},
+"PATH:Fryer": {
 "generate/physics": true
 },
 "PATH:Oven": {
@@ -62,9 +219,6 @@ _subresources={
 "generate/physics": true
 },
 "PATH:Refrigerator": {
-"generate/physics": true
-},
-"PATH:Refrigerator_Door": {
 "generate/physics": true
 },
 "PATH:Shelf": {
