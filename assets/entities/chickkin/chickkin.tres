@@ -7,5 +7,3 @@
 render_priority = 0
 shader = ExtResource("1_1u53n")
 shader_parameter/u_color = ExtResource("2_paemr")
-shader_parameter/u_colorChoice = 0.0
-shader_parameter/u_faceChoice = 0.0
