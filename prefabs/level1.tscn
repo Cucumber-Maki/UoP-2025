@@ -1,0 +1,106 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5b77cguq2d3p"]
+
+[ext_resource type="PackedScene" uid="uid://coqnh8key0bbu" path="res://prefabs/environment/counter.tscn" id="1_mpcyb"]
+[ext_resource type="PackedScene" uid="uid://lyhtk1heeyd5" path="res://prefabs/entities/chickkin.tscn" id="2_cllcc"]
+[ext_resource type="PackedScene" uid="uid://giawftbpppid" path="res://prefabs/game/fryer.tscn" id="3_r1f7g"]
+[ext_resource type="PackedScene" uid="uid://b8uurrsxlejy8" path="res://prefabs/game/podium.tscn" id="4_3kluf"]
+
+[node name="Level1" type="Node3D"]
+
+[node name="Game Logic" type="Node" parent="."]
+
+[node name="Fryer" parent="Game Logic" instance=ExtResource("3_r1f7g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -23, -44)
+
+[node name="Podium" parent="Game Logic" instance=ExtResource("4_3kluf")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -15)
+skeleton = NodePath("../..")
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="Counter" parent="Environment" instance=ExtResource("1_mpcyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -44, 13)
+skeleton = NodePath("../..")
+
+[node name="Chickkins" type="Node" parent="."]
+
+[node name="Chickkin" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+m_claimed = true
+
+[node name="Chickkin2" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0.96041)
+m_claimed = true
+
+[node name="Chickkin3" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+m_claimed = true
+
+[node name="Chickkin4" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+m_claimed = true
+
+[node name="Chickkin5" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0.96041)
+m_claimed = true
+
+[node name="Chickkin6" parent="Chickkins" instance=ExtResource("2_cllcc")]
+m_claimed = true
+
+[node name="Chickkin7" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -0.0395901)
+m_claimed = true
+
+[node name="Chickkin8" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+m_claimed = true
+
+[node name="Chickkin9" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+m_claimed = true
+
+[node name="Chickkin10" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -0.0395901)
+m_claimed = true
+
+[node name="Chickkin11" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+m_claimed = true
+
+[node name="Chickkin12" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.03959)
+m_claimed = true
+
+[node name="Chickkin13" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+m_claimed = true
+
+[node name="Chickkin14" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+m_claimed = true
+
+[node name="Chickkin15" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1.03959)
+m_claimed = true
+
+[node name="Chickkin16" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0100956, 0.0101995, -2.01024)
+m_claimed = true
+
+[node name="Chickkin17" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9899, 0.0101995, -2.04983)
+m_claimed = true
+
+[node name="Chickkin18" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0101, 0.0101995, -2.01024)
+m_claimed = true
+
+[node name="Chickkin19" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.989904, 0.0101995, -2.01024)
+m_claimed = true
+
+[node name="Chickkin20" parent="Chickkins" instance=ExtResource("2_cllcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0101, 0.0101995, -2.04983)
+m_claimed = true
+
+[editable path="Game Logic/Podium"]

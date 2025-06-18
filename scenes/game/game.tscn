@@ -1,16 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cea0kc0y5xkmo"]
+[gd_scene load_steps=6 format=3 uid="uid://cea0kc0y5xkmo"]
 
 [ext_resource type="PackedScene" uid="uid://gqj1i4gumrvl" path="res://assets/menus/gameMenu/gameMenu.tscn" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://bi8nlpd0um1b8" path="res://assets/jam/autoRestart/autoRestart.tscn" id="2_7h61r"]
 [ext_resource type="PackedScene" uid="uid://cc1wxbqo1hw6e" path="res://prefabs/entities/player.tscn" id="3_0sr1o"]
-[ext_resource type="PackedScene" uid="uid://yu1icg4mi2a0" path="res://prefabs/ui/circle_wipe.tscn" id="3_2a8rs"]
 [ext_resource type="PackedScene" uid="uid://12jm0yci4dq2" path="res://assets/misc/chickkinPath/chickkinPath.tscn" id="3_lfrn8"]
-[ext_resource type="PackedScene" uid="uid://lyhtk1heeyd5" path="res://prefabs/entities/chickkin.tscn" id="4_kelw5"]
-[ext_resource type="PackedScene" uid="uid://b5kpk04jx811r" path="res://assets/environment/MiscLevelAssets.glb" id="6_5i0tg"]
-[ext_resource type="PackedScene" uid="uid://b1jitgfj208y8" path="res://prefabs/misc/respawn_points.tscn" id="8_2a8rs"]
-[ext_resource type="Script" uid="uid://co7ng0ney70lf" path="res://assets/misc/respawn/kill_collider.gd" id="8_87uf6"]
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2a8rs"]
+[ext_resource type="PackedScene" uid="uid://b5b77cguq2d3p" path="res://prefabs/level1.tscn" id="5_lfrn8"]
 
 [node name="Game" type="Node3D"]
 
@@ -20,109 +14,9 @@
 
 [node name="AutoRestart" parent="CanvasLayer" instance=ExtResource("2_7h61r")]
 
-[node name="CircleWipe" parent="CanvasLayer" instance=ExtResource("3_2a8rs")]
-
 [node name="ChickkinPath" parent="." instance=ExtResource("3_lfrn8")]
 
 [node name="Player" parent="." instance=ExtResource("3_0sr1o")]
-collision_layer = 2
 m_ability_rollUnlocked = true
-m_respawn_location = Vector3(0, 0, 0)
 
-[node name="Chickkins" type="Node" parent="."]
-
-[node name="Chickkin" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
-m_claimed = true
-
-[node name="Chickkin2" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0.96041)
-m_claimed = true
-
-[node name="Chickkin3" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
-m_claimed = true
-
-[node name="Chickkin4" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
-m_claimed = true
-
-[node name="Chickkin5" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0.96041)
-m_claimed = true
-
-[node name="Chickkin6" parent="Chickkins" instance=ExtResource("4_kelw5")]
-m_claimed = true
-
-[node name="Chickkin7" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -0.0395901)
-m_claimed = true
-
-[node name="Chickkin8" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-m_claimed = true
-
-[node name="Chickkin9" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-m_claimed = true
-
-[node name="Chickkin10" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -0.0395901)
-m_claimed = true
-
-[node name="Chickkin11" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-m_claimed = true
-
-[node name="Chickkin12" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.03959)
-m_claimed = true
-
-[node name="Chickkin13" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
-m_claimed = true
-
-[node name="Chickkin14" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
-m_claimed = true
-
-[node name="Chickkin15" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1.03959)
-m_claimed = true
-
-[node name="Chickkin16" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0100956, 0.0101995, -2.01024)
-m_claimed = true
-
-[node name="Chickkin17" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9899, 0.0101995, -2.04983)
-m_claimed = true
-
-[node name="Chickkin18" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0101, 0.0101995, -2.01024)
-m_claimed = true
-
-[node name="Chickkin19" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.989904, 0.0101995, -2.01024)
-m_claimed = true
-
-[node name="Chickkin20" parent="Chickkins" instance=ExtResource("4_kelw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0101, 0.0101995, -2.04983)
-m_claimed = true
-
-[node name="MiscLevelAssets" parent="." instance=ExtResource("6_5i0tg")]
-
-[node name="Respawn Points" parent="." instance=ExtResource("8_2a8rs")]
-
-[node name="Killplane" type="Area3D" parent="." node_paths=PackedStringArray("circle_wipe_animation")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
-collision_mask = 2
-script = ExtResource("8_87uf6")
-circle_wipe_animation = NodePath("../CanvasLayer/CircleWipe/AnimationPlayer")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Killplane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -42)
-shape = SubResource("WorldBoundaryShape3D_2a8rs")
-
-[editable path="CanvasLayer/CircleWipe"]
-[editable path="Respawn Points"]
+[node name="Level1" parent="." instance=ExtResource("5_lfrn8")]
