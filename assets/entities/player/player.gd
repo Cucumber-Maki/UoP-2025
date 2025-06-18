@@ -1,4 +1,5 @@
-extends EntityBase
+extends MovementBase;
+class_name Player;
 
 ################################################################################
 
