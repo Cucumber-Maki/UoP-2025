@@ -50,11 +50,13 @@ func _ready() -> void:
 func _exit_tree() -> void:
 	if (s_instance == self):
 		s_instance = null;
-	
 
+var m_interactInput: bool = false;
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("player_move_jump")):
 		m_jumpInput = true;
+	if (Input.is_action_just_pressed("player_interact")):
+		m_interactInput = true;
 	
 func _physics_process(delta: float) -> void:
 	handleRoll(delta)
@@ -62,9 +64,27 @@ func _physics_process(delta: float) -> void:
 	super(delta);
 	handleChickkins(delta);
 	handleAnimation(delta);
+	handleInteract()
 	
 	m_jumpInput = false;
+	m_interactInput = false;
 	
+################################################################################
+# WARNING if there is more than one InteractComponent with intersecting areas, 
+# the one entered first should win
+var interactableComponents : Array[InteractComponent] = [];
+
+func addInteractableArea(interactable : InteractComponent) -> void:
+	interactableComponents.push_back(interactable)
+	
+func removeInteractableArea(interactable : InteractComponent) -> void:
+	interactableComponents.erase(interactable)
+
+func handleInteract() -> void:
+	if !m_interactInput: return;
+	if interactableComponents.size() <= 0: return;
+	interactableComponents[0].interact();
+
 ################################################################################
 
 func handleRoll(delta : float) -> void: 

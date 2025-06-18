@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://doji46ou2dukp" path="res://assets/entities/player/player.tres" id="5_ecp7k"]
 [ext_resource type="Script" uid="uid://blw1ijflfqg0y" path="res://assets/misc/wobble/wobble.gd" id="6_3kclj"]
 
-[node name="Player" instance=ExtResource("1_grlhh")]
+[node name="Player" groups=["Player"] instance=ExtResource("1_grlhh")]
 script = ExtResource("2_j8wwh")
 m_animationGroundBlendSpeed = 8.0
 m_animationGroundSpeedScale = 2.0
