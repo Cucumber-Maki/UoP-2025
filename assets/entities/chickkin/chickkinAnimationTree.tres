@@ -1,0 +1,42 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=8 format=3 uid="uid://xfbs7m2xambb"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d0yqm"]
+animation = &"Idle1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fv1by"]
+animation = &"Idle2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r2qhu"]
+animation = &"Idle3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dgwuh"]
+animation = &"Idle4"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_lwasi"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_d0yqm")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_fv1by")
+blend_point_1/pos = 1.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_r2qhu")
+blend_point_2/pos = 2.0
+blend_point_3/node = SubResource("AnimationNodeAnimation_dgwuh")
+blend_point_3/pos = 3.0
+min_space = 0.0
+max_space = 3.0
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_d0yqm"]
+sync = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lwasi"]
+animation = &"Walk"
+
+[resource]
+graph_offset = Vector2(-522.783, 107.464)
+nodes/Idle/node = SubResource("AnimationNodeBlendSpace1D_lwasi")
+nodes/Idle/position = Vector2(-140, 140)
+nodes/MovementSpeed/node = SubResource("AnimationNodeBlend2_d0yqm")
+nodes/MovementSpeed/position = Vector2(100, 140)
+nodes/Walk/node = SubResource("AnimationNodeAnimation_lwasi")
+nodes/Walk/position = Vector2(-120, 340)
+nodes/output/position = Vector2(300, 160)
+node_connections = [&"MovementSpeed", 0, &"Idle", &"MovementSpeed", 1, &"Walk", &"output", 0, &"MovementSpeed"]

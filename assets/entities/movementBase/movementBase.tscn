@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca4g3hlui3fxf"]
+
+[ext_resource type="PackedScene" uid="uid://coft78mfycl6e" path="res://assets/entities/entityBase/entityBase.tscn" id="1_xjnb8"]
+[ext_resource type="Script" uid="uid://dl0yb2ukrh6o" path="res://assets/entities/movementBase/movementBase.gd" id="2_edfif"]
+
+[node name="MovementBase" instance=ExtResource("1_xjnb8")]
+script = ExtResource("2_edfif")
+m_movementTurnVelocityMinimum = 0.4
+m_groundMovementSpeed = 8.0
+m_groundTurnSpeed = 1.0
+m_groundMomentumSpeed = 12.0
+m_groundJumpImpulse = 8.0
+m_groundJumpCoyoteTime = 0.3
+m_airMovementSpeed = 7.0
+m_airTurnSpeed = 0.2
+m_airMomentumSpeed = 5.0
+m_gravityAcceleration = -9.8
+m_gravityFallingMultiplier = 2.0
