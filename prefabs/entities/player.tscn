@@ -20,6 +20,7 @@ m_animationJumpScaling = 1.5
 m_animationJumpExponent = 1.5
 m_ability_rollUnlocked = false
 m_ability_rollImpulse = Vector2(12, 4)
+m_respawn_location = Vector3(0, 0, 0)
 
 [node name="AnimationTree" parent="." index="1"]
 root_node = NodePath("../Model")
