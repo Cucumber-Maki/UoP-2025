@@ -8,6 +8,7 @@ extends GameSaveableBase;
 
 var colliders_visible : bool = false;
 var render_wireframe : bool = false;
+var render_chickinPaths : bool = false;
 
 ################################################################################
 

@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://di8g2xqtjqm4g"]
+
+[ext_resource type="Shader" uid="uid://cnysmjlwq0yd6" path="res://assets/entities/chickkin/chickkin.gdshader" id="1_1u53n"]
+[ext_resource type="Texture2D" uid="uid://dtffcnuafgrub" path="res://assets/entities/chickkin/chickkin.png" id="2_paemr"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_1u53n")
+shader_parameter/u_color = ExtResource("2_paemr")
+shader_parameter/u_colorChoice = 0.0
+shader_parameter/u_faceChoice = 0.0
