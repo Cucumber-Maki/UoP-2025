@@ -1,8 +1,9 @@
 extends Area3D
 
+@export var circle_wipe_animation: AnimationPlayer;
+
 func _ready() -> void:
 	self.body_entered.connect(_on_area_3d_body_entered);
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	Player.s_instance.position = Player.s_instance.m_respawn_location;
-	Player.s_instance.m_momentum = Vector2.ZERO;
+	circle_wipe_animation.play("circle_fade");

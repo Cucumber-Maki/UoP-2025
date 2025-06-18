@@ -188,3 +188,9 @@ func handleChickkins(delta : float) -> void:
 		var chickkin : Chickkin = m_chickkins[chickkinIndex];
 		prevDist = chickkin.moveToPath(chickkinIndex, prevDist, pushback, delta);
 		chickkin.updateVisuals(delta);
+
+################################################################################
+
+func respawn() -> void:
+	position = m_respawn_location;
+	m_momentum = Vector2.ZERO;

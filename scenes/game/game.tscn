@@ -1,13 +1,68 @@
-[gd_scene load_steps=12 format=3 uid="uid://cea0kc0y5xkmo"]
+[gd_scene load_steps=17 format=3 uid="uid://cea0kc0y5xkmo"]
 
 [ext_resource type="PackedScene" uid="uid://gqj1i4gumrvl" path="res://assets/menus/gameMenu/gameMenu.tscn" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://bi8nlpd0um1b8" path="res://assets/jam/autoRestart/autoRestart.tscn" id="2_7h61r"]
 [ext_resource type="PackedScene" uid="uid://cc1wxbqo1hw6e" path="res://prefabs/entities/player.tscn" id="3_0sr1o"]
+[ext_resource type="Shader" uid="uid://eb0mixk7lqid" path="res://assets/misc/respawn/circle_wipe.gdshader" id="3_2a8rs"]
 [ext_resource type="PackedScene" uid="uid://12jm0yci4dq2" path="res://assets/misc/chickkinPath/chickkinPath.tscn" id="3_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://lyhtk1heeyd5" path="res://prefabs/entities/chickkin.tscn" id="4_kelw5"]
 [ext_resource type="PackedScene" uid="uid://b5kpk04jx811r" path="res://assets/environment/MiscLevelAssets.glb" id="6_5i0tg"]
 [ext_resource type="PackedScene" uid="uid://tepv4ufstxvf" path="res://prefabs/misc/respawn.tscn" id="7_87uf6"]
 [ext_resource type="Script" uid="uid://co7ng0ney70lf" path="res://assets/misc/respawn/kill_collider.gd" id="8_87uf6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4j704"]
+shader = ExtResource("3_2a8rs")
+shader_parameter/circle_size = 1.0
+
+[sub_resource type="Animation" id="Animation_4j704"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_2a8rs"]
+resource_name = "circle_fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.533333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"respawn"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4j704"]
+_data = {
+&"RESET": SubResource("Animation_4j704"),
+&"circle_fade": SubResource("Animation_2a8rs")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_87uf6"]
 size = Vector3(20, 20, 60)
@@ -24,6 +79,20 @@ radius = 20.0
 [node name="GameMenu" parent="CanvasLayer" instance=ExtResource("1_sul5r")]
 
 [node name="AutoRestart" parent="CanvasLayer" instance=ExtResource("2_7h61r")]
+
+[node name="CircleWipe" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_4j704")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/CircleWipe"]
+libraries = {
+&"": SubResource("AnimationLibrary_4j704")
+}
 
 [node name="ChickkinPath" parent="." instance=ExtResource("3_lfrn8")]
 
@@ -159,10 +228,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Respawn Points/RespawnArea4"]
 shape = SubResource("SphereShape3D_bdhmt")
 
-[node name="Killplane" type="Area3D" parent="."]
+[node name="Killplane" type="Area3D" parent="." node_paths=PackedStringArray("circle_wipe_animation")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
 collision_mask = 2
 script = ExtResource("8_87uf6")
+circle_wipe_animation = NodePath("../CanvasLayer/CircleWipe/AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Killplane"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -42)
