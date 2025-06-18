@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cea0kc0y5xkmo"]
+[gd_scene load_steps=7 format=3 uid="uid://cea0kc0y5xkmo"]
 
 [ext_resource type="PackedScene" uid="uid://gqj1i4gumrvl" path="res://assets/menus/gameMenu/gameMenu.tscn" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://bi8nlpd0um1b8" path="res://assets/jam/autoRestart/autoRestart.tscn" id="2_7h61r"]
 [ext_resource type="PackedScene" uid="uid://cc1wxbqo1hw6e" path="res://prefabs/entities/player.tscn" id="3_0sr1o"]
+[ext_resource type="PackedScene" uid="uid://12jm0yci4dq2" path="res://assets/misc/chickkinPath/chickkinPath.tscn" id="3_lfrn8"]
+[ext_resource type="PackedScene" uid="uid://lyhtk1heeyd5" path="res://prefabs/entities/chickkin.tscn" id="4_kelw5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0sr1o"]
 size = Vector3(10, 2, 10)
@@ -14,6 +16,8 @@ size = Vector3(10, 2, 10)
 [node name="GameMenu" parent="CanvasLayer" instance=ExtResource("1_sul5r")]
 
 [node name="AutoRestart" parent="CanvasLayer" instance=ExtResource("2_7h61r")]
+
+[node name="ChickkinPath" parent="." instance=ExtResource("3_lfrn8")]
 
 [node name="Player" parent="." instance=ExtResource("3_0sr1o")]
 m_ability_rollUnlocked = true
@@ -35,3 +39,82 @@ shape = SubResource("BoxShape3D_0sr1o")
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 6, 0)
 shape = SubResource("BoxShape3D_0sr1o")
+
+[node name="Chickkin" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+m_claimed = true
+
+[node name="Chickkin2" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0.96041)
+m_claimed = true
+
+[node name="Chickkin3" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+m_claimed = true
+
+[node name="Chickkin4" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+m_claimed = true
+
+[node name="Chickkin5" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0.96041)
+m_claimed = true
+
+[node name="Chickkin6" parent="." instance=ExtResource("4_kelw5")]
+m_claimed = true
+
+[node name="Chickkin7" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -0.0395901)
+m_claimed = true
+
+[node name="Chickkin8" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+m_claimed = true
+
+[node name="Chickkin9" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+m_claimed = true
+
+[node name="Chickkin10" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -0.0395901)
+m_claimed = true
+
+[node name="Chickkin11" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+m_claimed = true
+
+[node name="Chickkin12" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.03959)
+m_claimed = true
+
+[node name="Chickkin13" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+m_claimed = true
+
+[node name="Chickkin14" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+m_claimed = true
+
+[node name="Chickkin15" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1.03959)
+m_claimed = true
+
+[node name="Chickkin16" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0100956, 0.0101995, -2.01024)
+m_claimed = true
+
+[node name="Chickkin17" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9899, 0.0101995, -2.04983)
+m_claimed = true
+
+[node name="Chickkin18" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0101, 0.0101995, -2.01024)
+m_claimed = true
+
+[node name="Chickkin19" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.989904, 0.0101995, -2.01024)
+m_claimed = true
+
+[node name="Chickkin20" parent="." instance=ExtResource("4_kelw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0101, 0.0101995, -2.04983)
+m_claimed = true
