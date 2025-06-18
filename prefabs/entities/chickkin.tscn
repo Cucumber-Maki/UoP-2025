@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://lyhtk1heeyd5"]
+
+[ext_resource type="PackedScene" uid="uid://coft78mfycl6e" path="res://assets/entities/entityBase/entityBase.tscn" id="1_mb1hf"]
+[ext_resource type="Script" uid="uid://hwp8jo4h4dwr" path="res://assets/entities/chickkin/chickkin.gd" id="2_6dekb"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://xfbs7m2xambb" path="res://assets/entities/chickkin/chickkinAnimationTree.tres" id="2_fvwsb"]
+[ext_resource type="PackedScene" uid="uid://boubr3gocwl0e" path="res://assets/entities/chickkin/chickkin.glb" id="2_jwwsi"]
+[ext_resource type="Material" uid="uid://di8g2xqtjqm4g" path="res://assets/entities/chickkin/chickkin.tres" id="4_47ai3"]
+[ext_resource type="Script" uid="uid://blw1ijflfqg0y" path="res://assets/misc/wobble/wobble.gd" id="6_uy3rl"]
+
+[node name="Chickkin" instance=ExtResource("1_mb1hf")]
+script = ExtResource("2_6dekb")
+m_claimed = false
+
+[node name="WorldCollider" parent="." index="0"]
+disabled = true
+
+[node name="AnimationTree" parent="." index="1"]
+root_node = NodePath("../Model")
+tree_root = ExtResource("2_fvwsb")
+anim_player = NodePath("../Model/AnimationPlayer")
+parameters/Idle/blend_position = 0
+parameters/MovementSpeed/blend_amount = 0.0
+
+[node name="Model" parent="." index="2" instance=ExtResource("2_jwwsi")]
+
+[node name="Model" parent="Model/Chickkin/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("4_47ai3")
+
+[node name="Comb Top" type="SkeletonModifier3D" parent="Model/Chickkin/Skeleton3D" index="1"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+active = true
+influence = 1.0
+script = ExtResource("6_uy3rl")
+m_bone = "Comb.Top"
+metadata/_custom_type_script = "uid://blw1ijflfqg0y"
+
+[editable path="Model"]
