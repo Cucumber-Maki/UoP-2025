@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://lyhtk1heeyd5" path="res://prefabs/entities/chickkin.tscn" id="2_cllcc"]
 [ext_resource type="PackedScene" uid="uid://giawftbpppid" path="res://prefabs/game/fryer.tscn" id="3_r1f7g"]
 [ext_resource type="PackedScene" uid="uid://b8uurrsxlejy8" path="res://prefabs/game/podium.tscn" id="4_3kluf"]
+[ext_resource type="Script" uid="uid://b27olbfhs2ype" path="res://assets/entities/seed/seedManager.gd" id="4_r1f7g"]
+[ext_resource type="PackedScene" uid="uid://xdi604y3e7kt" path="res://prefabs/entities/seed.tscn" id="5_3kluf"]
 [ext_resource type="PackedScene" uid="uid://tepv4ufstxvf" path="res://prefabs/misc/respawn.tscn" id="5_cllcc"]
 [ext_resource type="Script" uid="uid://co7ng0ney70lf" path="res://assets/misc/respawn/kill_collider.gd" id="7_3kluf"]
 [ext_resource type="Shader" uid="uid://eb0mixk7lqid" path="res://assets/misc/respawn/circle_wipe.gdshader" id="7_mh6et"]
@@ -71,8 +73,9 @@ _data = {
 
 [node name="Game Logic" type="Node" parent="."]
 
-[node name="Fryer" parent="Game Logic" instance=ExtResource("3_r1f7g")]
+[node name="Fryer" parent="Game Logic" node_paths=PackedStringArray("podium") instance=ExtResource("3_r1f7g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -23, -44)
+podium = NodePath("../Podium/Target")
 
 [node name="Podium" parent="Game Logic" instance=ExtResource("4_3kluf")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -15)
@@ -83,6 +86,12 @@ skeleton = NodePath("../..")
 [node name="Counter" parent="Environment" instance=ExtResource("1_mpcyb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -44, 13)
 skeleton = NodePath("../..")
+
+[node name="Seeds" type="Node" parent="."]
+script = ExtResource("4_r1f7g")
+
+[node name="Seed" parent="Seeds" instance=ExtResource("5_3kluf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
 
 [node name="Chickkins" type="Node" parent="."]
 
