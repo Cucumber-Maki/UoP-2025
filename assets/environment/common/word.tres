@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bwh4vsbymasbn"]
+
+[ext_resource type="Shader" uid="uid://bc2va68j7o2pc" path="res://assets/entities/entityBase/entity.gdshader" id="1_m1yeb"]
+[ext_resource type="Texture2D" uid="uid://buco3n2truho5" path="res://assets/environment/common/world.png" id="2_x1h0h"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_m1yeb")
+shader_parameter/u_color = ExtResource("2_x1h0h")
