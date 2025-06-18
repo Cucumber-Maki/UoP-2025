@@ -23,11 +23,13 @@ var m_ability_rollAvailable : bool = false;
 #
 @onready var m_cameraOrigin : Node3D = $CameraOrigin;
 @onready var m_cameraAngle : Vector2 = Vector2(m_cameraOrigin.rotation.y, m_cameraOrigin.rotation.x);
-var m_cameraMouseInput : Vector2 = Vector2.ZERO; 
+var m_cameraMouseInput : Vector2 = Vector2.ZERO;
 const c_cameraMaxExtent = TAU * 0.25 * 0.9;
 #
 var m_chickkins : Array[Chickkin] = [];
 var m_chickkinLeftGround : bool = false;
+#
+@export var m_respawn_location: Vector3;
 
 ################################################################################
 
@@ -186,3 +188,9 @@ func handleChickkins(delta : float) -> void:
 		var chickkin : Chickkin = m_chickkins[chickkinIndex];
 		prevDist = chickkin.moveToPath(chickkinIndex, prevDist, pushback, delta);
 		chickkin.updateVisuals(delta);
+
+################################################################################
+
+func respawn() -> void:
+	position = m_respawn_location;
+	m_momentum = Vector2.ZERO;

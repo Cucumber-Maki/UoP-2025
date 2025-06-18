@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bi8nlpd0um1b8" path="res://assets/jam/autoRestart/autoRestart.tscn" id="2_7h61r"]
 [ext_resource type="PackedScene" uid="uid://cc1wxbqo1hw6e" path="res://prefabs/entities/player.tscn" id="3_0sr1o"]
 [ext_resource type="PackedScene" uid="uid://12jm0yci4dq2" path="res://assets/misc/chickkinPath/chickkinPath.tscn" id="3_lfrn8"]
-[ext_resource type="PackedScene" uid="uid://b5b77cguq2d3p" path="res://prefabs/level1.tscn" id="5_lfrn8"]
+[ext_resource type="PackedScene" uid="uid://bkt4tb2ftnc8v" path="res://prefabs/level1.tscn" id="5_lfrn8"]
 
 [node name="Game" type="Node3D"]
 
@@ -17,6 +17,8 @@
 [node name="ChickkinPath" parent="." instance=ExtResource("3_lfrn8")]
 
 [node name="Player" parent="." instance=ExtResource("3_0sr1o")]
+collision_layer = 2
 m_ability_rollUnlocked = true
+m_respawn_location = Vector3(0, 0, 0)
 
 [node name="Level1" parent="." instance=ExtResource("5_lfrn8")]
