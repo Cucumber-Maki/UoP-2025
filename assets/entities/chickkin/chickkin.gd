@@ -98,9 +98,9 @@ func moveToPath(index : int, beforeDistance : float, pushback : float, delta : f
 					else:
 						m_jumpProgress -= delta / m_jumpTime;
 				elif (targetDistance < routePoint.m_startDistance):
-					var len := routePoint.m_endDistance - routePoint.m_startDistance;
-					m_jumpTime = len / 10;
-					m_jumpHeight = len * 0.4;
+					var length := routePoint.m_endDistance - routePoint.m_startDistance;
+					m_jumpTime = length / 10;
+					m_jumpHeight = length * 0.4;
 					m_jumpProgress = 1.0;
 				else:
 					amountToMove = 0;
@@ -115,7 +115,7 @@ func moveToPath(index : int, beforeDistance : float, pushback : float, delta : f
 				
 				return max(
 					routePoint.m_startDistance - (ChickkinPath.s_instance.m_followSpacing + 0.05),
-					route[0].m_endDistance if (route.size() > 0 && route[0].m_pathPoint.m_type == ChickkinPath.PathPointType.Air) else 0
+					route[0].m_endDistance if (route.size() > 0 && route[0].m_pathPoint.m_type == ChickkinPath.PathPointType.Air) else 0.0
 				);
 	
 	return m_currentPathDistance;

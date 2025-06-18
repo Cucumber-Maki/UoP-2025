@@ -111,17 +111,17 @@ func getPushBack() -> float:
 func getRoute(from : float, to : float) -> Array[RoutePoint]:
 	var route : Array[RoutePoint] = [];
 	
-	var totalDistance : float = 0;#(m_lastPathPoint - m_activePathPoint).length();
+	var totalDistance : float = 0;
 	for pathPoint : PathPoint in m_path:
 		if (totalDistance > to): break;
 			
 		var change := pathPoint.m_from - pathPoint.m_to;
-		var len := change.length();
+		var length := change.length();
 			
-		if (from <= totalDistance + len && totalDistance < to):
+		if (from <= totalDistance + length && totalDistance < to):
 			route.append(RoutePoint.new(pathPoint, totalDistance));
 		
-		totalDistance += len;
+		totalDistance += length;
 	
 	return route;
 		
