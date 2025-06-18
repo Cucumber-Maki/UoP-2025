@@ -69,8 +69,8 @@ func removeInteractableArea(interactable : InteractComponent) -> void:
 
 func handleInteract() -> void:
 	if !m_interactInput: return;
-	if interactableAreas.size() <= 0: return;
-	interactableAreas[0].interact();
+	if interactableComponents.size() <= 0: return;
+	interactableComponents[0].interact();
 
 ################################################################################
 
