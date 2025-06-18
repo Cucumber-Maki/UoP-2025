@@ -37,6 +37,9 @@ func _ready():
 func _exit_tree() -> void:
 	m_claimed = false;
 	
+func _physics_process(delta: float) -> void:
+	handleYeet(delta);
+	
 ################################################################################
 
 func updateVisuals(delta):
@@ -56,6 +59,7 @@ func updateVisuals(delta):
 	m_lastPosition = global_position;
 
 func moveToPath(index : int, beforeDistance : float, pushback : float, delta : float) -> float:
+	if (m_isYeeting): return 0;
 	m_currentPathDistance += pushback;
 	if (ChickkinPath.s_instance == null): return 0;
 	
@@ -117,3 +121,32 @@ func moveToPath(index : int, beforeDistance : float, pushback : float, delta : f
 	
 	return m_currentPathDistance;
 	
+func yeet(target : Vector3):
+	if (m_isYeeting): return;
+	
+	var length := (target - global_position).length();
+	m_jumpTime = length / 10;
+	m_jumpHeight = length * 0.4;
+	m_jumpProgress = 1.0;
+	
+	m_yeetFrom = global_position;
+	m_yeetTo = target;
+	
+	m_isYeeting = true;
+	
+var m_isYeeting : bool = false;
+var m_yeetFrom : Vector3;
+var m_yeetTo : Vector3;
+func handleYeet(delta : float) -> void:
+	if (!m_isYeeting): return;
+	
+	if (m_jumpTime > 0):
+		if (m_jumpProgress <= 0):
+			queue_free();
+			return;
+		else:
+			m_jumpProgress -= delta / m_jumpTime;
+		
+	var pos := m_yeetTo.lerp(m_yeetFrom, m_jumpProgress);
+	pos.y += sin(m_jumpProgress * PI) * m_jumpHeight;
+	global_position = pos;
