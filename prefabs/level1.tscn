@@ -72,7 +72,7 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 transform = Transform3D(-0.866025, 7.57103e-08, -0.5, -8.74228e-08, -1, 0, -0.5, 4.37114e-08, 0.866025, -48, 0.2, 14)
 
 [node name="Refrigerator" parent="Environment" instance=ExtResource("9_spq7v")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -85, -44, -27)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -173.731, -44, 28.7464)
 
 [node name="Refrigerator Door" parent="Environment/Refrigerator" index="1"]
 transform = Transform3D(-0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, -0.5, -25, 0, -20)
@@ -81,7 +81,7 @@ transform = Transform3D(-0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, -0.5, -25, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 32, 38)
 
 [node name="Box Shelves" parent="Environment" instance=ExtResource("11_0b3ik")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 72, -44, -35)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 75.8431, -44, -35)
 
 [node name="Oven" parent="Environment" instance=ExtResource("12_4siyy")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 61, -44, -93)
@@ -109,6 +109,120 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0, 18)
 [node name="Toaster" parent="Environment" instance=ExtResource("18_olfdj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, 33)
 skeleton = NodePath("../..")
+
+[node name="Shelf2" parent="Environment" instance=ExtResource("5_ctcjh")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -75.7524, -3.04241, 29.1192)
+
+[node name="Plate Small2" parent="Environment" instance=ExtResource("17_xha6b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.104, 0.769035, 35)
+
+[node name="Plate Big2" parent="Environment" instance=ExtResource("16_ysal5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.913, -7.71759, 20.1201)
+
+[node name="Plate Small3" parent="Environment" instance=ExtResource("17_xha6b")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -115.428, -4.35668, 20.7289)
+skeleton = NodePath("../Plate Big2")
+
+[node name="Plate Small4" parent="Environment" instance=ExtResource("17_xha6b")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -120.915, -1.7001, 24.7054)
+skeleton = NodePath("../Plate Small3")
+
+[node name="Bread" parent="Environment" instance=ExtResource("7_cqysd")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -137.293, 0, 29.1201)
+
+[node name="Pizza Box2" parent="Environment" instance=ExtResource("6_jbhi1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -170.658, -3.43686, 29.913)
+
+[node name="Spatula2" parent="Environment" instance=ExtResource("13_g1q7u")]
+transform = Transform3D(-0.866025, -0.0122162, 0.499851, 1.50951e-07, -0.999701, -0.0244322, 0.5, -0.0211588, 0.865767, 58, 0.982724, -72.1999)
+
+[node name="Counter2" parent="Environment" instance=ExtResource("1_mpcyb")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 38, -44, -169)
+
+[node name="Oven2" parent="Environment" instance=ExtResource("12_4siyy")]
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 76, -4, -92)
+
+[node name="Bread Bin2" parent="Environment" instance=ExtResource("14_r444d")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 57, 0, -185)
+
+[node name="Butter2" parent="Environment" instance=ExtResource("15_ltn4d")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 29, 0, -193)
+
+[node name="Shelf3" parent="Environment" instance=ExtResource("5_ctcjh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 71, 24, -167)
+
+[node name="Counter3" parent="Environment" instance=ExtResource("1_mpcyb")]
+transform = Transform3D(0.5, 0, 0, 0, 1.2, 0, 0, 0, 1, -22, -44, -169)
+
+[node name="Bread2" parent="Environment" instance=ExtResource("7_cqysd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47, -4, -120)
+
+[node name="Bread3" parent="Environment" instance=ExtResource("7_cqysd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, -2, -130)
+
+[node name="Bread4" parent="Environment" instance=ExtResource("7_cqysd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -154)
+
+[node name="Bread5" parent="Environment" instance=ExtResource("7_cqysd")]
+transform = Transform3D(0.978148, 0, -0.207912, 0, 1, 0, 0.207912, 0, 0.978148, 14.0791, 1, -153.867)
+
+[node name="Bread6" parent="Environment" instance=ExtResource("7_cqysd")]
+transform = Transform3D(0.978148, 0, 0.207912, 0, 1, 0, -0.207912, 0, 0.978148, 14, 2, -154)
+
+[node name="Bread7" parent="Environment" instance=ExtResource("7_cqysd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -171)
+
+[node name="Bread8" parent="Environment" instance=ExtResource("7_cqysd")]
+transform = Transform3D(0.829038, 0, 0.559193, 0, 1, 0, -0.559193, 0, 0.829038, 14, 1, -171)
+
+[node name="Bread9" parent="Environment" instance=ExtResource("7_cqysd")]
+transform = Transform3D(0.978148, 0, 0.207912, 0, 1, 0, -0.207912, 0, 0.978148, 14, 4, -171)
+
+[node name="Bread10" parent="Environment" instance=ExtResource("7_cqysd")]
+transform = Transform3D(0.829038, 0, 0.559193, 0, 1, 0, -0.559193, 0, 0.829038, 14, 2, -171)
+
+[node name="Bread11" parent="Environment" instance=ExtResource("7_cqysd")]
+transform = Transform3D(0.573576, 0, 0.819152, 0, 1, 0, -0.819152, 0, 0.573576, 14, 3, -171)
+
+[node name="Bread12" parent="Environment" instance=ExtResource("7_cqysd")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 14, 5, -171)
+
+[node name="Bread Bin3" parent="Environment" instance=ExtResource("14_r444d")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -22, 9, -171)
+
+[node name="Butter3" parent="Environment" instance=ExtResource("15_ltn4d")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43, 9, -160)
+
+[node name="Butter4" parent="Environment" instance=ExtResource("15_ltn4d")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -47, 9, -171)
+
+[node name="Shelf4" parent="Environment" instance=ExtResource("5_ctcjh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 20, -189)
+
+[node name="Butter5" parent="Environment" instance=ExtResource("15_ltn4d")]
+transform = Transform3D(-1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -39, 9, -171)
+
+[node name="Plate Big3" parent="Environment" instance=ExtResource("16_ysal5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0868, 21.2824, -187.88)
+
+[node name="Plate Small5" parent="Environment" instance=ExtResource("17_xha6b")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 75.5724, 24.6433, -125.271)
+skeleton = NodePath("../Plate Big2")
+
+[node name="Plate Small6" parent="Environment" instance=ExtResource("17_xha6b")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 69.5724, 26.6433, -110.271)
+skeleton = NodePath("../Plate Big2")
+
+[node name="Plate Small7" parent="Environment" instance=ExtResource("17_xha6b")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 79.5724, 28.6433, -97.271)
+skeleton = NodePath("../Plate Big2")
+
+[node name="Plate Small8" parent="Environment" instance=ExtResource("17_xha6b")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 73.5724, 30.6433, -84.271)
+skeleton = NodePath("../Plate Big2")
+
+[node name="Plate Big4" parent="Environment" instance=ExtResource("16_ysal5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.0868, 34.2824, -75.8799)
 
 [node name="Seeds" type="Node" parent="."]
 script = ExtResource("4_r1f7g")
