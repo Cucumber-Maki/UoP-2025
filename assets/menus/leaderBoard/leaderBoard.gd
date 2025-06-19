@@ -14,9 +14,10 @@ var m_activeLeaderboardContainer : GridContainer = null;
 func getLeaderboardContainer() -> GridContainer:
 	if (m_activeLeaderboardContainer == null):
 		m_activeLeaderboardContainer = GridContainer.new();
-		m_activeLeaderboardContainer.columns = 3;
+		m_activeLeaderboardContainer.columns = 4;
 		getContentContainer().add_child(m_activeLeaderboardContainer);
 		
+		createLeaderBoardHeading("Rank")
 		createLeaderBoardHeading("Name")
 		createLeaderBoardHeading("Seeds")
 		createLeaderBoardHeading("Time")
@@ -106,7 +107,10 @@ func printLeaderboard(parent : GridContainer, type : StringName):
 			
 	var from := current_tab * tab_size;
 	var to := from + tab_size;
+	var rank := from + 1
 	for score in scores.slice(from, to):
+		printLeaderboardCell(parent, str(rank))
+		rank += 1
 		printLeaderboardCell(parent, "%s" % score.name)
 		printLeaderboardCell(parent, "%d" % score.seeds)
 		printLeaderboardCell(parent, "%2.2f" % score.time)
