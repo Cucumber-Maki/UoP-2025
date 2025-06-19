@@ -34,6 +34,14 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "meshes": {
+"MiscLevelAssets_Circle": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Circle.res"
+},
 "MiscLevelAssets_Circle_001": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -57,6 +65,14 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "save_to_file/enabled": true,
 "save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_001.res"
+},
+"MiscLevelAssets_Cube_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_002.res"
 },
 "MiscLevelAssets_Cube_003": {
 "generate/lightmap_uv": 0,
@@ -153,6 +169,14 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "save_to_file/enabled": true,
 "save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_014.res"
+},
+"MiscLevelAssets_Cube_015": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/environment/_meshes/MiscLevelAssets_Cube_015.res"
 },
 "MiscLevelAssets_Cube_018": {
 "generate/lightmap_uv": 0,

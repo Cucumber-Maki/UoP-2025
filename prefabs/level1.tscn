@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://coqnh8key0bbu" path="res://prefabs/environment/counter.tscn" id="1_mpcyb"]
 [ext_resource type="PackedScene" uid="uid://lyhtk1heeyd5" path="res://prefabs/entities/chickkin.tscn" id="2_cllcc"]
+[ext_resource type="Texture2D" uid="uid://bkrsyp0cjdtn6" path="res://assets/environment/decals/Steam.png" id="2_erl2u"]
 [ext_resource type="PackedScene" uid="uid://bo0i73h2fwj0w" path="res://prefabs/misc/lava.tscn" id="3_mh6et"]
 [ext_resource type="PackedScene" uid="uid://giawftbpppid" path="res://prefabs/game/fryer.tscn" id="3_r1f7g"]
 [ext_resource type="PackedScene" uid="uid://b8uurrsxlejy8" path="res://prefabs/game/podium.tscn" id="4_3kluf"]
@@ -34,6 +35,35 @@
 [ext_resource type="Texture2D" uid="uid://ck8nrqg7mb3qu" path="res://assets/environment/decals/Chicmin Wing.png" id="29_4siyy"]
 [ext_resource type="Texture2D" uid="uid://c528g3wl1rikk" path="res://assets/environment/decals/Flabergasted.png" id="31_r444d"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b3ik"]
+atlas = ExtResource("2_erl2u")
+region = Rect2(0, 0, 188, 234)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4siyy"]
+atlas = ExtResource("2_erl2u")
+region = Rect2(188, 0, 188, 234)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1q7u"]
+atlas = ExtResource("2_erl2u")
+region = Rect2(376, 0, 188, 234)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r444d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b3ik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4siyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1q7u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="Environment" id="Environment_mh6et"]
 background_mode = 1
 background_color = Color(0.866667, 0.266667, 0.133333, 1)
@@ -55,6 +85,15 @@ radius = 15.0
 [node name="Fryer" parent="Game Logic" node_paths=PackedStringArray("podium") instance=ExtResource("3_r1f7g")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, -23, -44)
 podium = NodePath("../Podium/Target")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Game Logic/Fryer"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 20, 0)
+modulate = Color(1, 1, 1, 0.501961)
+billboard = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_r444d")
+autoplay = "default"
+frame_progress = 0.760362
 
 [node name="Podium" parent="Game Logic" instance=ExtResource("4_3kluf")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -15)
