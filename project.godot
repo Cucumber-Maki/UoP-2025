@@ -25,6 +25,8 @@ Console="*res://assets/debug/console/console.gd"
 GameSettings="*res://assets/game/gameSettings.gd"
 GameState="*res://assets/game/gameState.gd"
 DebugSettings="*res://assets/debug/debugSettings/debugSettings.gd"
+LeaderboardState="*res://assets/game/leaderboard.gd"
+ScoreState="*res://assets/game/scoreState.gd"
 
 [debug]
 

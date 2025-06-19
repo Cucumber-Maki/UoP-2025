@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6s0qbxk1k4i5"]
+
+[ext_resource type="PackedScene" uid="uid://bd8u4t0aronsr" path="res://assets/menus/menuBase.tscn" id="1_ryv7o"]
+[ext_resource type="Script" uid="uid://bnmwcw0pdfve1" path="res://assets/menus/leaderBoard/leaderBoard.gd" id="2_pmmpr"]
+
+[node name="LeaderBoard" instance=ExtResource("1_ryv7o")]
+script = ExtResource("2_pmmpr")

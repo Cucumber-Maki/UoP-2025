@@ -19,6 +19,5 @@
 [node name="Player" parent="." instance=ExtResource("3_0sr1o")]
 collision_layer = 2
 m_ability_rollUnlocked = true
-m_respawn_location = Vector3(0, 0, 0)
 
 [node name="Level1" parent="." instance=ExtResource("5_lfrn8")]
