@@ -88,6 +88,7 @@ func getTargetGravity(delta) -> float:
 		if (m_timeSinceLastGrounded < m_groundJumpCoyoteTime):
 			m_gravityAmount = m_groundJumpImpulse;
 			m_timeSinceLastGrounded = m_groundJumpCoyoteTime;
+			$Audio/JumpAudio.play()
 		else:
 			m_groundJumpsRemaining -= 1;
 		return m_gravityAmount;

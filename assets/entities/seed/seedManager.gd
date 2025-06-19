@@ -10,7 +10,7 @@ func _ready() -> void:
 func collectSeed() -> void:
 	Console.log("Seed collected.");
 	ScoreState.m_seedCount += 1
+	$CollectAudio.play()
 
 func _process(delta: float) -> void:
 	ScoreState.m_time += delta;
-	
