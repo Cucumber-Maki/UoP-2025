@@ -14,7 +14,7 @@ var camera_invertCameraY : bool = false;
 
 var volume_master : float = 0.1;
 var volume_effect : float = 0.1;
-
+var volume_music : float = 0.1;
 ################################################################################	
 
 func getFileLocation() -> String:

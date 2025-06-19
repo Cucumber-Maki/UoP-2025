@@ -103,6 +103,7 @@ func handleRoll(delta : float) -> void:
 	m_gravityAmount = m_ability_rollImpulse.y;
 	setAnimationVariableDirect("parameters/RollTrigger/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE);
 	m_ability_rollAvailable = false;
+	$Audio/RollAudio.play()
 
 ################################################################################
 

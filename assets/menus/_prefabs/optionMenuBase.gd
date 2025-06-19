@@ -56,6 +56,17 @@ func _process(_delta: float) -> void:
 	
 ################################################################################
 	
+func clearMenu():
+	for child in root.get_children():
+		child.queue_free();
+	
+	m_activeParentTop = null;
+	m_activeParentBottom = null;
+	m_activeTabTop = null;
+	m_activeTabBottom = null;
+	m_activeGridContainer = null;
+	
+	
 func getParentContainer(top : bool = false) -> Control:
 	if (m_activeParentTop == null):
 		m_activeParentTop = preload("res://assets/menus/_prefabs/content.tscn").instantiate();

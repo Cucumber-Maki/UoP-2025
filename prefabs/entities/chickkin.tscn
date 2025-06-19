@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://lyhtk1heeyd5"]
+[gd_scene load_steps=11 format=3 uid="uid://lyhtk1heeyd5"]
 
 [ext_resource type="PackedScene" uid="uid://coft78mfycl6e" path="res://assets/entities/entityBase/entityBase.tscn" id="1_mb1hf"]
 [ext_resource type="Script" uid="uid://hwp8jo4h4dwr" path="res://assets/entities/chickkin/chickkin.gd" id="2_6dekb"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://boubr3gocwl0e" path="res://assets/entities/chickkin/chickkin.glb" id="2_jwwsi"]
 [ext_resource type="Material" uid="uid://di8g2xqtjqm4g" path="res://assets/entities/chickkin/chickkin.tres" id="4_47ai3"]
 [ext_resource type="Script" uid="uid://blw1ijflfqg0y" path="res://assets/misc/wobble/wobble.gd" id="6_uy3rl"]
+[ext_resource type="AudioStream" uid="uid://dkfylb5iowjg3" path="res://assets/audio/yippe.ogg" id="7_wqw7b"]
+[ext_resource type="AudioStream" uid="uid://cdx4ivq6b41bp" path="res://assets/audio/pimkin.ogg" id="8_rtccc"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uy3rl"]
 
@@ -64,6 +66,14 @@ collision_mask = 2
 shape = SubResource("SphereShape3D_wqw7b")
 debug_color = Color(0.233333, 0, 0.7, 0.352941)
 
+[node name="YeetAudio" type="AudioStreamPlayer3D" parent="." index="4" groups=["AudioEffect"]]
+stream = ExtResource("7_wqw7b")
+
+[node name="JoinAudio" type="AudioStreamPlayer3D" parent="." index="5" groups=["AudioEffect"]]
+stream = ExtResource("8_rtccc")
+
+[connection signal="onClaim" from="." to="JoinAudio" method="play"]
+[connection signal="onYeet" from="." to="YeetAudio" method="play"]
 [connection signal="body_entered" from="ClaimTrigger" to="." method="onPlayerClaim"]
 
 [editable path="Model"]
