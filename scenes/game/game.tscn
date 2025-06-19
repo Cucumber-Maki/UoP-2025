@@ -17,6 +17,7 @@
 [node name="ChickkinPath" parent="." instance=ExtResource("3_lfrn8")]
 
 [node name="Player" parent="." instance=ExtResource("3_0sr1o")]
+transform = Transform3D(1, 0, 1.17225e-07, 0, 1, 0, -1.17225e-07, 0, 1, 0, 0, -8)
 collision_layer = 2
 m_ability_rollUnlocked = true
 
