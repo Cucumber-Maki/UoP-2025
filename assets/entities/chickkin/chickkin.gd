@@ -25,7 +25,7 @@ signal onYeet;
 			return;
 		
 		if (m_claimed):
-			Player.s_instance.m_chickkins.append(self);
+			Player.s_instance.m_chickkins.push_front(self);
 			onClaim.emit();
 		else:
 			Player.s_instance.m_chickkins.erase(self);

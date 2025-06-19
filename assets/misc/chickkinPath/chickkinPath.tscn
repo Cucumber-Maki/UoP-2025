@@ -4,3 +4,4 @@
 
 [node name="ChickkinPath" type="Node3D"]
 script = ExtResource("1_imye6")
+m_pathMaxLength = 500.0
