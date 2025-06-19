@@ -6,7 +6,7 @@ func _ready() -> void:
 	addCategory("Game Paused");
 	addButton("Resume", func(): onMenuExit.emit());
 	addButton("Settings", func(): onMenuEnter.emit("SettingsMenu"));
-	if (OS.is_debug_build()):
+	if (GameState.game_inDebugMode):
 		addButton("Debug", func(): onMenuEnter.emit("DebugMenu"));
 
 	addButton("Exit to Main Menu", func(): GameState.changeScene("res://scenes/mainMenu/mainMenu.tscn"));

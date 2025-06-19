@@ -18,6 +18,11 @@ var isUsingController : bool = false:
 		if (isUsingController == value): return;
 		isUsingController = value;
 		_updateMouseVisibility();
+var game_inDebugMode : bool = false:
+	set(value):
+		if (game_inDebugMode == value): return;
+		game_inDebugMode = value;
+		resetScene();
 
 ################################################################################
 # Common functions.
@@ -30,6 +35,9 @@ func isPaused() -> bool:
 
 func setPaused(paused : bool) -> void:
 	get_tree().paused = paused;
+
+func resetScene():
+	get_tree().reload_current_scene();
 
 func changeScene(scenePath : StringName)  -> void:
 	setPaused(false);
@@ -54,6 +62,7 @@ func exitGame() -> void:
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS;
+	game_inDebugMode = OS.is_debug_build();
 	#process_priority = -1;
 
 func _input(event: InputEvent) -> void:
@@ -64,6 +73,9 @@ func _input(event: InputEvent) -> void:
 	elif (event is InputEventJoypadMotion and (event as InputEventJoypadMotion).axis_value > 0.5):
 		isUsingController = true;
 		
+func _process(delta: float) -> void:
+	if (Input.is_action_just_pressed("game_debugMode")):
+		game_inDebugMode = !game_inDebugMode;
 	
 func _updateMouseVisibility() -> void:
 	var targetState : Input.MouseMode = Input.MOUSE_MODE_VISIBLE;
