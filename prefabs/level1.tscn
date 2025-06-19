@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dopea1qvvo3id" path="res://prefabs/environment/plate_big.tscn" id="16_ysal5"]
 [ext_resource type="PackedScene" uid="uid://f4fd4x48iwxt" path="res://prefabs/environment/plate_small.tscn" id="17_xha6b"]
 [ext_resource type="PackedScene" uid="uid://cnc4xx2suavrr" path="res://prefabs/environment/toaster.tscn" id="18_olfdj"]
-[ext_resource type="PackedScene" path="res://assets/environment/god.glb" id="23_jbhi1"]
+[ext_resource type="PackedScene" uid="uid://b515rh0200y4k" path="res://assets/environment/god/god.glb" id="23_jbhi1"]
 
 [sub_resource type="Environment" id="Environment_mh6et"]
 background_mode = 1
