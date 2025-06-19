@@ -51,7 +51,7 @@ func _ready():
 func _exit_tree() -> void:
 	m_claimed = false;
 	m_chickenCount -= 1;
-	if (m_chickenCount <= 0):
+	if (m_isYeeting && m_chickenCount <= 0):
 		GameState.changeScene("res://scenes/leaderboard/leaderboard.tscn");
 	
 func _physics_process(delta: float) -> void:

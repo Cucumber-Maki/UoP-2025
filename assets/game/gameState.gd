@@ -39,9 +39,11 @@ func setPaused(paused : bool) -> void:
 func resetScene():
 	get_tree().reload_current_scene();
 
-func changeScene(scenePath : StringName)  -> void:
+func changeScene(scenePath : StringName) -> void:
 	setPaused(false);
 	inputActive = false;
+	call_deferred("_changeScene", scenePath);
+func _changeScene(scenePath : StringName) -> void:
 	get_tree().change_scene_to_file(scenePath);
 
 func restartGame() -> void:
