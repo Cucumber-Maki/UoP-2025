@@ -10,3 +10,4 @@ func _ready() -> void:
 func collectSeed() -> void:
 	print("Seed collected")
 	seedCount += 1
+	$CollectAudio.play()

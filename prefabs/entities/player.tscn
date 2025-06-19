@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc1wxbqo1hw6e"]
+[gd_scene load_steps=10 format=3 uid="uid://cc1wxbqo1hw6e"]
 
 [ext_resource type="PackedScene" uid="uid://ca4g3hlui3fxf" path="res://assets/entities/movementBase/movementBase.tscn" id="1_grlhh"]
 [ext_resource type="PackedScene" uid="uid://camy1b53v3028" path="res://assets/entities/player/chickmin.glb" id="2_ffmxu"]
@@ -6,6 +6,9 @@
 [ext_resource type="AnimationNodeBlendTree" uid="uid://ev65s1lta153" path="res://assets/entities/player/playerAnimationTree.tres" id="3_in8qa"]
 [ext_resource type="Material" uid="uid://doji46ou2dukp" path="res://assets/entities/player/player.tres" id="5_ecp7k"]
 [ext_resource type="Script" uid="uid://blw1ijflfqg0y" path="res://assets/misc/wobble/wobble.gd" id="6_3kclj"]
+[ext_resource type="AudioStream" uid="uid://dsjmvcnqwjyw8" path="res://assets/audio/swosh33.ogg" id="7_ohfey"]
+[ext_resource type="Script" uid="uid://c4qb8e5wej0n8" path="res://assets/audio/audioPlayer.gd" id="8_o5qwm"]
+[ext_resource type="AudioStream" uid="uid://bcjjyit6ex13i" path="res://assets/audio/swosh36.ogg" id="8_ss567"]
 
 [node name="Player" groups=["Player"] instance=ExtResource("1_grlhh")]
 collision_layer = 3
@@ -153,5 +156,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75011, 0)
 
 [node name="Camera" type="Camera3D" parent="CameraOrigin" index="0"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -4.91334)
+
+[node name="Audio" type="Node" parent="." index="4"]
+
+[node name="RollAudio" type="AudioStreamPlayer" parent="Audio" index="0" groups=["AudioEffect"]]
+stream = ExtResource("7_ohfey")
+script = ExtResource("8_o5qwm")
+
+[node name="JumpAudio" type="AudioStreamPlayer" parent="Audio" index="1" groups=["AudioEffect"]]
+stream = ExtResource("8_ss567")
+script = ExtResource("8_o5qwm")
 
 [editable path="Model"]
