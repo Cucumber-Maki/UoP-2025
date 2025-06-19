@@ -29,15 +29,15 @@
 [ext_resource type="Texture2D" uid="uid://nu8oxce54swc" path="res://assets/environment/decals/You're Cooked.png" id="22_g1q7u"]
 [ext_resource type="PackedScene" uid="uid://b515rh0200y4k" path="res://assets/environment/god/god.glb" id="23_jbhi1"]
 [ext_resource type="AudioStream" uid="uid://cy4mcw2ag6007" path="res://assets/audio/themeofchicken.ogg" id="24_cqysd"]
-[ext_resource type="Script" path="res://prefabs/music.gd" id="25_k1so2"]
+[ext_resource type="Script" uid="uid://s2tv8lmex1dp" path="res://prefabs/music.gd" id="25_k1so2"]
 [ext_resource type="Texture2D" uid="uid://ceukfkv16il7b" path="res://assets/environment/decals/Chickmin vs the World.png" id="25_ysal5"]
 [ext_resource type="Texture2D" uid="uid://j0ejiqwxn33" path="res://assets/environment/decals/No Chickmins.png" id="28_0b3ik"]
 [ext_resource type="Texture2D" uid="uid://ck8nrqg7mb3qu" path="res://assets/environment/decals/Chicmin Wing.png" id="29_4siyy"]
 [ext_resource type="Texture2D" uid="uid://c528g3wl1rikk" path="res://assets/environment/decals/Flabergasted.png" id="31_r444d"]
-[ext_resource type="PackedScene" path="res://prefabs/environment/sugar_pot.tscn" id="32_cfhlv"]
+[ext_resource type="PackedScene" uid="uid://g4lb42gnbw8d" path="res://prefabs/environment/sugar_pot.tscn" id="32_cfhlv"]
 [ext_resource type="PackedScene" uid="uid://3hhtk5m4wy6l" path="res://prefabs/environment/chickmin_ghost.tscn" id="35_olfdj"]
 [ext_resource type="Texture2D" uid="uid://dhundlh11yvlf" path="res://assets/environment/decals/ChickMeOut.png" id="36_8sb2c"]
-[ext_resource type="PackedScene" path="res://prefabs/environment/frying_pan.tscn" id="37_ompki"]
+[ext_resource type="PackedScene" uid="uid://n8q1xsv8r4ui" path="res://prefabs/environment/frying_pan.tscn" id="37_ompki"]
 [ext_resource type="Texture2D" uid="uid://divq51m7qcma5" path="res://assets/environment/decals/Chickmin Guy.png" id="38_lpyl5"]
 
 [sub_resource type="Environment" id="Environment_mh6et"]
@@ -87,12 +87,15 @@ frame_progress = 0.325044
 
 [node name="ChickminGhost2" parent="Environment/Sprites" instance=ExtResource("35_olfdj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.5566, 4, 7.91836)
+autoplay = "default"
 
 [node name="ChickminGhost3" parent="Environment/Sprites" instance=ExtResource("35_olfdj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.6658, 1, -156.516)
+autoplay = "default"
 
 [node name="ChickminGhost4" parent="Environment/Sprites" instance=ExtResource("35_olfdj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.84475, 11.825, -131.64)
+autoplay = "default"
 
 [node name="AnimatedSteam" parent="Environment/Sprites" instance=ExtResource("2_olfdj")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -198.494, -25, -79.4082)
