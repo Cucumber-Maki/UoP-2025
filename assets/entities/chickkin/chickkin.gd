@@ -20,12 +20,14 @@ signal onYeet;
 		if (m_claimed == value): return;
 		m_claimed = value;
 		
-		if (Player.s_instance == null && m_claimed): 
+		if ((Player.s_instance == null || ChickkinPath.s_instance == null) && m_claimed): 
 			m_claimed = false;
 			return;
 		
 		if (m_claimed):
 			Player.s_instance.m_chickkins.push_front(self);
+			global_position = Player.s_instance.global_position;
+			m_currentPathDistance = ChickkinPath.s_instance.getPathDistance(0);
 			onClaim.emit();
 		else:
 			Player.s_instance.m_chickkins.erase(self);
@@ -111,34 +113,39 @@ func moveToPath(index : int, beforeDistance : float, pushback : float, delta : f
 				global_position = to.lerp(from, t);
 			
 			ChickkinPath.PathPointType.Air:
+				var from := routePoint.m_pathPoint.m_from;
+				var to := routePoint.m_pathPoint.m_to;
+				var startDistance := routePoint.m_startDistance;
+				var endDistance := routePoint.m_endDistance;
+				
+				# Merge!!
+				while (!route.is_empty() && route[-1].m_pathPoint.m_type == ChickkinPath.PathPointType.Air):
+					var r : ChickkinPath.RoutePoint = route.pop_back();
+					to = r.m_pathPoint.m_to;
+					startDistance = r.m_startDistance;
+				
 				if (m_jumpTime > 0):
 					if (m_jumpProgress <= 0):
-						m_currentPathDistance = routePoint.m_startDistance;
+						m_currentPathDistance = startDistance;
 						m_jumpTime = 0;
 						m_jumpProgress = 0;
 					else:
 						m_jumpProgress -= delta / m_jumpTime;
-				elif (targetDistance < routePoint.m_startDistance):
-					var length := routePoint.m_endDistance - routePoint.m_startDistance;
+				elif (targetDistance < startDistance):
+					var length := (to - from).length();
 					m_jumpTime = length / 10;
 					m_jumpHeight = length * 0.4;
 					m_jumpProgress = 1.0;
 				else:
 					amountToMove = 0;
-					global_position = routePoint.m_pathPoint.m_from;
+					global_position = from;
 					break;
 				
-				var from := routePoint.m_pathPoint.m_from;
-				var to := routePoint.m_pathPoint.m_to;
 				var pos := to.lerp(from, m_jumpProgress);
 				pos.y += sin(m_jumpProgress * PI) * m_jumpHeight;
 				global_position = pos;
 				
-				return max(
-					routePoint.m_startDistance - (ChickkinPath.s_instance.m_followSpacing + 0.05),
-					route[0].m_endDistance if (route.size() > 0 && route[0].m_pathPoint.m_type == ChickkinPath.PathPointType.Air) else 0.0
-				);
-	
+				return targetDistance;
 	return m_currentPathDistance;
 	
 func yeet(target : Vector3):
