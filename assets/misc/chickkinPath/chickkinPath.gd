@@ -139,16 +139,17 @@ func drawPath():
 	mesh_instance.visible = true;
 	immediate_mesh.clear_surfaces();
 	
-	immediate_mesh.surface_begin(Mesh.PRIMITIVE_LINES, groundMaterial);
-	for pathPoint : PathPoint in m_path:
-		if (pathPoint.m_type != PathPointType.Ground): continue;
-		immediate_mesh.surface_add_vertex(pathPoint.m_from);
-		immediate_mesh.surface_add_vertex(pathPoint.m_to);
-	immediate_mesh.surface_end()
+	drawPathType(PathPointType.Ground, groundMaterial)
+	drawPathType(PathPointType.Air, airMaterial)
 	
-	immediate_mesh.surface_begin(Mesh.PRIMITIVE_LINES, airMaterial);
-	for pathPoint : PathPoint in m_path:
-		if (pathPoint.m_type != PathPointType.Air): continue;
+func drawPathType(type: PathPointType, material: ORMMaterial3D):
+	var path: Array[PathPoint] = m_path.filter(func(pathPoint: PathPoint):
+		return pathPoint.m_type == type
+	)
+	if (path.size() == 0): return
+	
+	immediate_mesh.surface_begin(Mesh.PRIMITIVE_LINES, material);
+	for pathPoint : PathPoint in path:
 		immediate_mesh.surface_add_vertex(pathPoint.m_from);
 		immediate_mesh.surface_add_vertex(pathPoint.m_to);
 	immediate_mesh.surface_end()

@@ -37,7 +37,7 @@ func setPaused(paused : bool) -> void:
 	get_tree().paused = paused;
 
 func resetScene():
-	get_tree().reload_current_scene();
+	get_tree().call_deferred("reload_current_scene")
 
 func changeScene(scenePath : StringName) -> void:
 	setPaused(false);
