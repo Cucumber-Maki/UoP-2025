@@ -14,22 +14,20 @@ var m_activeLeaderboardContainer : GridContainer = null;
 func getLeaderboardContainer() -> GridContainer:
 	if (m_activeLeaderboardContainer == null):
 		m_activeLeaderboardContainer = GridContainer.new();
-		m_activeLeaderboardContainer.columns = 3;
+		m_activeLeaderboardContainer.columns = 4;
 		getContentContainer().add_child(m_activeLeaderboardContainer);
 		
-		var heading_name : Label = Label.new()
-		heading_name.text = " Name ";
-		heading_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
-		m_activeLeaderboardContainer.add_child(heading_name);
-		var heading_seeds : Label = Label.new()
-		heading_seeds.text = " Seeds "
-		heading_seeds.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
-		m_activeLeaderboardContainer.add_child(heading_seeds);
-		var heading_time : Label = Label.new()
-		heading_time.text = " Time "
-		heading_time.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
-		m_activeLeaderboardContainer.add_child(heading_time);
+		createLeaderBoardHeading("Rank")
+		createLeaderBoardHeading("Name")
+		createLeaderBoardHeading("Seeds")
+		createLeaderBoardHeading("Time")
 	return m_activeLeaderboardContainer;
+	
+func createLeaderBoardHeading(headingText: String):
+	var heading : Label = Label.new()
+	heading.text = " %s " % headingText;
+	heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
+	m_activeLeaderboardContainer.add_child(heading);
 
 const tab_size : int = 5;
 var current_tab : int = 0;
@@ -61,6 +59,7 @@ func _createMenu():
 		printLeaderboard(seedLeaderboard, "Seeds");
 		printLeaderboard(timeLeaderboard, "Time");
 		#
+		@warning_ignore("confusable_local_declaration")
 		var totalTabs : int = getTotalTabs();
 		left.disabled = current_tab <= 0;
 		right.disabled = current_tab >= totalTabs - 1;
@@ -74,6 +73,7 @@ func _createMenu():
 		printLeaderboard(seedLeaderboard, "Seeds");
 		printLeaderboard(timeLeaderboard, "Time");
 		#
+		@warning_ignore("confusable_local_declaration")
 		var totalTabs : int = getTotalTabs();
 		left.disabled = current_tab <= 0;
 		right.disabled = current_tab >= totalTabs - 1;
@@ -107,22 +107,22 @@ func printLeaderboard(parent : GridContainer, type : StringName):
 			
 	var from := current_tab * tab_size;
 	var to := from + tab_size;
+	var rank := from + 1
 	for score in scores.slice(from, to):
-		var content_name : Label = Label.new()
-		content_name.text = "{name}".format(score);
-		content_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
-		parent.add_child(content_name);
-		var content_seeds : Label = Label.new()
-		content_seeds.text = "%d" % int(score["seeds"]);
-		content_seeds.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
-		parent.add_child(content_seeds);
-		var content_time : Label = Label.new()
-		content_time.text = "%2.2f" % score.time;
-		content_time.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
-		parent.add_child(content_time);
+		printLeaderboardCell(parent, str(rank))
+		rank += 1
+		printLeaderboardCell(parent, "%s" % score.name)
+		printLeaderboardCell(parent, "%d" % score.seeds)
+		printLeaderboardCell(parent, "%2.2f" % score.time)
+		
+func printLeaderboardCell(parent: GridContainer, text: String):
+	var content_cell : Label = Label.new()
+	content_cell.text = text;
+	content_cell.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
+	parent.add_child(content_cell);
 
 func getTotalTabs() -> int:
 	var totalTabs : int = LeaderboardState.leaderboard.size() / tab_size;
-	if ((LeaderboardState.leaderboard.size() % tab_size) > 0): 
+	if ((LeaderboardState.leaderboard.size() % tab_size) > 0):
 		totalTabs += 1;
 	return totalTabs
