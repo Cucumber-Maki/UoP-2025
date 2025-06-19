@@ -81,21 +81,15 @@ environment = SubResource("Environment_mh6et")
 
 [node name="ChickminGhost" parent="Environment/Sprites" instance=ExtResource("35_olfdj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.033, 3.98902, -24.8931)
-modulate = Color(1, 1, 1, 0.690196)
-autoplay = "default"
-frame_progress = 0.325044
 
 [node name="ChickminGhost2" parent="Environment/Sprites" instance=ExtResource("35_olfdj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.5566, 4, 7.91836)
-autoplay = "default"
 
 [node name="ChickminGhost3" parent="Environment/Sprites" instance=ExtResource("35_olfdj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.6658, 1, -156.516)
-autoplay = "default"
 
 [node name="ChickminGhost4" parent="Environment/Sprites" instance=ExtResource("35_olfdj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.84475, 11.825, -131.64)
-autoplay = "default"
 
 [node name="AnimatedSteam" parent="Environment/Sprites" instance=ExtResource("2_olfdj")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -198.494, -25, -79.4082)
