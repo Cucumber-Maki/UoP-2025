@@ -1,13 +1,16 @@
 extends Node
+class_name SeedManager;
 
-var seedCount : int = 0;
-var totalSeeds : int;
+static var remainingSeeds : int = 0;
 
 func _ready() -> void:
-	totalSeeds = get_children().size()
-
+	ScoreState.m_seedCount = 0;
+	ScoreState.m_time = 0;
 
 func collectSeed() -> void:
-	print("Seed collected")
-	seedCount += 1
+	Console.log("Seed collected.");
+	ScoreState.m_seedCount += 1
 	$CollectAudio.play()
+
+func _process(delta: float) -> void:
+	ScoreState.m_time += delta;
