@@ -1,6 +1,8 @@
 extends EntityBase;
 class_name Chickkin;
 
+static var m_chickenCount : int = 0;
+
 ################################################################################
 
 @onready var m_color : int = randi_range(0, 5);
@@ -33,9 +35,13 @@ func _ready():
 	$Model/Chickkin/Skeleton3D/Model.set_instance_shader_parameter("u_faceChoice", m_face as float);
 	setAnimationVariableDirect("parameters/Idle/blend_position", m_idle);
 	m_claimed = m_claimed;
+	m_chickenCount += 1;
 
 func _exit_tree() -> void:
 	m_claimed = false;
+	m_chickenCount -= 1;
+	if (m_chickenCount <= 0):
+		GameState.changeScene("res://scenes/leaderboard/leaderboard.tscn");
 	
 func _physics_process(delta: float) -> void:
 	handleYeet(delta);
