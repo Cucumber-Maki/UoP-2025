@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://di8g2xqtjqm4g" path="res://assets/entities/chickkin/chickkin.tres" id="4_47ai3"]
 [ext_resource type="Script" uid="uid://blw1ijflfqg0y" path="res://assets/misc/wobble/wobble.gd" id="6_uy3rl"]
 [ext_resource type="AudioStream" uid="uid://dkfylb5iowjg3" path="res://assets/audio/yippe.ogg" id="7_wqw7b"]
-[ext_resource type="AudioStream" uid="uid://cdx4ivq6b41bp" path="res://assets/audio/pimkin.ogg" id="8_rtccc"]
+[ext_resource type="AudioStream" uid="uid://eimvu1gen023" path="res://assets/audio/wahoo.ogg" id="8_rtccc"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uy3rl"]
 
