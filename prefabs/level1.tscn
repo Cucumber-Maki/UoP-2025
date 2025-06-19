@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bkt4tb2ftnc8v"]
+[gd_scene load_steps=28 format=3 uid="uid://bkt4tb2ftnc8v"]
 
 [ext_resource type="PackedScene" uid="uid://coqnh8key0bbu" path="res://prefabs/environment/counter.tscn" id="1_mpcyb"]
 [ext_resource type="PackedScene" uid="uid://lyhtk1heeyd5" path="res://prefabs/entities/chickkin.tscn" id="2_cllcc"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cnc4xx2suavrr" path="res://prefabs/environment/toaster.tscn" id="18_olfdj"]
 [ext_resource type="AudioStream" uid="uid://c6uj0iqi3eyla" path="res://assets/audio/Foliage02.ogg" id="21_jbhi1"]
 [ext_resource type="AudioStream" uid="uid://cy4mcw2ag6007" path="res://assets/audio/themeofchicken.ogg" id="24_cqysd"]
+[ext_resource type="Script" uid="uid://s2tv8lmex1dp" path="res://prefabs/music.gd" id="25_k1so2"]
 
 [sub_resource type="Environment" id="Environment_mh6et"]
 background_mode = 1
@@ -196,8 +197,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
 shape = SubResource("BoxShape3D_87uf6")
 
 [node name="Music" type="AudioStreamPlayer" parent="." groups=["AudioMusic"]]
+process_mode = 3
 stream = ExtResource("24_cqysd")
 autoplay = true
+script = ExtResource("25_k1so2")
 
 [editable path="Game Logic/Podium"]
 [editable path="Environment/Refrigerator"]
