@@ -48,7 +48,6 @@ func _createMenu():
 	
 	endTab();
 	
-	print(current_tab);
 	var controls := HBoxContainer.new();
 	controls.alignment = BoxContainer.ALIGNMENT_CENTER;
 	var grid := GridContainer.new();
@@ -124,7 +123,6 @@ func printLeaderboard(parent : GridContainer, type : StringName):
 
 func getTotalTabs() -> int:
 	var totalTabs : int = LeaderboardState.leaderboard.size() / tab_size;
-	print(totalTabs, " = ", LeaderboardState.leaderboard.size(), " / ", tab_size);
 	if ((LeaderboardState.leaderboard.size() % tab_size) > 0): 
 		totalTabs += 1;
 	return totalTabs
