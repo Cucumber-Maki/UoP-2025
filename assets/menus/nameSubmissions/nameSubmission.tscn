@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn5mnellwtu0y"]
+
+[ext_resource type="PackedScene" uid="uid://bd8u4t0aronsr" path="res://assets/menus/menuBase.tscn" id="1_bohq0"]
+[ext_resource type="PackedScene" uid="uid://3ama1pcjs54w" path="res://assets/menus/_prefabs/content.tscn" id="2_dv7n5"]
+[ext_resource type="Script" uid="uid://bivlsf8u7ph8p" path="res://assets/menus/nameSubmissions/nameSubmission.gd" id="2_mxkks"]
+
+[node name="NameSubmission" instance=ExtResource("1_bohq0")]
+script = ExtResource("2_mxkks")
+
+[node name="Content" parent="Margin/Layout" index="0" instance=ExtResource("2_dv7n5")]
+layout_mode = 2
+
+[node name="You Won!" type="Label" parent="Margin/Layout/Content/VBoxContainer" index="0"]
+layout_mode = 2
+text = "You Won!"
+horizontal_alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="Margin/Layout/Content/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/Layout/Content/VBoxContainer/Panel" index="0"]
+layout_mode = 2
+alignment = 1
+
+[node name="Scores" type="GridContainer" parent="Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer" index="0"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores" index="0"]
+layout_mode = 2
+text = " Seeds "
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores" index="1"]
+layout_mode = 2
+text = " Time"
+horizontal_alignment = 1
+
+[node name="Seeds" type="Label" parent="Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores" index="2"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="Time" type="Label" parent="Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores" index="3"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Margin/Layout/Content/VBoxContainer" index="2"]
+layout_mode = 2
+columns = 2
+
+[node name="NameLabel" type="Label" parent="Margin/Layout/Content/VBoxContainer/GridContainer" index="0"]
+layout_mode = 2
+text = "Enter your name:"
+
+[node name="NameLineEdit" type="LineEdit" parent="Margin/Layout/Content/VBoxContainer/GridContainer" index="1"]
+layout_mode = 2
+placeholder_text = "NAM(E)"
+alignment = 1
+max_length = 3
+
+[node name="SubmitButton" type="Button" parent="Margin/Layout/Content/VBoxContainer" index="3"]
+layout_mode = 2
+text = "Submit To Leaderboard"
+
+[node name="SkipButton" type="Button" parent="Margin/Layout/Content/VBoxContainer" index="4"]
+layout_mode = 2
+text = "Skip"
+
+[editable path="Margin/Layout/Content"]
