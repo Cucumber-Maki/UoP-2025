@@ -3,6 +3,11 @@ class_name Chickkin;
 
 ################################################################################
 
+signal onClaim;
+signal onYeet;
+
+################################################################################
+
 @onready var m_color : int = randi_range(0, 5);
 @onready var m_face : int = randi_range(0, 3);
 @onready var m_idle : int = randi_range(0, 3);
@@ -10,10 +15,16 @@ class_name Chickkin;
 #
 @export var m_claimed : bool = false:
 	set(value):
+		if (m_claimed == value): return;
 		m_claimed = value;
-		if (Player.s_instance == null): return;
+		
+		if (Player.s_instance == null && m_claimed): 
+			m_claimed = false;
+			return;
+		
 		if (m_claimed):
 			Player.s_instance.m_chickkins.append(self);
+			onClaim.emit();
 		else:
 			Player.s_instance.m_chickkins.erase(self);
 #
@@ -68,6 +79,9 @@ func moveToPath(index : int, beforeDistance : float, pushback : float, delta : f
 		ChickkinPath.s_instance.getActiveDistance(),
 		beforeDistance + ChickkinPath.s_instance.m_followSpacing
 	);
+	
+	if (m_currentPathDistance <= targetDistance): 
+		return targetDistance;
 	
 	var route := ChickkinPath.s_instance.getRoute(targetDistance, m_currentPathDistance);
 	var amountToMove : float = min(m_pathingSpeed * delta, m_currentPathDistance - targetDistance);
@@ -133,6 +147,7 @@ func yeet(target : Vector3):
 	m_yeetTo = target;
 	
 	m_isYeeting = true;
+	onYeet.emit();
 	
 var m_isYeeting : bool = false;
 var m_yeetFrom : Vector3;
@@ -150,3 +165,8 @@ func handleYeet(delta : float) -> void:
 	var pos := m_yeetTo.lerp(m_yeetFrom, m_jumpProgress);
 	pos.y += sin(m_jumpProgress * PI) * m_jumpHeight;
 	global_position = pos;
+
+################################################################################
+
+func onPlayerClaim(body: Node3D) -> void:
+	m_claimed = true;
