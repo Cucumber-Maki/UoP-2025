@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc0nbfgcme5h5"]
+
+[ext_resource type="Texture2D" uid="uid://ckmerjmb76e3n" path="res://assets/environment/decals/Revolution.png" id="1_dac1a"]
+
+[node name="Graffiti" type="Sprite3D"]
+texture_filter = 0
+texture = ExtResource("1_dac1a")
