@@ -21,7 +21,7 @@ func getLeaderboardContainer() -> GridContainer:
 		m_activeLeaderboardContainer = GridContainer.new();
 		m_activeLeaderboardContainer.columns = 3;
 		getContentContainer().add_child(m_activeLeaderboardContainer);
-		#
+		
 		var heading_name : Label = Label.new()
 		heading_name.text = "Name";
 		heading_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
@@ -44,7 +44,7 @@ func _createMenu():
 		content_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
 		getLeaderboardContainer().add_child(content_name);
 		var content_seeds : Label = Label.new()
-		content_seeds.text = "{seeds}".format(score);
+		content_seeds.text = "%d" % int(score["seeds"]);
 		content_seeds.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
 		getLeaderboardContainer().add_child(content_seeds);
 		var content_time : Label = Label.new()
@@ -52,4 +52,4 @@ func _createMenu():
 		content_time.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
 		getLeaderboardContainer().add_child(content_time);
 		
-	addButton("Exit", func(): onMenuExit.emit());
+	addButton("Exit to Main Menu", func(): GameState.changeScene("res://scenes/mainMenu/mainMenu.tscn"));

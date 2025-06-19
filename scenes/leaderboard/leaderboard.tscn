@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0g50h60v2ew1"]
+
+[ext_resource type="Script" uid="uid://bivlsf8u7ph8p" path="res://scenes/leaderboard/leaderboard.gd" id="1_b6xng"]
+[ext_resource type="Theme" uid="uid://8jm73pmaw63g" path="res://assets/menus/_theme/theme.tres" id="1_x3ryb"]
+[ext_resource type="Script" uid="uid://fxl63bhyudh7" path="res://assets/menus/_prefabs/menuBase.gd" id="2_q1831"]
+[ext_resource type="PackedScene" uid="uid://b6s0qbxk1k4i5" path="res://assets/menus/leaderBoard/leaderBoard.tscn" id="3_1epml"]
+
+[node name="Leaderboard" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_x3ryb")
+script = ExtResource("1_b6xng")
+defaultMenu = "NameSubmission"
+
+[node name="NameSubmission" type="MarginContainer" parent="."]
+layout_mode = 2
+script = ExtResource("2_q1831")
+
+[node name="GridContainer" type="GridContainer" parent="NameSubmission"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="NameSubmission/GridContainer"]
+layout_mode = 2
+text = "End screen"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="NameSubmission/GridContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="NameLabel" type="Label" parent="NameSubmission/GridContainer/GridContainer"]
+layout_mode = 2
+text = "Enter your name:"
+
+[node name="NameLineEdit" type="LineEdit" parent="NameSubmission/GridContainer/GridContainer"]
+layout_mode = 2
+max_length = 3
+
+[node name="SubmitButton" type="Button" parent="NameSubmission/GridContainer/GridContainer"]
+layout_mode = 2
+text = "Submit"
+
+[node name="SkipButton" type="Button" parent="NameSubmission/GridContainer/GridContainer"]
+layout_mode = 2
+text = "Skip"
+
+[node name="LeaderBoard" parent="." instance=ExtResource("3_1epml")]
+visible = false
+layout_mode = 2
+
+[connection signal="onMenuEnter" from="." to="LeaderBoard" method="_on_pause_menu_on_menu_enter"]
+[connection signal="pressed" from="NameSubmission/GridContainer/GridContainer/SubmitButton" to="." method="_on_save_score_button_pressed"]
+[connection signal="pressed" from="NameSubmission/GridContainer/GridContainer/SkipButton" to="." method="_on_skip_button_pressed"]
