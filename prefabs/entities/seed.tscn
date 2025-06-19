@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://xdi604y3e7kt"]
+[gd_scene load_steps=6 format=3 uid="uid://xdi604y3e7kt"]
 
-[ext_resource type="Script" path="res://assets/entities/seed/seed.gd" id="1_fjomw"]
+[ext_resource type="Script" uid="uid://b4igjwhma5igr" path="res://assets/entities/seed/seed.gd" id="1_fjomw"]
 [ext_resource type="PackedScene" uid="uid://duru8wivmdsfx" path="res://assets/entities/seed/seed.glb" id="2_oyjia"]
+[ext_resource type="Material" uid="uid://bwh4vsbymasbn" path="res://assets/environment/common/word.tres" id="3_b7lra"]
+[ext_resource type="ArrayMesh" uid="uid://gn8gn3u0tcii" path="res://assets/environment/_meshes/MiscLevelAssets_Cube_015.res" id="4_big6t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oyjia"]
 
@@ -22,6 +24,12 @@ shape = SubResource("CapsuleShape3D_oyjia")
 debug_color = Color(1, 0.431373, 0.211765, 0.419608)
 
 [node name="Model" parent="Pivot" instance=ExtResource("2_oyjia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.430196, 0)
+
+[node name="Seed" parent="Pivot/Model" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("3_b7lra")
+mesh = ExtResource("4_big6t")
 
 [node name="AnimationPlayer" parent="Pivot/Model" index="1"]
 autoplay = "SeedAction"
