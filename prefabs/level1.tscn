@@ -679,7 +679,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 9.09476, -145)
 [node name="Seed60" parent="Seeds" instance=ExtResource("5_3kluf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 9.069, -170)
 
-
 [node name="Seed66" parent="Seeds" instance=ExtResource("5_3kluf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.2158, -1.16047, -49.6179)
 
@@ -692,10 +691,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0.156, -196)
 [node name="Seed69" parent="Seeds" instance=ExtResource("5_3kluf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 9.09476, -145)
 
-[node name="CollectAudio" type="AudioStreamPlayer" parent="Seeds"]
-
 [node name="CollectAudio" type="AudioStreamPlayer" parent="Seeds" groups=["AudioEffect"]]
-
 stream = ExtResource("21_jbhi1")
 
 [node name="Chickkins" type="Node" parent="."]
