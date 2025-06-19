@@ -17,19 +17,16 @@ func getLeaderboardContainer() -> GridContainer:
 		m_activeLeaderboardContainer.columns = 3;
 		getContentContainer().add_child(m_activeLeaderboardContainer);
 		
-		var heading_name : Label = Label.new()
-		heading_name.text = " Name ";
-		heading_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
-		m_activeLeaderboardContainer.add_child(heading_name);
-		var heading_seeds : Label = Label.new()
-		heading_seeds.text = " Seeds "
-		heading_seeds.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
-		m_activeLeaderboardContainer.add_child(heading_seeds);
-		var heading_time : Label = Label.new()
-		heading_time.text = " Time "
-		heading_time.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
-		m_activeLeaderboardContainer.add_child(heading_time);
+		createLeaderBoardHeading("Name")
+		createLeaderBoardHeading("Seeds")
+		createLeaderBoardHeading("Time")
 	return m_activeLeaderboardContainer;
+	
+func createLeaderBoardHeading(headingText: String):
+	var heading : Label = Label.new()
+	heading.text = " %s " % headingText;
+	heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
+	m_activeLeaderboardContainer.add_child(heading);
 
 const tab_size : int = 5;
 var current_tab : int = 0;
@@ -110,18 +107,15 @@ func printLeaderboard(parent : GridContainer, type : StringName):
 	var from := current_tab * tab_size;
 	var to := from + tab_size;
 	for score in scores.slice(from, to):
-		var content_name : Label = Label.new()
-		content_name.text = "%s" % score.name;
-		content_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
-		parent.add_child(content_name);
-		var content_seeds : Label = Label.new()
-		content_seeds.text = "%d" % int(score.seeds);
-		content_seeds.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
-		parent.add_child(content_seeds);
-		var content_time : Label = Label.new()
-		content_time.text = "%2.2f" % score.time;
-		content_time.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
-		parent.add_child(content_time);
+		printLeaderboardCell(parent, "%s" % score.name)
+		printLeaderboardCell(parent, "%d" % score.seeds)
+		printLeaderboardCell(parent, "%2.2f" % score.time)
+		
+func printLeaderboardCell(parent: GridContainer, text: String):
+	var content_cell : Label = Label.new()
+	content_cell.text = text;
+	content_cell.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
+	parent.add_child(content_cell);
 
 func getTotalTabs() -> int:
 	var totalTabs : int = LeaderboardState.leaderboard.size() / tab_size;
