@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bkt4tb2ftnc8v"]
+[gd_scene load_steps=26 format=3 uid="uid://bkt4tb2ftnc8v"]
 
 [ext_resource type="PackedScene" uid="uid://coqnh8key0bbu" path="res://prefabs/environment/counter.tscn" id="1_mpcyb"]
 [ext_resource type="PackedScene" uid="uid://lyhtk1heeyd5" path="res://prefabs/entities/chickkin.tscn" id="2_cllcc"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dopea1qvvo3id" path="res://prefabs/environment/plate_big.tscn" id="16_ysal5"]
 [ext_resource type="PackedScene" uid="uid://f4fd4x48iwxt" path="res://prefabs/environment/plate_small.tscn" id="17_xha6b"]
 [ext_resource type="PackedScene" uid="uid://cnc4xx2suavrr" path="res://prefabs/environment/toaster.tscn" id="18_olfdj"]
+[ext_resource type="PackedScene" uid="uid://b515rh0200y4k" path="res://assets/environment/god.glb" id="23_jbhi1"]
 
 [sub_resource type="Environment" id="Environment_mh6et"]
 background_mode = 1
@@ -189,6 +190,9 @@ m_respawn_node = NodePath("Respawn")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnPoints/RespawnArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
 shape = SubResource("BoxShape3D_87uf6")
+
+[node name="god" parent="." instance=ExtResource("23_jbhi1")]
+transform = Transform3D(23, 0, 0, 0, 23, 0, 0, 0, 23, 1.06878, -32.0686, -73.099)
 
 [editable path="Game Logic/Podium"]
 [editable path="Environment/Refrigerator"]
