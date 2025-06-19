@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://3hhtk5m4wy6l"]
+
+[ext_resource type="Texture2D" uid="uid://140a4yi83op2" path="res://assets/environment/decals/ChickGhost.png" id="1_e1miy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olfdj"]
+atlas = ExtResource("1_e1miy")
+region = Rect2(0, 0, 107, 161)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sb2c"]
+atlas = ExtResource("1_e1miy")
+region = Rect2(107, 0, 107, 161)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ompki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olfdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sb2c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="ChickminGhost" type="AnimatedSprite3D"]
+pixel_size = 0.05
+billboard = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_ompki")
+frame_progress = 0.786265
