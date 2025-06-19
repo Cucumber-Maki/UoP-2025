@@ -17,7 +17,7 @@ func _ready() -> void:
 	m_lineEdit.text_changed.connect(checkText);
 	checkText(m_lineEdit.text);
 	
-	m_lineEdit.text_submitted.connect(_on_save_score_button_pressed);
+	m_lineEdit.text_submitted.connect(func(str): _on_save_score_button_pressed());
 	m_submitButton.button_up.connect(_on_save_score_button_pressed);
 	m_skipButton.button_up.connect(_on_skip_button_pressed);
 
