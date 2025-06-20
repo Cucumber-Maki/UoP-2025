@@ -3,7 +3,7 @@ extends OptionMenuBase
 ################################################################################
 
 func _on_pause_menu_on_menu_enter(menu: String) -> void:
-	if (menu != "LeaderBoard"): return
+	if (menu != name): return
 	_refreshLeaderBoard()
 
 func _refreshLeaderBoard():
@@ -34,8 +34,8 @@ var current_tab : int = 0;
 func _createMenu():
 	addCategory("Leaderboard");
 	
-	
 	addTab("Seeds");
+	m_activeLeaderboardContainer = null;
 	var seedLeaderboard := getLeaderboardContainer();
 	printLeaderboard(seedLeaderboard, "Seeds");
 		
@@ -84,9 +84,16 @@ func _createMenu():
 	controls.add_child(grid);
 	getContentContainer().add_child(controls);
 	
-	addButton("Exit to Main Menu", func(): GameState.changeScene("res://scenes/mainMenu/mainMenu.tscn"));
+	addButton("Exit to Main Menu", func():
+		if (GameStateSwitcher.isFreshGame()):
+			onMenuExit.emit();
+		else:
+			GameStateSwitcher.exitToMainMenu();
+	);
 
 func printLeaderboard(parent : GridContainer, type : StringName):
+	if (parent == null): return;
+	
 	for i in range(parent.columns, parent.get_child_count()):
 		parent.get_child(i).queue_free();
 		

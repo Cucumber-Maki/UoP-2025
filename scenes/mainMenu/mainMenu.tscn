@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://hj41prwb73mi"]
+[gd_scene load_steps=6 format=3 uid="uid://hj41prwb73mi"]
 
 [ext_resource type="Script" uid="uid://cu2vftd25ngrr" path="res://assets/menus/_prefabs/menuStack.gd" id="1_vvnar"]
 [ext_resource type="PackedScene" uid="uid://5jfakaaqw36" path="res://assets/menus/mainMenu/mainMenu.tscn" id="2_6q8wo"]
 [ext_resource type="PackedScene" uid="uid://250hs7cm2ps7" path="res://assets/menus/settings/settingsMenu.tscn" id="3_xs65i"]
+[ext_resource type="PackedScene" uid="uid://cn5mnellwtu0y" path="res://assets/menus/nameSubmissions/nameSubmission.tscn" id="4_wjjhv"]
 [ext_resource type="PackedScene" uid="uid://b6s0qbxk1k4i5" path="res://assets/menus/leaderBoard/leaderBoard.tscn" id="4_xs65i"]
 
 [node name="MainMenu" type="CenterContainer"]
@@ -18,6 +19,9 @@ defaultMenu = "MainMenu"
 layout_mode = 2
 
 [node name="SettingsMenu" parent="." instance=ExtResource("3_xs65i")]
+layout_mode = 2
+
+[node name="NameSubmission" parent="." instance=ExtResource("4_wjjhv")]
 layout_mode = 2
 
 [node name="LeaderBoard" parent="." instance=ExtResource("4_xs65i")]

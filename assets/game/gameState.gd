@@ -7,7 +7,7 @@ extends Node
 
 ################################################################################
 	
-var gameActive : bool = true; # Only true whilst gameplay is happening.
+var gameActive : bool = false; # Only true whilst gameplay is happening.
 var inputActive : bool = false:
 	set(value):
 		if (inputActive == value): return;
