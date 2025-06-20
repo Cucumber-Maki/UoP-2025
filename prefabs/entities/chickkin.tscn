@@ -28,6 +28,9 @@ shape = SubResource("SphereShape3D_uy3rl")
 root_node = NodePath("../Model")
 tree_root = ExtResource("2_fvwsb")
 anim_player = NodePath("../Model/AnimationPlayer")
+parameters/Claimed/active = false
+parameters/Claimed/internal_active = false
+parameters/Claimed/request = 0
 parameters/Idle/blend_position = 0
 parameters/MovementSpeed/blend_amount = 0.0
 

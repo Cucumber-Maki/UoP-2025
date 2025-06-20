@@ -1,4 +1,9 @@
-[gd_resource type="AnimationNodeBlendTree" load_steps=8 format=3 uid="uid://xfbs7m2xambb"]
+[gd_resource type="AnimationNodeBlendTree" load_steps=10 format=3 uid="uid://xfbs7m2xambb"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qg1id"]
+animation = &"Claimed"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_elejt"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d0yqm"]
 animation = &"Idle1"
@@ -31,12 +36,16 @@ sync = true
 animation = &"Walk"
 
 [resource]
-graph_offset = Vector2(-522.783, 107.464)
+graph_offset = Vector2(-10.5945, 162.663)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_qg1id")
+nodes/Animation/position = Vector2(120, 440)
+nodes/Claimed/node = SubResource("AnimationNodeOneShot_elejt")
+nodes/Claimed/position = Vector2(360, 240)
 nodes/Idle/node = SubResource("AnimationNodeBlendSpace1D_lwasi")
 nodes/Idle/position = Vector2(-140, 140)
 nodes/MovementSpeed/node = SubResource("AnimationNodeBlend2_d0yqm")
 nodes/MovementSpeed/position = Vector2(100, 140)
 nodes/Walk/node = SubResource("AnimationNodeAnimation_lwasi")
 nodes/Walk/position = Vector2(-120, 340)
-nodes/output/position = Vector2(300, 160)
-node_connections = [&"MovementSpeed", 0, &"Idle", &"MovementSpeed", 1, &"Walk", &"output", 0, &"MovementSpeed"]
+nodes/output/position = Vector2(540, 180)
+node_connections = [&"Claimed", 0, &"MovementSpeed", &"Claimed", 1, &"Animation", &"MovementSpeed", 0, &"Idle", &"MovementSpeed", 1, &"Walk", &"output", 0, &"Claimed"]
