@@ -146,7 +146,7 @@ func printLeaderboard(parent : GridContainer, type : StringName):
 		printLeaderboardCell(parent, "%s" % score.name)
 		printLeaderboardCell(parent, "%d" % score.seeds)
 		printLeaderboardCell(parent, "%d" % score.chickkins)
-		printLeaderboardCell(parent, "%2.2f" % score.time)
+		printLeaderboardCell(parent, GameStateSwitcher._getFormattedTime(score.time, 1))
 		
 func printLeaderboardCell(parent: GridContainer, text: String):
 	var content_cell : Label = Label.new()

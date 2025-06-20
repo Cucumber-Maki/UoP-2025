@@ -91,3 +91,28 @@ func _handleCamera(delta):
 	if (!game_active):
 		cameraOrigin.global_rotation.y += TAU * delta / rotationTime;
 	
+static func _getFormattedTime(time : float, decimals : int = 0) -> String:
+	var secs : int = floorf(fmod(time, 60.0));
+	var minutes : int = floorf(fmod(time, 60.0 * 60.0) / 60.0);
+	var hours : int = floorf(time / (60.0 * 60.0));
+	
+	# Seconds.
+	var timeStr : String = "%d" % secs;
+	if (minutes > 0):
+		while (timeStr.length() < 2):
+			timeStr = "0" + timeStr;
+	# Minutes.
+	if (hours > 0 || minutes > 0): 
+		timeStr = ("%d:" % minutes) + timeStr;
+		if (hours > 0):
+			while (timeStr.length() < 5):
+				timeStr = "0" + timeStr;
+	# Hours.
+	if (hours > 0): 
+		timeStr = ("%d:" % hours) + timeStr;
+
+	# Decimals.
+	if (decimals > 0):
+		timeStr += ".%d" % (roundf(fmod(time, 1.0) * pow(10.0, decimals)) as int);
+	
+	return timeStr;
