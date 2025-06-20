@@ -33,7 +33,7 @@ func checkText(t : String):
 	m_lineEdit.text = t;
 	m_lineEdit.caret_column = old_caret_position;
 	
-	m_submitButton.disabled = m_lineEdit.text.length() != 3;
+	m_submitButton.disabled = m_lineEdit.text.length() < 3;
 
 func _on_save_score_button_pressed() -> void:
 	var name: String = m_lineEdit.text
