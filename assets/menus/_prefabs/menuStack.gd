@@ -46,9 +46,9 @@ func enterMenu(menu : String):
 	# Switch menus.
 	childMenu.visible = true;
 	activeMenu = childMenu;
+	onMenuEnter.emit(menu);
 	if (activeMenu.m_firstSelectable != null):
 		activeMenu.m_firstSelectable.grab_focus()
-	onMenuEnter.emit(menu);
 	
 func exitMenu():
 	# Hide active menu.

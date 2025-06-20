@@ -67,6 +67,8 @@ static func isFreshGame():
 	
 static func winGame():
 	GameState.setPaused(false);
+	while (s_instance.gameMenu.activeMenu != null):
+		s_instance.gameMenu.exitMenu();
 	s_instance.game_active = false;
 	s_instance.mainMenu.enterMenu("NameSubmission");
 	
