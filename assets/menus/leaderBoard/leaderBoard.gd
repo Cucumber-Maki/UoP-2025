@@ -32,8 +32,17 @@ func createLeaderBoardHeading(headingText: String):
 
 const tab_size : int = 5;
 var current_tab : int = 0;
+var m_lastSize : int = -1;
+var highlightTarget = null;
+var scores : Array = [];
+
 func _createMenu():
 	addCategory("Leaderboard");
+	
+	if (LeaderboardState.leaderboard.size() != m_lastSize):
+		m_lastSize = LeaderboardState.leaderboard.size()
+		highlightTarget = LeaderboardState.leaderboard[-1];
+		scores = LeaderboardState.leaderboard.duplicate()
 	
 	addTab("Seeds");
 	m_activeLeaderboardContainer = null;
@@ -104,8 +113,7 @@ func printLeaderboard(parent : GridContainer, type : StringName):
 	
 	for i in range(parent.columns, parent.get_child_count()):
 		parent.get_child(i).queue_free();
-		
-	var scores : Array = LeaderboardState.leaderboard;
+	
 	for score in scores:
 		if (!score.has("seeds")): score.seeds = 0;
 		if (!score.has("chickkins")): score.chickkins = 0;
@@ -141,16 +149,20 @@ func printLeaderboard(parent : GridContainer, type : StringName):
 	var to := from + tab_size;
 	var rank := from + 1
 	for score in scores.slice(from, to):
-		printLeaderboardCell(parent, str(rank))
-		rank += 1
-		printLeaderboardCell(parent, "%s" % score.name)
-		printLeaderboardCell(parent, "%d" % score.seeds)
-		printLeaderboardCell(parent, "%d" % score.chickkins)
-		printLeaderboardCell(parent, GameStateSwitcher._getFormattedTime(score.time, 1))
+		var highlight : bool = score == highlightTarget
 		
-func printLeaderboardCell(parent: GridContainer, text: String):
+		printLeaderboardCell(parent, str(rank), highlight)
+		rank += 1
+		printLeaderboardCell(parent, "%s" % score.name, highlight)
+		printLeaderboardCell(parent, "%d" % score.seeds, highlight)
+		printLeaderboardCell(parent, "%d" % score.chickkins, highlight)
+		printLeaderboardCell(parent, GameStateSwitcher._getFormattedTime(score.time, 1), highlight)
+		
+func printLeaderboardCell(parent: GridContainer, text: String, highlight : bool):
 	var content_cell : Label = Label.new()
 	content_cell.text = text;
+	if (highlight):
+		content_cell.add_theme_color_override("font_color", Color("ffbb33"));
 	content_cell.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER;
 	parent.add_child(content_cell);
 
