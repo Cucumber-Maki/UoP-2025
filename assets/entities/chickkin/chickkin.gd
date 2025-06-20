@@ -49,6 +49,8 @@ func _ready():
 	setAnimationVariableDirect("parameters/Idle/blend_position", m_idle);
 	m_claimed = m_claimed;
 	m_chickenCount += 1;
+	
+	global_position += Vector3(randfn(-1, 1), 0, randfn(-1, 1)).normalized() * 0.5;
 
 func _exit_tree() -> void:
 	m_claimed = false;
