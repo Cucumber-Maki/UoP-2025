@@ -29,8 +29,9 @@ signal onYeet;
 			global_position = Player.s_instance.global_position;
 			global_rotation.y = PI - Player.s_instance.m_currentMovementAngle;
 			m_currentPathDistance = ChickkinPath.s_instance.getPathDistance(0);
-			onClaim.emit();
+			ScoreState.m_chickkinCount += 1;
 			setAnimationVariableDirect("parameters/Claimed/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE);
+			onClaim.emit();
 		else:
 			Player.s_instance.m_chickkins.erase(self);
 #

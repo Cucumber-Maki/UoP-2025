@@ -14,12 +14,13 @@ var m_activeLeaderboardContainer : GridContainer = null;
 func getLeaderboardContainer() -> GridContainer:
 	if (m_activeLeaderboardContainer == null):
 		m_activeLeaderboardContainer = GridContainer.new();
-		m_activeLeaderboardContainer.columns = 4;
+		m_activeLeaderboardContainer.columns = 5;
 		getContentContainer().add_child(m_activeLeaderboardContainer);
 		
 		createLeaderBoardHeading("Rank")
 		createLeaderBoardHeading("Name")
 		createLeaderBoardHeading("Seeds")
+		createLeaderBoardHeading("Chickkins")
 		createLeaderBoardHeading("Time")
 	return m_activeLeaderboardContainer;
 	
@@ -39,6 +40,11 @@ func _createMenu():
 	var seedLeaderboard := getLeaderboardContainer();
 	printLeaderboard(seedLeaderboard, "Seeds");
 		
+	addTab("Chickkins");
+	m_activeLeaderboardContainer = null;
+	var chickkinsLeaderboard := getLeaderboardContainer();
+	printLeaderboard(chickkinsLeaderboard, "Chickkins");
+	
 	addTab("Time");
 	m_activeLeaderboardContainer = null;
 	var timeLeaderboard := getLeaderboardContainer();
@@ -57,6 +63,7 @@ func _createMenu():
 	left.button_up.connect(func():
 		current_tab -= 1;
 		printLeaderboard(seedLeaderboard, "Seeds");
+		printLeaderboard(chickkinsLeaderboard, "Chickkins");
 		printLeaderboard(timeLeaderboard, "Time");
 		#
 		@warning_ignore("confusable_local_declaration")
@@ -71,6 +78,7 @@ func _createMenu():
 	right.button_up.connect(func():
 		current_tab += 1;
 		printLeaderboard(seedLeaderboard, "Seeds");
+		printLeaderboard(chickkinsLeaderboard, "Chickkins");
 		printLeaderboard(timeLeaderboard, "Time");
 		#
 		@warning_ignore("confusable_local_declaration")
@@ -98,9 +106,24 @@ func printLeaderboard(parent : GridContainer, type : StringName):
 		parent.get_child(i).queue_free();
 		
 	var scores : Array = LeaderboardState.leaderboard;
+	for score in scores:
+		if (!score.has("seeds")): score.seeds = 0;
+		if (!score.has("chickkins")): score.chickkins = 0;
+		if (!score.has("time")): score.time = 0;
+	
 	match type:
 		"Seeds":
 			scores.sort_custom(func(a, b): 
+				if (a.seeds != b.seeds):
+					return a.seeds > b.seeds;
+				if (a.chickkins != b.chickkins):
+					return a.chickkins > b.chickkins;
+				return a.time < b.time;
+			);
+		"Chickkins":
+			scores.sort_custom(func(a, b): 
+				if (a.chickkins != b.chickkins):
+					return a.chickkins > b.chickkins;
 				if (a.seeds != b.seeds):
 					return a.seeds > b.seeds;
 				return a.time < b.time;
@@ -109,7 +132,9 @@ func printLeaderboard(parent : GridContainer, type : StringName):
 			scores.sort_custom(func(a, b): 
 				if (a.time != b.time):
 					return a.time < b.time;
-				return a.seeds > b.seeds;
+				if (a.seeds != b.seeds):
+					return a.seeds > b.seeds;
+				return a.chickkins > b.chickkins;
 			);
 			
 	var from := current_tab * tab_size;
@@ -120,6 +145,7 @@ func printLeaderboard(parent : GridContainer, type : StringName):
 		rank += 1
 		printLeaderboardCell(parent, "%s" % score.name)
 		printLeaderboardCell(parent, "%d" % score.seeds)
+		printLeaderboardCell(parent, "%d" % score.chickkins)
 		printLeaderboardCell(parent, "%2.2f" % score.time)
 		
 func printLeaderboardCell(parent: GridContainer, text: String):

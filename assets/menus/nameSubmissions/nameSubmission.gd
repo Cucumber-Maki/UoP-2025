@@ -9,6 +9,7 @@ func _ready() -> void:
 	ms.onMenuEnter.connect(func(a_name):
 		if (a_name != name): return;
 		$Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores/Seeds.text = "%d" % ScoreState.m_seedCount;
+		$Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores/Chickkins.text = "%d" % ScoreState.m_chickkinCount;
 		$Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores/Time.text = "%2.2f" % ScoreState.m_time;
 	);
 	
