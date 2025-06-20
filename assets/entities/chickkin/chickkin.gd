@@ -27,8 +27,10 @@ signal onYeet;
 		if (m_claimed):
 			Player.s_instance.m_chickkins.push_front(self);
 			global_position = Player.s_instance.global_position;
+			global_rotation.y = PI - Player.s_instance.m_currentMovementAngle;
 			m_currentPathDistance = ChickkinPath.s_instance.getPathDistance(0);
 			onClaim.emit();
+			setAnimationVariableDirect("parameters/Claimed/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE);
 		else:
 			Player.s_instance.m_chickkins.erase(self);
 #
@@ -49,6 +51,8 @@ func _ready():
 	setAnimationVariableDirect("parameters/Idle/blend_position", m_idle);
 	m_claimed = m_claimed;
 	m_chickenCount += 1;
+	
+	global_position += Vector3(randfn(-1, 1), 0, randfn(-1, 1)).normalized() * 0.5;
 
 func _exit_tree() -> void:
 	m_claimed = false;
@@ -68,7 +72,7 @@ func updateVisuals(delta):
 	var change := global_position - m_lastPosition;
 	
 	var movementSpeed : float = 0;
-	if (change.length_squared() > 0): 
+	if (change.length() > 0.1 * delta): 
 		movementSpeed = change.length() / (m_pathingSpeed * delta);
 		global_rotation.y = rotate_toward(global_rotation.y, Vector2(change.z, change.x).angle(), 1.2 * TAU * delta);
 	
