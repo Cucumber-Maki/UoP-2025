@@ -55,12 +55,16 @@ func _exit_tree() -> void:
 
 var m_interactInput: bool = false;
 func _process(delta: float) -> void:
+	if (!GameState.gameActive): return;
+	
 	if (Input.is_action_just_pressed("player_move_jump")):
 		m_jumpInput = true;
 	if (Input.is_action_just_pressed("player_interact")):
 		m_interactInput = true;
 	
 func _physics_process(delta: float) -> void:
+	if (!GameState.gameActive): return;
+	
 	handleRoll(delta)
 	handleCameraInput(delta);
 	super(delta);

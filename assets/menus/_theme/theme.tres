@@ -1,6 +1,20 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://8jm73pmaw63g"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://8jm73pmaw63g"]
 
 [ext_resource type="FontFile" uid="uid://ciy7gw8ir8d2k" path="res://assets/_org/maki.ttf" id="1_3flai"]
+[ext_resource type="Texture2D" uid="uid://yg2ao258t6wp" path="res://assets/menus/_theme/9slice.png" id="1_b773a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xo08x"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+texture = ExtResource("1_b773a")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [resource]
 default_font = ExtResource("1_3flai")
@@ -12,3 +26,4 @@ MarginContainer/constants/margin_bottom = 8
 MarginContainer/constants/margin_left = 8
 MarginContainer/constants/margin_right = 8
 MarginContainer/constants/margin_top = 8
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_xo08x")

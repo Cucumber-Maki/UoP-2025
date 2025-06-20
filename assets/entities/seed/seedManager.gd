@@ -13,7 +13,8 @@ func collectSeed() -> void:
 	remainingSeeds -= 1;
 	$CollectAudio.play()
 	if (remainingSeeds <= 0):
-		GameState.changeScene("res://scenes/leaderboard/leaderboard.tscn");
+		GameStateSwitcher.winGame();
 
 func _process(delta: float) -> void:
+	if (!GameState.gameActive): return;
 	ScoreState.m_time += delta;
