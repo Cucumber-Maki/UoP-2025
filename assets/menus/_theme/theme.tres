@@ -1,7 +1,17 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://8jm73pmaw63g"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://8jm73pmaw63g"]
 
 [ext_resource type="FontFile" uid="uid://ciy7gw8ir8d2k" path="res://assets/_org/maki.ttf" id="1_3flai"]
 [ext_resource type="Texture2D" uid="uid://yg2ao258t6wp" path="res://assets/menus/_theme/9slice.png" id="1_b773a"]
+[ext_resource type="Texture2D" uid="uid://d4nmgem1yn2gr" path="res://assets/menus/_theme/checkbox_checked.png" id="1_hve3h"]
+[ext_resource type="Texture2D" uid="uid://clt4brcp8v1wj" path="res://assets/menus/_theme/checkbox_unchecked.png" id="1_xo08x"]
+[ext_resource type="Texture2D" uid="uid://bji8uad07ibfa" path="res://assets/menus/_theme/grabber.png" id="3_n858x"]
+[ext_resource type="Texture2D" uid="uid://bjm05s4i3obhr" path="res://assets/menus/_theme/grabber_highlight.png" id="4_7abte"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n858x"]
+bg_color = Color(0.6, 0.133333, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gia4"]
+bg_color = Color(0.866667, 0.266667, 0.133333, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xo08x"]
 content_margin_left = 8.0
@@ -20,8 +30,14 @@ axis_stretch_vertical = 1
 default_font = ExtResource("1_3flai")
 default_font_size = 50
 BoxContainer/constants/separation = 5
+CheckBox/icons/checked = ExtResource("1_hve3h")
+CheckBox/icons/unchecked = ExtResource("1_xo08x")
 GridContainer/constants/h_separation = 5
 GridContainer/constants/v_separation = 5
+HSlider/icons/grabber = ExtResource("3_n858x")
+HSlider/icons/grabber_highlight = ExtResource("4_7abte")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_n858x")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_1gia4")
 MarginContainer/constants/margin_bottom = 8
 MarginContainer/constants/margin_left = 8
 MarginContainer/constants/margin_right = 8
