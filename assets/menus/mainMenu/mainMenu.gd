@@ -7,5 +7,7 @@ func _ready() -> void:
 	addButton("Play", func(): GameStateSwitcher.s_instance.game_active = true); 
 	addButton("Settings", func(): onMenuEnter.emit("SettingsMenu"));
 	addButton("Leaderboard", func(): onMenuEnter.emit("LeaderBoard"), { "disabled": LeaderboardState.leaderboard.size() <= 0 });
-	addButton("Exit Game", func(): GameState.exitGame());
+	
+	if (OS.get_name() != "Web"):
+		addButton("Exit Game", func(): GameState.exitGame());
 	
