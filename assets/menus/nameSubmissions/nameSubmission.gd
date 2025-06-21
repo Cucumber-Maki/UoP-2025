@@ -10,10 +10,10 @@ func _ready() -> void:
 		if (a_name != name): return;
 		$Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores/Seeds.text = "%d" % ScoreState.m_seedCount;
 		$Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores/Chickkins.text = "%d" % ScoreState.m_chickkinCount;
-		$Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores/Time.text = "%2.2f" % ScoreState.m_time;
+		$Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores/Time.text = GameStateSwitcher._getFormattedTime(ScoreState.m_time, 1);
 	);
 	
-	m_firstSelectable = m_skipButton;
+	m_firstSelectable = m_lineEdit;
 	
 	m_lineEdit.text_changed.connect(checkText);
 	checkText(m_lineEdit.text);
@@ -33,7 +33,7 @@ func checkText(t : String):
 	m_lineEdit.text = t;
 	m_lineEdit.caret_column = old_caret_position;
 	
-	m_submitButton.disabled = m_lineEdit.text.length() != 3;
+	m_submitButton.disabled = m_lineEdit.text.length() < 3;
 
 func _on_save_score_button_pressed() -> void:
 	var name: String = m_lineEdit.text

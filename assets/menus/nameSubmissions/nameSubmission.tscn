@@ -66,9 +66,9 @@ text = "Enter your name:"
 
 [node name="NameLineEdit" type="LineEdit" parent="Margin/Layout/Content/VBoxContainer/GridContainer" index="1"]
 layout_mode = 2
-placeholder_text = "NAM(E)"
+placeholder_text = "NAME"
 alignment = 1
-max_length = 3
+max_length = 5
 
 [node name="SubmitButton" type="Button" parent="Margin/Layout/Content/VBoxContainer" index="3"]
 layout_mode = 2

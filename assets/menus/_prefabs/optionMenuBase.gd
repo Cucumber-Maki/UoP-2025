@@ -59,7 +59,8 @@ func _process(_delta: float) -> void:
 func clearMenu():
 	for child in root.get_children():
 		child.queue_free();
-	
+		
+	m_firstSelectable = null;
 	m_activeParentTop = null;
 	m_activeParentBottom = null;
 	m_activeTabTop = null;

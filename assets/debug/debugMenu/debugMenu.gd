@@ -7,9 +7,16 @@ func _ready() -> void:
 	super();
 
 	addCategory("Debug Settings");
+	
+	addTab("Visual")
 	addOption(OptionType.CheckBox, "Colliders Visible", "colliders_visible");
 	addOption(OptionType.CheckBox, "Wireframe Rendering", "render_wireframe");
-	addButton("Win Game", func(): GameStateSwitcher.winGame());
 	addOption(OptionType.CheckBox, "Chickkin Path Rendering", "render_chickinPaths");
 	
-	addButton("Save & Exit", func(): onMenuExit.emit());
+	addTab("Functions")
+	addButton("Win Game", func(): GameStateSwitcher.winGame());
+	addButton("Reset Scene", func(): GameState.resetScene());
+	addButton("Restart Game", func(): GameState.restartGame());
+	
+	endTab()
+	addButton("Exit", func(): onMenuExit.emit());
