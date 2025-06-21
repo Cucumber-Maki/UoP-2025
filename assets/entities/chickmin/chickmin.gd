@@ -32,7 +32,6 @@ static var s_chikkinMaterials : Array[ShaderMaterial] = [];
 			global_position = Player.s_instance.global_position;
 			global_rotation.y = PI - Player.s_instance.m_currentMovementAngle;
 			m_currentPathDistance = ChickminPath.s_instance.getPathDistance(0);
-			ScoreState.m_chickminCount += 1;
 			setAnimationVariableDirect("parameters/Claimed/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE);
 			onClaim.emit();
 		else:
@@ -61,8 +60,11 @@ func _ready():
 func _exit_tree() -> void:
 	m_claimed = false;
 	m_chickenCount -= 1;
+	if (m_isYeeting):
+		ScoreState.m_chickminCount += 1;
 	if (m_isYeeting && m_chickenCount <= 0):
 		GameStateSwitcher.winGame();
+		
 	
 func _physics_process(delta: float) -> void:
 	handleYeet(delta);
