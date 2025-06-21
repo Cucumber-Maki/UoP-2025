@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j0ejiqwxn33"
-path.s3tc="res://.godot/imported/No Chickmins.png-c58c070b627fed9967096b03dee360fe.s3tc.ctex"
+uid="uid://ceukfkv16il7b"
+path.s3tc="res://.godot/imported/Chickkin vs the World.png-f27c9a13fa0562c41a384cfec58b55e2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/environment/decals/No Chickmins.png"
-dest_files=["res://.godot/imported/No Chickmins.png-c58c070b627fed9967096b03dee360fe.s3tc.ctex"]
+source_file="res://assets/environment/decals/Chickkin vs the World.png"
+dest_files=["res://.godot/imported/Chickkin vs the World.png-f27c9a13fa0562c41a384cfec58b55e2.s3tc.ctex"]
 
 [params]
 

@@ -1,5 +1,5 @@
 extends EntityBase;
-class_name Chickkin;
+class_name Chickmin;
 
 static var m_chickenCount : int = 0;
 
@@ -23,20 +23,20 @@ static var s_chikkinMaterials : Array[ShaderMaterial] = [];
 		if (m_claimed == value): return;
 		m_claimed = value;
 		
-		if ((Player.s_instance == null || ChickkinPath.s_instance == null) && m_claimed): 
+		if ((Player.s_instance == null || ChickminPath.s_instance == null) && m_claimed): 
 			m_claimed = false;
 			return;
 		
 		if (m_claimed):
-			Player.s_instance.m_chickkins.push_front(self);
+			Player.s_instance.m_chickmins.push_front(self);
 			global_position = Player.s_instance.global_position;
 			global_rotation.y = PI - Player.s_instance.m_currentMovementAngle;
-			m_currentPathDistance = ChickkinPath.s_instance.getPathDistance(0);
-			ScoreState.m_chickkinCount += 1;
+			m_currentPathDistance = ChickminPath.s_instance.getPathDistance(0);
+			ScoreState.m_chickminCount += 1;
 			setAnimationVariableDirect("parameters/Claimed/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE);
 			onClaim.emit();
 		else:
-			Player.s_instance.m_chickkins.erase(self);
+			Player.s_instance.m_chickmins.erase(self);
 #
 var m_lastPosition : Vector3 = Vector3.INF;
 var m_lastMovementSpeed : float = 0;
@@ -80,7 +80,7 @@ func getMaterial() -> Material:
 	while (materialIndex >= s_chikkinMaterials.size()):
 		s_chikkinMaterials.append(null);
 	
-	var mat : ShaderMaterial = preload("res://assets/entities/chickkin/chickkin.tres").duplicate();
+	var mat : ShaderMaterial = preload("res://assets/entities/chickmin/chickmin.tres").duplicate();
 	mat.set_shader_parameter("u_colorChoice", m_color as float);
 	mat.set_shader_parameter("u_faceChoice", m_face as float);
 	
@@ -108,25 +108,25 @@ func updateVisuals(delta):
 func moveToPath(index : int, beforeDistance : float, pushback : float, delta : float) -> float:
 	if (m_isYeeting): return 0;
 	m_currentPathDistance += pushback;
-	if (ChickkinPath.s_instance == null): return 0;
+	if (ChickminPath.s_instance == null): return 0;
 	
 	var targetDistance : float = max(
-		ChickkinPath.s_instance.getPathDistance(index) - \
-		ChickkinPath.s_instance.getActiveDistance(),
-		beforeDistance + ChickkinPath.s_instance.m_followSpacing
+		ChickminPath.s_instance.getPathDistance(index) - \
+		ChickminPath.s_instance.getActiveDistance(),
+		beforeDistance + ChickminPath.s_instance.m_followSpacing
 	);
 	
 	if (m_currentPathDistance <= targetDistance): 
 		return targetDistance;
 	
-	var route := ChickkinPath.s_instance.getRoute(targetDistance, m_currentPathDistance);
+	var route := ChickminPath.s_instance.getRoute(targetDistance, m_currentPathDistance);
 	var amountToMove : float = min(m_pathingSpeed * delta, m_currentPathDistance - targetDistance);
 	while (!route.is_empty() && amountToMove > 0):
-		var routePoint : ChickkinPath.RoutePoint = route.pop_back();
+		var routePoint : ChickminPath.RoutePoint = route.pop_back();
 		var remainingDistance : float = m_currentPathDistance - routePoint.m_startDistance;
 
 		match (routePoint.m_pathPoint.m_type):
-			ChickkinPath.PathPointType.Ground:
+			ChickminPath.PathPointType.Ground:
 				if (remainingDistance < amountToMove):
 					m_currentPathDistance = routePoint.m_startDistance;
 					amountToMove -= remainingDistance;
@@ -140,15 +140,15 @@ func moveToPath(index : int, beforeDistance : float, pushback : float, delta : f
 				var t := remap(m_currentPathDistance, routePoint.m_startDistance, routePoint.m_endDistance, 0, 1);
 				global_position = to.lerp(from, t);
 			
-			ChickkinPath.PathPointType.Air:
+			ChickminPath.PathPointType.Air:
 				var from := routePoint.m_pathPoint.m_from;
 				var to := routePoint.m_pathPoint.m_to;
 				var startDistance := routePoint.m_startDistance;
 				var endDistance := routePoint.m_endDistance;
 				
 				# Merge!!
-				while (!route.is_empty() && route[-1].m_pathPoint.m_type == ChickkinPath.PathPointType.Air):
-					var r : ChickkinPath.RoutePoint = route.pop_back();
+				while (!route.is_empty() && route[-1].m_pathPoint.m_type == ChickminPath.PathPointType.Air):
+					var r : ChickminPath.RoutePoint = route.pop_back();
 					to = r.m_pathPoint.m_to;
 					startDistance = r.m_startDistance;
 				

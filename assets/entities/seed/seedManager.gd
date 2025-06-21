@@ -5,7 +5,7 @@ var remainingSeeds : int = 0;
 
 func _ready() -> void:
 	ScoreState.m_seedCount = 0;
-	ScoreState.m_chickkinCount = 0;
+	ScoreState.m_chickminCount = 0;
 	ScoreState.m_time = 0;
 
 func collectSeed() -> void:

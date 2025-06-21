@@ -1,6 +1,6 @@
 extends Node3D
-class_name ChickkinPath;
-static var s_instance : ChickkinPath = null;
+class_name ChickminPath;
+static var s_instance : ChickminPath = null;
 
 ################################################################################
 

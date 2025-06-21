@@ -5,11 +5,11 @@
 [ext_resource type="Script" path="res://assets/ui/gameStateSwitcher.gd" id="1_vaxfo"]
 [ext_resource type="PackedScene" uid="uid://bi8nlpd0um1b8" path="res://assets/jam/autoRestart/autoRestart.tscn" id="2_7h61r"]
 [ext_resource type="Theme" uid="uid://8jm73pmaw63g" path="res://assets/menus/_theme/theme.tres" id="2_87uf6"]
-[ext_resource type="Texture2D" uid="uid://b5ifhi2xx0rvr" path="res://assets/ui/chickkin.png" id="2_bdhmt"]
+[ext_resource type="Texture2D" uid="uid://b5ifhi2xx0rvr" path="res://assets/ui/chickmin.png" id="2_bdhmt"]
 [ext_resource type="PackedScene" uid="uid://cc1wxbqo1hw6e" path="res://prefabs/entities/player.tscn" id="3_0sr1o"]
 [ext_resource type="Script" uid="uid://bq36wqfhfrtqn" path="res://assets/ui/counters.gd" id="3_2a8rs"]
 [ext_resource type="Texture2D" uid="uid://cf6j57fw2j6ua" path="res://assets/ui/seed.png" id="3_87uf6"]
-[ext_resource type="PackedScene" uid="uid://12jm0yci4dq2" path="res://assets/misc/chickkinPath/chickkinPath.tscn" id="3_lfrn8"]
+[ext_resource type="PackedScene" uid="uid://12jm0yci4dq2" path="res://assets/misc/chickminPath/chickminPath.tscn" id="3_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://bkt4tb2ftnc8v" path="res://prefabs/level1.tscn" id="5_lfrn8"]
 [ext_resource type="Script" uid="uid://cq2a2celt58p8" path="res://assets/ui/timer.gd" id="6_4j704"]
 [ext_resource type="Texture2D" uid="uid://dut84lrw54u8i" path="res://assets/ui/timer.png" id="7_kp23o"]
@@ -53,7 +53,7 @@ texture = ExtResource("2_bdhmt")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Chickkins" type="Label" parent="CanvasLayer/Counters/MarginContainer/GridContainer"]
+[node name="Chickmins" type="Label" parent="CanvasLayer/Counters/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 96
@@ -119,7 +119,7 @@ layout_mode = 2
 [node name="AutoRestart" parent="CanvasLayer" instance=ExtResource("2_7h61r")]
 visible = false
 
-[node name="ChickkinPath" parent="." instance=ExtResource("3_lfrn8")]
+[node name="ChickminPath" parent="." instance=ExtResource("3_lfrn8")]
 
 [node name="Player" parent="." instance=ExtResource("3_0sr1o")]
 transform = Transform3D(1, 0, 1.17225e-07, 0, 1, 0, -1.17225e-07, 0, 1, 0, 0, -8)

@@ -9,7 +9,7 @@ func _ready() -> void:
 	ms.onMenuEnter.connect(func(a_name):
 		if (a_name != name): return;
 		$Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores/Seeds.text = "%d" % ScoreState.m_seedCount;
-		$Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores/Chickkins.text = "%d" % ScoreState.m_chickkinCount;
+		$Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores/Chickmins.text = "%d" % ScoreState.m_chickminCount;
 		$Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores/Time.text = GameStateSwitcher._getFormattedTime(ScoreState.m_time, 1);
 	);
 	

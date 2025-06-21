@@ -33,7 +33,7 @@ horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores" index="1"]
 layout_mode = 2
-text = " Chickkins"
+text = " Chickmins"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores" index="2"]
@@ -46,7 +46,7 @@ layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 
-[node name="Chickkins" type="Label" parent="Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores" index="4"]
+[node name="Chickmins" type="Label" parent="Margin/Layout/Content/VBoxContainer/Panel/HBoxContainer/Scores" index="4"]
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1

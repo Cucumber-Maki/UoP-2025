@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://camy1b53v3028"
-path="res://.godot/imported/chickmin.glb-60b70a471d0e835fe1354c6e745d7cc3.scn"
+path="res://.godot/imported/chickkin.glb-426288ccdb684dbc1aa48ecf7a7c58b1.scn"
 
 [deps]
 
-source_file="res://assets/entities/player/chickmin.glb"
-dest_files=["res://.godot/imported/chickmin.glb-60b70a471d0e835fe1354c6e745d7cc3.scn"]
+source_file="res://assets/entities/player/chickkin.glb"
+dest_files=["res://.godot/imported/chickkin.glb-426288ccdb684dbc1aa48ecf7a7c58b1.scn"]
 
 [params]
 

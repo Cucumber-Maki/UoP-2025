@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://divq51m7qcma5"
-path.s3tc="res://.godot/imported/Chickmin Guy.png-a839dd20d67ce4bf6aba80d3310ea72e.s3tc.ctex"
+uid="uid://cvmj27hmmnqvw"
+path.s3tc="res://.godot/imported/chickkin.png-53e62b358a342d473391b4da0d9b81c8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/environment/decals/Chickmin Guy.png"
-dest_files=["res://.godot/imported/Chickmin Guy.png-a839dd20d67ce4bf6aba80d3310ea72e.s3tc.ctex"]
+source_file="res://assets/entities/player/chickkin.png"
+dest_files=["res://.godot/imported/chickkin.png-53e62b358a342d473391b4da0d9b81c8.s3tc.ctex"]
 
 [params]
 

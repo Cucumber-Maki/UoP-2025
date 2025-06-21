@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvmj27hmmnqvw"
-path.s3tc="res://.godot/imported/chickmin.png-177abc80e7e020fc360065a0c007c179.s3tc.ctex"
+uid="uid://j0ejiqwxn33"
+path.s3tc="res://.godot/imported/No Chickkins.png-f99626a901c2119510f4a2694da02732.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/entities/player/chickmin.png"
-dest_files=["res://.godot/imported/chickmin.png-177abc80e7e020fc360065a0c007c179.s3tc.ctex"]
+source_file="res://assets/environment/decals/No Chickkins.png"
+dest_files=["res://.godot/imported/No Chickkins.png-f99626a901c2119510f4a2694da02732.s3tc.ctex"]
 
 [params]
 

@@ -6,8 +6,8 @@ var leaderboard : Array = [];
 
 ################################################################################	
 
-func addToLeaderboard(playerName : String, seedCount : int, chickkinCount : int, time : float): 
-	leaderboard.append({ "name": playerName, "seeds": seedCount, "chickkins": chickkinCount, "time": time });
+func addToLeaderboard(playerName : String, seedCount : int, chickminCount : int, time : float): 
+	leaderboard.append({ "name": playerName, "seeds": seedCount, "chickmins": chickminCount, "time": time });
 	saveSaveable();
 
 ################################################################################	

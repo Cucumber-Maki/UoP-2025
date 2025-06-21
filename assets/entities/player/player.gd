@@ -26,8 +26,8 @@ var m_ability_rollAvailable : bool = false;
 var m_cameraMouseInput : Vector2 = Vector2.ZERO;
 const c_cameraMaxExtent = TAU * 0.25 * 0.9;
 #
-var m_chickkins : Array[Chickkin] = [];
-var m_chickkinLeftGround : bool = false;
+var m_chickmins : Array[Chickmin] = [];
+var m_chickminLeftGround : bool = false;
 #
 @export var m_respawn_location: Vector3;
 
@@ -68,7 +68,7 @@ func _physics_process(delta: float) -> void:
 	handleRoll(delta)
 	handleCameraInput(delta);
 	super(delta);
-	handleChickkins(delta);
+	handleChickmins(delta);
 	handleAnimation(delta);
 	handleInteract()
 	
@@ -178,21 +178,21 @@ func handleCameraInput(delta : float):
 	
 ################################################################################
 	
-func handleChickkins(delta : float) -> void:
-	if (ChickkinPath.s_instance == null): return;
+func handleChickmins(delta : float) -> void:
+	if (ChickminPath.s_instance == null): return;
 	
 	if (isGrounded()):
-		ChickkinPath.s_instance.updatePoint(global_position, m_chickkinLeftGround);
-		m_chickkinLeftGround = false;
+		ChickminPath.s_instance.updatePoint(global_position, m_chickminLeftGround);
+		m_chickminLeftGround = false;
 	else: 
-		m_chickkinLeftGround = true;
+		m_chickminLeftGround = true;
 	
-	var pushback := ChickkinPath.s_instance.getPushBack();
+	var pushback := ChickminPath.s_instance.getPushBack();
 	var prevDist : float = -INF;
-	for chickkinIndex : int in range(m_chickkins.size()):
-		var chickkin : Chickkin = m_chickkins[chickkinIndex];
-		prevDist = chickkin.moveToPath(chickkinIndex, prevDist, pushback, delta);
-		chickkin.updateVisuals(delta);
+	for chickminIndex : int in range(m_chickmins.size()):
+		var chickmin : Chickmin = m_chickmins[chickminIndex];
+		prevDist = chickmin.moveToPath(chickminIndex, prevDist, pushback, delta);
+		chickmin.updateVisuals(delta);
 
 ################################################################################
 

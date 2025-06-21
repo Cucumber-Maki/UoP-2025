@@ -36,7 +36,6 @@ sync = true
 animation = &"Walk"
 
 [resource]
-graph_offset = Vector2(-10.5945, 162.663)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_qg1id")
 nodes/Animation/position = Vector2(120, 440)
 nodes/Claimed/node = SubResource("AnimationNodeOneShot_elejt")

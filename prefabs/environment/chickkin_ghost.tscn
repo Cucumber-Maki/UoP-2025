@@ -24,7 +24,7 @@ animations = [{
 "speed": 3.0
 }]
 
-[node name="ChickminGhost" type="AnimatedSprite3D"]
+[node name="ChickplayerGhost" type="AnimatedSprite3D"]
 modulate = Color(1, 1, 1, 0.596078)
 pixel_size = 0.05
 billboard = 2

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceukfkv16il7b"
-path.s3tc="res://.godot/imported/Chickmin vs the World.png-1b7433bcb329f08f38a11025a5ab1627.s3tc.ctex"
+uid="uid://divq51m7qcma5"
+path.s3tc="res://.godot/imported/Chickkin Guy.png-2cc136fb8f8e517d999fda63d34af2bc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/environment/decals/Chickmin vs the World.png"
-dest_files=["res://.godot/imported/Chickmin vs the World.png-1b7433bcb329f08f38a11025a5ab1627.s3tc.ctex"]
+source_file="res://assets/environment/decals/Chickkin Guy.png"
+dest_files=["res://.godot/imported/Chickkin Guy.png-2cc136fb8f8e517d999fda63d34af2bc.s3tc.ctex"]
 
 [params]
 

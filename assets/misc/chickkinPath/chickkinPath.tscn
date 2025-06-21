@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://12jm0yci4dq2"]
 
-[ext_resource type="Script" uid="uid://dw7phxi1yj52h" path="res://assets/misc/chickkinPath/chickkinPath.gd" id="1_imye6"]
+[ext_resource type="Script" uid="uid://dw7phxi1yj52h" path="res://assets/misc/chickminPath/chickminPath.gd" id="1_imye6"]
 
-[node name="ChickkinPath" type="Node3D"]
+[node name="ChickminPath" type="Node3D"]
 script = ExtResource("1_imye6")
 m_pathMaxLength = 500.0

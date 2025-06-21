@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cc1wxbqo1hw6e"]
+[gd_scene load_steps=9 format=3 uid="uid://cc1wxbqo1hw6e"]
 
 [ext_resource type="PackedScene" uid="uid://ca4g3hlui3fxf" path="res://assets/entities/movementBase/movementBase.tscn" id="1_grlhh"]
-[ext_resource type="PackedScene" uid="uid://camy1b53v3028" path="res://assets/entities/player/chickmin.glb" id="2_ffmxu"]
+[ext_resource type="PackedScene" uid="uid://camy1b53v3028" path="res://assets/entities/player/chickkin.glb" id="2_ffmxu"]
 [ext_resource type="Script" uid="uid://bc37epise4d83" path="res://assets/entities/player/player.gd" id="2_j8wwh"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://ev65s1lta153" path="res://assets/entities/player/playerAnimationTree.tres" id="3_in8qa"]
-[ext_resource type="Material" uid="uid://doji46ou2dukp" path="res://assets/entities/player/player.tres" id="5_ecp7k"]
 [ext_resource type="Script" uid="uid://blw1ijflfqg0y" path="res://assets/misc/wobble/wobble.gd" id="6_3kclj"]
 [ext_resource type="AudioStream" uid="uid://dsjmvcnqwjyw8" path="res://assets/audio/swosh33.ogg" id="7_ohfey"]
 [ext_resource type="Script" uid="uid://c4qb8e5wej0n8" path="res://assets/audio/audioPlayer.gd" id="8_o5qwm"]
@@ -25,21 +24,7 @@ m_ability_rollUnlocked = false
 m_ability_rollImpulse = Vector2(12, 4)
 m_respawn_location = Vector3(0, 0, 0)
 
-[node name="AnimationTree" parent="." index="1"]
-root_node = NodePath("../Model")
-tree_root = ExtResource("3_in8qa")
-anim_player = NodePath("../Model/AnimationPlayer")
-parameters/AirSpeed/blend_position = 0
-parameters/Ground/blend_position = Vector2(0, 0)
-parameters/InAir/blend_amount = 0
-parameters/RollTrigger/active = false
-parameters/RollTrigger/internal_active = false
-parameters/RollTrigger/request = 0
-
-[node name="Model" parent="." index="2" instance=ExtResource("2_ffmxu")]
-
-[node name="Model" parent="Model/Chickmin/Skeleton3D" index="0"]
-surface_material_override/0 = ExtResource("5_ecp7k")
+[node name="Model" parent="." index="1" instance=ExtResource("2_ffmxu")]
 
 [node name="Comb Top" type="SkeletonModifier3D" parent="Model/Chickmin/Skeleton3D" index="1"]
 _import_path = NodePath("")
@@ -151,13 +136,13 @@ script = ExtResource("6_3kclj")
 m_bone = "Tail"
 metadata/_custom_type_script = "uid://blw1ijflfqg0y"
 
-[node name="CameraOrigin" type="Node3D" parent="." index="3"]
+[node name="CameraOrigin" type="Node3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75011, 0)
 
 [node name="Camera" type="Camera3D" parent="CameraOrigin" index="0"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -4.91334)
 
-[node name="Audio" type="Node" parent="." index="4"]
+[node name="Audio" type="Node" parent="." index="3"]
 
 [node name="RollAudio" type="AudioStreamPlayer" parent="Audio" index="0" groups=["AudioEffect"]]
 stream = ExtResource("7_ohfey")
@@ -166,5 +151,16 @@ script = ExtResource("8_o5qwm")
 [node name="JumpAudio" type="AudioStreamPlayer" parent="Audio" index="1" groups=["AudioEffect"]]
 stream = ExtResource("8_ss567")
 script = ExtResource("8_o5qwm")
+
+[node name="AnimationTree" parent="." index="4"]
+root_node = NodePath("../Model")
+tree_root = ExtResource("3_in8qa")
+anim_player = NodePath("../Model/AnimationPlayer")
+parameters/AirSpeed/blend_position = 0
+parameters/Ground/blend_position = Vector2(0, 0)
+parameters/InAir/blend_amount = 0
+parameters/RollTrigger/active = false
+parameters/RollTrigger/internal_active = false
+parameters/RollTrigger/request = 0
 
 [editable path="Model"]

@@ -11,7 +11,7 @@ func _ready() -> void:
 	addTab("Visual")
 	addOption(OptionType.CheckBox, "Colliders Visible", "colliders_visible");
 	addOption(OptionType.CheckBox, "Wireframe Rendering", "render_wireframe");
-	addOption(OptionType.CheckBox, "Chickkin Path Rendering", "render_chickinPaths");
+	addOption(OptionType.CheckBox, "Chickmin Path Rendering", "render_chickinPaths");
 	
 	addTab("Functions")
 	addButton("Win Game", func(): GameStateSwitcher.winGame());

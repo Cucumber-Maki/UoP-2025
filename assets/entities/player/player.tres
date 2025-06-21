@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://doji46ou2dukp"]
 
 [ext_resource type="Shader" uid="uid://bc2va68j7o2pc" path="res://assets/entities/entityBase/entity.gdshader" id="1_5yl8y"]
-[ext_resource type="Texture2D" uid="uid://cvmj27hmmnqvw" path="res://assets/entities/player/chickmin.png" id="2_wvsy4"]
+[ext_resource type="Texture2D" uid="uid://cvmj27hmmnqvw" path="res://assets/entities/player/chickkin.png" id="2_wvsy4"]
 
 [resource]
 render_priority = 0

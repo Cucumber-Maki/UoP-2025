@@ -4,10 +4,10 @@ extends Node
 
 func _ready():
 	if (podium == null): return;
-	podium.body_entered.connect(onChickkinBodyEntered);
+	podium.body_entered.connect(onChickminBodyEntered);
 
-func onChickkinBodyEntered(body: Node3D) -> void:
-	var chickkin := body as Chickkin;
-	if (chickkin == null): return;
-	chickkin.yeet($Target.global_position);
+func onChickminBodyEntered(body: Node3D) -> void:
+	var chickmin := body as Chickmin;
+	if (chickmin == null): return;
+	chickmin.yeet($Target.global_position);
 	
