@@ -108,9 +108,11 @@ func updateVisuals(delta):
 	m_lastPosition = global_position;
 
 func moveToPath(index : int, beforeDistance : float, pushback : float, delta : float) -> float:
-	if (m_isYeeting): return 0;
-	m_currentPathDistance += pushback;
 	if (ChickminPath.s_instance == null): return 0;
+	if (m_isYeeting): 
+		print("yeeting but like,, not working???");
+		return -INF;
+	m_currentPathDistance += pushback;
 	
 	var targetDistance : float = max(
 		ChickminPath.s_instance.getPathDistance(index) - \

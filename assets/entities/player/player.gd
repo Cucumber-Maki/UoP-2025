@@ -189,10 +189,13 @@ func handleChickmins(delta : float) -> void:
 	
 	var pushback := ChickminPath.s_instance.getPushBack();
 	var prevDist : float = -INF;
-	for chickminIndex : int in range(m_chickmins.size()):
-		var chickmin : Chickmin = m_chickmins[chickminIndex];
+	var chickminIndex : int = 0;
+	for chickmin : Chickmin in m_chickmins:
+		if (prevDist == -INF):
+			chickminIndex = 0;
 		prevDist = chickmin.moveToPath(chickminIndex, prevDist, pushback, delta);
 		chickmin.updateVisuals(delta);
+		chickminIndex += 1;
 
 ################################################################################
 
