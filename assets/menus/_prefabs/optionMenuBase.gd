@@ -175,7 +175,7 @@ func addOption(
 	
 ################################################################################
 
-func addButton(text : StringName, callback : Callable) -> void:
+func addButton(text : StringName, callback : Callable, settings : Dictionary = {}) -> void:
 	m_activeGridContainer = null;
 	
 	var button : Button = Button.new();
@@ -183,6 +183,10 @@ func addButton(text : StringName, callback : Callable) -> void:
 	button.button_up.connect(callback);
 	getContentContainer().add_child(button);
 	bindFirstSelectable(button);
+	
+	for key : String in settings.keys():
+		if (key is not String): continue;
+		button.set(key, settings[key]);
 
 func addImage(imageLocation : StringName) -> void:
 	m_activeGridContainer = null;
