@@ -10,10 +10,13 @@ signal onYeet;
 
 ################################################################################
 
-@onready var m_color : int = randi_range(0, 5);
-@onready var m_face : int = randi_range(0, 3);
-@onready var m_idle : int = randi_range(0, 3);
-@onready var m_lineOffset : float = randf_range(-1.0, 1.0) * 0.15;
+const c_colorTypeCount = 6;
+const c_faceTypeCount = 4;
+const c_idleTypeCount = 4;
+@onready var m_color : int = randi_range(0, c_colorTypeCount - 1);
+@onready var m_face : int = randi_range(0, c_faceTypeCount - 1);
+@onready var m_idle : int = randi_range(0, c_idleTypeCount - 1);
+static var s_chikkinMaterials : Array[ShaderMaterial] = [];
 #
 @export var m_claimed : bool = false:
 	set(value):
@@ -47,13 +50,13 @@ var m_jumpProgress : float = 0;
 ################################################################################
 
 func _ready():
-	$Model/Chickkin/Skeleton3D/Model.set_instance_shader_parameter("u_colorChoice", m_color as float);
-	$Model/Chickkin/Skeleton3D/Model.set_instance_shader_parameter("u_faceChoice", m_face as float);
+	$Model/Chickkin/Skeleton3D/Model.set_surface_override_material(0, getMaterial());
 	setAnimationVariableDirect("parameters/Idle/blend_position", m_idle);
 	m_claimed = m_claimed;
 	m_chickenCount += 1;
 	
 	global_position += Vector3(randfn(-1, 1), 0, randfn(-1, 1)).normalized() * 0.5;
+	global_rotation.y += randfn(0, TAU);
 
 func _exit_tree() -> void:
 	m_claimed = false;
@@ -66,6 +69,26 @@ func _physics_process(delta: float) -> void:
 	
 ################################################################################
 
+func getMaterial() -> Material:
+	var materialIndex : int = \
+		m_color + \
+		(m_face * c_colorTypeCount);
+		
+	if (materialIndex < s_chikkinMaterials.size() && \
+		s_chikkinMaterials[materialIndex] != null): return s_chikkinMaterials[materialIndex];
+	
+	while (materialIndex >= s_chikkinMaterials.size()):
+		s_chikkinMaterials.append(null);
+	
+	var mat : ShaderMaterial = preload("res://assets/entities/chickkin/chickkin.tres").duplicate();
+	mat.set_shader_parameter("u_colorChoice", m_color as float);
+	mat.set_shader_parameter("u_faceChoice", m_face as float);
+	
+	s_chikkinMaterials[materialIndex] = mat;
+	return s_chikkinMaterials[materialIndex];
+	
+################################################################################
+	
 func updateVisuals(delta):
 	if (m_lastPosition == Vector3.INF):
 		m_lastPosition = global_position;
